@@ -17,7 +17,7 @@ let MEAppName = "Medical Evaluation"
 let MEAlertCancel = "Cancel"
 let MEAlertOK = "OK"
 let MEAlertYes = "Yes"
-let MEAlertNo = "No"
+let MEAlertNo = "No" //
 
 //MARK:- Alert Constants
 let MEusername = "username"
