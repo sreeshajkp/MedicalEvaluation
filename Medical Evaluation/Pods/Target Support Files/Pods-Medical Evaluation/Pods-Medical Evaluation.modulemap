@@ -1,0 +1,6 @@
+framework module Pods_Medical_Evaluation {
+  umbrella header "Pods-Medical Evaluation-umbrella.h"
+
+  export *
+  module * { export * }
+}

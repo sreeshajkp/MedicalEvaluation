@@ -1,0 +1,625 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13303B151EE80FBC00CFB6A7 /* MELoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13303B141EE80FBC00CFB6A7 /* MELoginModel.swift */; };
+		13303B171EE80FEC00CFB6A7 /* MEProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13303B161EE80FEC00CFB6A7 /* MEProfileModel.swift */; };
+		1334F8861EE7D8E800C48A26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334F8851EE7D8E800C48A26 /* Constants.swift */; };
+		1334F8881EE7D8F700C48A26 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334F8871EE7D8F700C48A26 /* Protocols.swift */; };
+		1334F88A1EE7DC0300C48A26 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334F8891EE7DC0300C48A26 /* Reachability.swift */; };
+		1334F8901EE7EBDC00C48A26 /* DOAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334F88F1EE7EBDC00C48A26 /* DOAlertController.swift */; };
+		1334F8921EE7ECED00C48A26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334F8911EE7ECED00C48A26 /* Extensions.swift */; };
+		1334F8941EE7EEA300C48A26 /* APIUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334F8931EE7EEA300C48A26 /* APIUrls.swift */; };
+		133C2EEB1EE7F9B300D2B68E /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133C2EEA1EE7F9B300D2B68E /* ModelManager.swift */; };
+		133C2EED1EE7FB7300D2B68E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133C2EEC1EE7FB7300D2B68E /* DBManager.swift */; };
+		133C2EF01EE7FD0C00D2B68E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 133C2EEF1EE7FD0C00D2B68E /* Podfile */; };
+		133C2EF41EE7FFE300D2B68E /* HZActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */; };
+		15B0D7CF686B6B6469BB9D0D /* Pods_Medical_Evaluation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */; };
+		457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */; };
+		457AE2B71EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		457AE2B81EE7CF360051CC7E /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B51EE7CF360051CC7E /* UITextField+fixCaretPosition.swift */; };
+		457AE2BF1EE7D2A20051CC7E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2BE1EE7D2A20051CC7E /* NetworkManager.swift */; };
+		AE8DEF3E1E212656004A69E3 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF371E212656004A69E3 /* TPKeyboardAvoidingCollectionView.m */; };
+		AE8DEF3F1E212656004A69E3 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF391E212656004A69E3 /* TPKeyboardAvoidingScrollView.m */; };
+		AE8DEF401E212656004A69E3 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF3B1E212656004A69E3 /* TPKeyboardAvoidingTableView.m */; };
+		AE8DEF411E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF3D1E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		AE8DEF431E212B70004A69E3 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF421E212B70004A69E3 /* ListController.swift */; };
+		AE8DEF451E2134E5004A69E3 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF441E2134E5004A69E3 /* ProfileController.swift */; };
+		AE8DEF471E213CB4004A69E3 /* PagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF461E213CB4004A69E3 /* PagerController.swift */; };
+		AE8DEF491E213CCA004A69E3 /* EvaluateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF481E213CCA004A69E3 /* EvaluateController.swift */; };
+		AE8DEF4C1E214A3E004A69E3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF4A1E214A3E004A69E3 /* Picker.swift */; };
+		AE8DEF4D1E214A3E004A69E3 /* Picker.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8DEF4B1E214A3E004A69E3 /* Picker.xib */; };
+		AE8DEF4F1E214BB2004A69E3 /* EvaluateFirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF4E1E214BB2004A69E3 /* EvaluateFirstPageController.swift */; };
+		AE8DEF511E214D4F004A69E3 /* EvaluateSecondPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DEF501E214D4F004A69E3 /* EvaluateSecondPageController.swift */; };
+		AEAE1E521E1C070C0078CE93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE1E511E1C070C0078CE93 /* AppDelegate.swift */; };
+		AEAE1E541E1C070C0078CE93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE1E531E1C070C0078CE93 /* ViewController.swift */; };
+		AEAE1E571E1C070C0078CE93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEAE1E551E1C070C0078CE93 /* Main.storyboard */; };
+		AEAE1E591E1C070C0078CE93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEAE1E581E1C070C0078CE93 /* Assets.xcassets */; };
+		AEAE1E5C1E1C070C0078CE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEAE1E5A1E1C070C0078CE93 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13303B141EE80FBC00CFB6A7 /* MELoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MELoginModel.swift; sourceTree = "<group>"; };
+		13303B161EE80FEC00CFB6A7 /* MEProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEProfileModel.swift; sourceTree = "<group>"; };
+		1334F8851EE7D8E800C48A26 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1334F8871EE7D8F700C48A26 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		1334F8891EE7DC0300C48A26 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		1334F88F1EE7EBDC00C48A26 /* DOAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOAlertController.swift; sourceTree = "<group>"; };
+		1334F8911EE7ECED00C48A26 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1334F8931EE7EEA300C48A26 /* APIUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIUrls.swift; sourceTree = "<group>"; };
+		133C2EEA1EE7F9B300D2B68E /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		133C2EEC1EE7FB7300D2B68E /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		133C2EEF1EE7FD0C00D2B68E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		133C2EF21EE7FFE300D2B68E /* HZActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZActivityIndicatorView.h; sourceTree = "<group>"; };
+		133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZActivityIndicatorView.m; sourceTree = "<group>"; };
+		457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = "Medical Evaluation/SkyFloatingLabelTextField.swift"; sourceTree = "<group>"; };
+		457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = "Medical Evaluation/SkyFloatingLabelTextFieldWithIcon.swift"; sourceTree = "<group>"; };
+		457AE2B51EE7CF360051CC7E /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Medical Evaluation/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		457AE2BE1EE7D2A20051CC7E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4C936E54FC46543A147EC9BC /* Pods-Medical Evaluation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical Evaluation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical Evaluation/Pods-Medical Evaluation.debug.xcconfig"; sourceTree = "<group>"; };
+		82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_Evaluation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8DEF351E212655004A69E3 /* Medical Evaluation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Medical Evaluation-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE8DEF361E212656004A69E3 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingCollectionView.h; path = "Medical Evaluation/TPKeyboardAvoidingCollectionView.h"; sourceTree = "<group>"; };
+		AE8DEF371E212656004A69E3 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingCollectionView.m; path = "Medical Evaluation/TPKeyboardAvoidingCollectionView.m"; sourceTree = "<group>"; };
+		AE8DEF381E212656004A69E3 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = "Medical Evaluation/TPKeyboardAvoidingScrollView.h"; sourceTree = "<group>"; };
+		AE8DEF391E212656004A69E3 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = "Medical Evaluation/TPKeyboardAvoidingScrollView.m"; sourceTree = "<group>"; };
+		AE8DEF3A1E212656004A69E3 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = "Medical Evaluation/TPKeyboardAvoidingTableView.h"; sourceTree = "<group>"; };
+		AE8DEF3B1E212656004A69E3 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = "Medical Evaluation/TPKeyboardAvoidingTableView.m"; sourceTree = "<group>"; };
+		AE8DEF3C1E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "Medical Evaluation/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		AE8DEF3D1E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "Medical Evaluation/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		AE8DEF421E212B70004A69E3 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		AE8DEF441E2134E5004A69E3 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		AE8DEF461E213CB4004A69E3 /* PagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerController.swift; sourceTree = "<group>"; };
+		AE8DEF481E213CCA004A69E3 /* EvaluateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluateController.swift; sourceTree = "<group>"; };
+		AE8DEF4A1E214A3E004A69E3 /* Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Picker.swift; path = "Medical Evaluation/Picker.swift"; sourceTree = "<group>"; };
+		AE8DEF4B1E214A3E004A69E3 /* Picker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Picker.xib; path = "Medical Evaluation/Picker.xib"; sourceTree = "<group>"; };
+		AE8DEF4E1E214BB2004A69E3 /* EvaluateFirstPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluateFirstPageController.swift; sourceTree = "<group>"; };
+		AE8DEF501E214D4F004A69E3 /* EvaluateSecondPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluateSecondPageController.swift; sourceTree = "<group>"; };
+		AEAE1E4E1E1C070B0078CE93 /* Medical Evaluation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Evaluation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEAE1E511E1C070C0078CE93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AEAE1E531E1C070C0078CE93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AEAE1E561E1C070C0078CE93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AEAE1E581E1C070C0078CE93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEAE1E5B1E1C070C0078CE93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEAE1E5D1E1C070C0078CE93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F97372DECC67A84EA2208023 /* Pods-Medical Evaluation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical Evaluation.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical Evaluation/Pods-Medical Evaluation.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEAE1E4B1E1C070B0078CE93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B0D7CF686B6B6469BB9D0D /* Pods_Medical_Evaluation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1334F8811EE7D7E700C48A26 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				AEAE1E511E1C070C0078CE93 /* AppDelegate.swift */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		1334F8821EE7D80900C48A26 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE8DEF461E213CB4004A69E3 /* PagerController.swift */,
+				AEAE1E531E1C070C0078CE93 /* ViewController.swift */,
+				AE8DEF421E212B70004A69E3 /* ListController.swift */,
+				AE8DEF441E2134E5004A69E3 /* ProfileController.swift */,
+				AE8DEF481E213CCA004A69E3 /* EvaluateController.swift */,
+				AE8DEF4E1E214BB2004A69E3 /* EvaluateFirstPageController.swift */,
+				AE8DEF501E214D4F004A69E3 /* EvaluateSecondPageController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1334F8831EE7D81A00C48A26 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AEAE1E551E1C070C0078CE93 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1334F8841EE7D82A00C48A26 /* BridgingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AE8DEF351E212655004A69E3 /* Medical Evaluation-Bridging-Header.h */,
+			);
+			name = BridgingFiles;
+			sourceTree = "<group>";
+		};
+		1334F88B1EE7DC1F00C48A26 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				1334F8891EE7DC0300C48A26 /* Reachability.swift */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		1334F88C1EE7EB9300C48A26 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				1334F88F1EE7EBDC00C48A26 /* DOAlertController.swift */,
+			);
+			name = AlertView;
+			sourceTree = "<group>";
+		};
+		133C2EE71EE7F86B00D2B68E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13303B161EE80FEC00CFB6A7 /* MEProfileModel.swift */,
+				133C2EEA1EE7F9B300D2B68E /* ModelManager.swift */,
+				13303B141EE80FBC00CFB6A7 /* MELoginModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		133C2EEE1EE7FCFD00D2B68E /* Podfile */ = {
+			isa = PBXGroup;
+			children = (
+				133C2EEF1EE7FD0C00D2B68E /* Podfile */,
+			);
+			name = Podfile;
+			sourceTree = "<group>";
+		};
+		133C2EF11EE7FFE300D2B68E /* HZActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				133C2EF21EE7FFE300D2B68E /* HZActivityIndicatorView.h */,
+				133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */,
+			);
+			name = HZActivityIndicator;
+			path = "Medical Evaluation/HZActivityIndicator";
+			sourceTree = "<group>";
+		};
+		3263E43F60B8F903A854B45E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		457AE2B91EE7CF600051CC7E /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				133C2EF11EE7FFE300D2B68E /* HZActivityIndicator */,
+				457AE2BD1EE7D2960051CC7E /* HelperClass */,
+				457AE2BC1EE7CFA50051CC7E /* FloatingTextField */,
+				457AE2BB1EE7CF8A0051CC7E /* Picker */,
+				457AE2BA1EE7CF770051CC7E /* TPkeyBoard */,
+			);
+			name = ThirdParty;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		457AE2BA1EE7CF770051CC7E /* TPkeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				AE8DEF361E212656004A69E3 /* TPKeyboardAvoidingCollectionView.h */,
+				AE8DEF371E212656004A69E3 /* TPKeyboardAvoidingCollectionView.m */,
+				AE8DEF381E212656004A69E3 /* TPKeyboardAvoidingScrollView.h */,
+				AE8DEF391E212656004A69E3 /* TPKeyboardAvoidingScrollView.m */,
+				AE8DEF3A1E212656004A69E3 /* TPKeyboardAvoidingTableView.h */,
+				AE8DEF3B1E212656004A69E3 /* TPKeyboardAvoidingTableView.m */,
+				AE8DEF3C1E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				AE8DEF3D1E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = TPkeyBoard;
+			sourceTree = "<group>";
+		};
+		457AE2BB1EE7CF8A0051CC7E /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				AE8DEF4A1E214A3E004A69E3 /* Picker.swift */,
+				AE8DEF4B1E214A3E004A69E3 /* Picker.xib */,
+			);
+			name = Picker;
+			sourceTree = "<group>";
+		};
+		457AE2BC1EE7CFA50051CC7E /* FloatingTextField */ = {
+			isa = PBXGroup;
+			children = (
+				457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */,
+				457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				457AE2B51EE7CF360051CC7E /* UITextField+fixCaretPosition.swift */,
+			);
+			name = FloatingTextField;
+			sourceTree = "<group>";
+		};
+		457AE2BD1EE7D2960051CC7E /* HelperClass */ = {
+			isa = PBXGroup;
+			children = (
+				1334F88C1EE7EB9300C48A26 /* AlertView */,
+				1334F88B1EE7DC1F00C48A26 /* Reachability */,
+				457AE2BE1EE7D2A20051CC7E /* NetworkManager.swift */,
+				133C2EEC1EE7FB7300D2B68E /* DBManager.swift */,
+				1334F8851EE7D8E800C48A26 /* Constants.swift */,
+				1334F8931EE7EEA300C48A26 /* APIUrls.swift */,
+				1334F8911EE7ECED00C48A26 /* Extensions.swift */,
+				1334F8871EE7D8F700C48A26 /* Protocols.swift */,
+			);
+			name = HelperClass;
+			sourceTree = "<group>";
+		};
+		72D505F44FC6B7347E9A5BFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C936E54FC46543A147EC9BC /* Pods-Medical Evaluation.debug.xcconfig */,
+				F97372DECC67A84EA2208023 /* Pods-Medical Evaluation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AEAE1E451E1C070B0078CE93 = {
+			isa = PBXGroup;
+			children = (
+				AEAE1E501E1C070C0078CE93 /* Medical Evaluation */,
+				AEAE1E4F1E1C070B0078CE93 /* Products */,
+				72D505F44FC6B7347E9A5BFC /* Pods */,
+				3263E43F60B8F903A854B45E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AEAE1E4F1E1C070B0078CE93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEAE1E4E1E1C070B0078CE93 /* Medical Evaluation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEAE1E501E1C070C0078CE93 /* Medical Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				133C2EEE1EE7FCFD00D2B68E /* Podfile */,
+				133C2EE71EE7F86B00D2B68E /* Models */,
+				1334F8841EE7D82A00C48A26 /* BridgingFiles */,
+				1334F8831EE7D81A00C48A26 /* Storyboards */,
+				1334F8821EE7D80900C48A26 /* ViewControllers */,
+				1334F8811EE7D7E700C48A26 /* App Delegate */,
+				457AE2B91EE7CF600051CC7E /* ThirdParty */,
+				AEAE1E581E1C070C0078CE93 /* Assets.xcassets */,
+				AEAE1E5A1E1C070C0078CE93 /* LaunchScreen.storyboard */,
+				AEAE1E5D1E1C070C0078CE93 /* Info.plist */,
+			);
+			path = "Medical Evaluation";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEAE1E4D1E1C070B0078CE93 /* Medical Evaluation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEAE1E601E1C070C0078CE93 /* Build configuration list for PBXNativeTarget "Medical Evaluation" */;
+			buildPhases = (
+				F417B2249D3EA42A4CA010B9 /* [CP] Check Pods Manifest.lock */,
+				AEAE1E4A1E1C070B0078CE93 /* Sources */,
+				AEAE1E4B1E1C070B0078CE93 /* Frameworks */,
+				AEAE1E4C1E1C070B0078CE93 /* Resources */,
+				4595940BBA3FE43430C96387 /* [CP] Embed Pods Frameworks */,
+				AD48AF5B9BAE8D4EF5A6E04D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Medical Evaluation";
+			productName = "Medical Evaluation";
+			productReference = AEAE1E4E1E1C070B0078CE93 /* Medical Evaluation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEAE1E461E1C070B0078CE93 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Sreeshaj Kp";
+				TargetAttributes = {
+					AEAE1E4D1E1C070B0078CE93 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 685BF2AFSA;
+					};
+				};
+			};
+			buildConfigurationList = AEAE1E491E1C070B0078CE93 /* Build configuration list for PBXProject "Medical Evaluation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEAE1E451E1C070B0078CE93;
+			productRefGroup = AEAE1E4F1E1C070B0078CE93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEAE1E4D1E1C070B0078CE93 /* Medical Evaluation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AEAE1E4C1E1C070B0078CE93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				133C2EF01EE7FD0C00D2B68E /* Podfile in Resources */,
+				AEAE1E5C1E1C070C0078CE93 /* LaunchScreen.storyboard in Resources */,
+				AEAE1E591E1C070C0078CE93 /* Assets.xcassets in Resources */,
+				AEAE1E571E1C070C0078CE93 /* Main.storyboard in Resources */,
+				AE8DEF4D1E214A3E004A69E3 /* Picker.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4595940BBA3FE43430C96387 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Medical Evaluation/Pods-Medical Evaluation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD48AF5B9BAE8D4EF5A6E04D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Medical Evaluation/Pods-Medical Evaluation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F417B2249D3EA42A4CA010B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEAE1E4A1E1C070B0078CE93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8DEF3F1E212656004A69E3 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				457AE2B71EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				457AE2B81EE7CF360051CC7E /* UITextField+fixCaretPosition.swift in Sources */,
+				133C2EED1EE7FB7300D2B68E /* DBManager.swift in Sources */,
+				AE8DEF431E212B70004A69E3 /* ListController.swift in Sources */,
+				1334F8901EE7EBDC00C48A26 /* DOAlertController.swift in Sources */,
+				AE8DEF401E212656004A69E3 /* TPKeyboardAvoidingTableView.m in Sources */,
+				AE8DEF471E213CB4004A69E3 /* PagerController.swift in Sources */,
+				133C2EEB1EE7F9B300D2B68E /* ModelManager.swift in Sources */,
+				133C2EF41EE7FFE300D2B68E /* HZActivityIndicatorView.m in Sources */,
+				AE8DEF511E214D4F004A69E3 /* EvaluateSecondPageController.swift in Sources */,
+				AE8DEF491E213CCA004A69E3 /* EvaluateController.swift in Sources */,
+				1334F8941EE7EEA300C48A26 /* APIUrls.swift in Sources */,
+				1334F8921EE7ECED00C48A26 /* Extensions.swift in Sources */,
+				AE8DEF411E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				13303B171EE80FEC00CFB6A7 /* MEProfileModel.swift in Sources */,
+				1334F8881EE7D8F700C48A26 /* Protocols.swift in Sources */,
+				AE8DEF4F1E214BB2004A69E3 /* EvaluateFirstPageController.swift in Sources */,
+				457AE2BF1EE7D2A20051CC7E /* NetworkManager.swift in Sources */,
+				AEAE1E541E1C070C0078CE93 /* ViewController.swift in Sources */,
+				AE8DEF4C1E214A3E004A69E3 /* Picker.swift in Sources */,
+				AE8DEF451E2134E5004A69E3 /* ProfileController.swift in Sources */,
+				AEAE1E521E1C070C0078CE93 /* AppDelegate.swift in Sources */,
+				457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */,
+				AE8DEF3E1E212656004A69E3 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				13303B151EE80FBC00CFB6A7 /* MELoginModel.swift in Sources */,
+				1334F88A1EE7DC0300C48A26 /* Reachability.swift in Sources */,
+				1334F8861EE7D8E800C48A26 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AEAE1E551E1C070C0078CE93 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEAE1E561E1C070C0078CE93 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AEAE1E5A1E1C070C0078CE93 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEAE1E5B1E1C070C0078CE93 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AEAE1E5E1E1C070C0078CE93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AEAE1E5F1E1C070C0078CE93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEAE1E611E1C070C0078CE93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C936E54FC46543A147EC9BC /* Pods-Medical Evaluation.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				INFOPLIST_FILE = "Medical Evaluation/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aj.MedicalEvaluation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Medical Evaluation/Medical Evaluation-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AEAE1E621E1C070C0078CE93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F97372DECC67A84EA2208023 /* Pods-Medical Evaluation.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anirban Jana (685BF2AFSA)";
+				INFOPLIST_FILE = "Medical Evaluation/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aj.MedicalEvaluation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Medical Evaluation/Medical Evaluation-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEAE1E491E1C070B0078CE93 /* Build configuration list for PBXProject "Medical Evaluation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEAE1E5E1E1C070C0078CE93 /* Debug */,
+				AEAE1E5F1E1C070C0078CE93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEAE1E601E1C070C0078CE93 /* Build configuration list for PBXNativeTarget "Medical Evaluation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEAE1E611E1C070C0078CE93 /* Debug */,
+				AEAE1E621E1C070C0078CE93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEAE1E461E1C070B0078CE93 /* Project object */;
+}
