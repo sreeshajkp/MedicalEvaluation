@@ -106,6 +106,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		130FC55C1EE9232D008D39B0 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				457AE2BE1EE7D2A20051CC7E /* NetworkManager.swift */,
+			);
+			name = NetworkManager;
+			sourceTree = "<group>";
+		};
+		130FC55D1EE9233F008D39B0 /* StorageClass */ = {
+			isa = PBXGroup;
+			children = (
+				133C2EEC1EE7FB7300D2B68E /* DBManager.swift */,
+			);
+			name = StorageClass;
+			sourceTree = "<group>";
+		};
+		130FC55E1EE9234B008D39B0 /* GlobalClass */ = {
+			isa = PBXGroup;
+			children = (
+				1334F8871EE7D8F700C48A26 /* Protocols.swift */,
+				1334F8931EE7EEA300C48A26 /* APIUrls.swift */,
+				1334F8851EE7D8E800C48A26 /* Constants.swift */,
+				136B9B8F1EE9176D0004C12A /* Global.swift */,
+			);
+			name = GlobalClass;
+			sourceTree = "<group>";
+		};
+		130FC55F1EE92369008D39B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1334F8911EE7ECED00C48A26 /* Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		1334F8811EE7D7E700C48A26 /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,15 +282,12 @@
 		457AE2BD1EE7D2960051CC7E /* HelperClass */ = {
 			isa = PBXGroup;
 			children = (
+				130FC55F1EE92369008D39B0 /* Extensions */,
+				130FC55E1EE9234B008D39B0 /* GlobalClass */,
+				130FC55D1EE9233F008D39B0 /* StorageClass */,
+				130FC55C1EE9232D008D39B0 /* NetworkManager */,
 				1334F88C1EE7EB9300C48A26 /* AlertView */,
 				1334F88B1EE7DC1F00C48A26 /* Reachability */,
-				457AE2BE1EE7D2A20051CC7E /* NetworkManager.swift */,
-				136B9B8F1EE9176D0004C12A /* Global.swift */,
-				133C2EEC1EE7FB7300D2B68E /* DBManager.swift */,
-				1334F8851EE7D8E800C48A26 /* Constants.swift */,
-				1334F8931EE7EEA300C48A26 /* APIUrls.swift */,
-				1334F8911EE7ECED00C48A26 /* Extensions.swift */,
-				1334F8871EE7D8F700C48A26 /* Protocols.swift */,
 			);
 			name = HelperClass;
 			sourceTree = "<group>";

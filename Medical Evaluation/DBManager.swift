@@ -47,9 +47,7 @@ class DBManager {
             userDefaults.synchronize()
         }
     }
-    
-    
-    
+ 
 }
 
 

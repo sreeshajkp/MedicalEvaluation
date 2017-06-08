@@ -25,7 +25,8 @@ let MEusername = "username"
 //MARK:- Constants
 let MEAccessToken = "AccessToken"
 var emptyFields = "Please fill the %@ field"
-var hi = "Hi"
+let hi = "Hi  "
+let staticText =  ", I hope you're doing well."
 
 //MARK:- Response Constants
 let MEResponseStatus = "status"
@@ -72,3 +73,4 @@ struct  MeMethods{
     let MELogoutMethod = "MELogoutMethod"
     let MEGetGroupListMethod = "MEGetGroupListMethod"
 }
+

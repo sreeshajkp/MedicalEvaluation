@@ -12,7 +12,7 @@ class MELoginModel{
     var contactNumber : String?
     var createdDate : String?
     var fullName : String?
-    var isEvaluated : Int
+    var isEvaluated : Bool
     var role : Int?
     var userId : String?
     var userName : String?
@@ -23,7 +23,7 @@ class MELoginModel{
         self.contactNumber = values["ContactNumber"] as? String
         self.createdDate = values["CreatedDate"] as? String
         self.fullName = values["FullName"] as? String
-        self.isEvaluated = (values["IsEvaluated"] as? Int)!
+        self.isEvaluated = (values["IsEvaluated"] as? Bool)!
         self.role = values["Role"] as? Int
         self.userId = values["UserId"] as? String
         self.userName = values["UserName"] as? String

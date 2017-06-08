@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//MARK:- Used Colors
 extension UIColor{
     
     class func MEAlertColor() -> UIColor
@@ -27,24 +28,35 @@ extension UIColor{
   
     
 }
+//MARK:- Used Fonts
+extension UIFont{
+    
+    class func meBoldFont() -> UIFont{
+        return helveticaNueueBold(15)
+    }
+    class func helveticaNueueBold(size: CGFloat) -> UIFont{
+        return UIFont(name: "HelveticaNeue-Bold", size: size)!
+    }
+    
+}
 
 //MARK:- UIViewcontroller
 
 extension UIViewController{
     
-    func startLoadingAnimation(isOnly:Bool = false){
+    func startLoadingAnimation(isLogin:Bool = false){
         
         let activityView = UIView()
         let screenRect = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height + 60)//UIScreen.mainScreen().bounds
-        if isOnly{
-            activityView.backgroundColor = UIColor.clearColor()
-        }else{
-            activityView.backgroundColor = UIColor.whiteColor()
-        }
-        
+        activityView.backgroundColor = UIColor.grayColor()
         activityView.tag = 101010
         self.view.addSubview(activityView)
+        if isLogin{
         activityView.frame = CGRectMake(0, 0, screenRect.width, screenRect.height)
+        }
+        else{
+              activityView.frame = CGRectMake(0, 65, screenRect.width, screenRect.height)
+        }
         
         print("activity indiactor frame \(NSStringFromCGRect(activityView.frame))")
 
@@ -62,7 +74,7 @@ extension UIViewController{
         activityIndicator.direction = HZActivityIndicatorDirectionClockwise;
         activityIndicator.tag = 101011
         self.view.addSubview(activityIndicator)
-        activityIndicator.center = activityView.center
+        activityIndicator.center = view.center//activityView.center
         activityIndicator.startAnimating()
     }
     

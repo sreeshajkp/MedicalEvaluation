@@ -50,7 +50,7 @@ class ProfileController: UIViewController ,MEDelegate{
     
     func callApiCallForProfile(method: String){
         var url = ""
-        startLoadingAnimation(true)
+        startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
         if accessToken != ""{
@@ -73,9 +73,7 @@ class ProfileController: UIViewController ,MEDelegate{
            
         }
         if let _ = profile.fullName{
-     //  introductionLabel.setAttrib
-             introductionLabel.text = " Hi \(profile.fullName!), I hope you're doing well."
-           // titles.append(profile.userName!)
+            setAttributedText(UIFont.meBoldFont(), fontToLight: UIFont.systemFontOfSize(15), text: profile.fullName!, constantTex: staticText, label: introductionLabel)
         }
         
         if let role = profile.role{
@@ -105,8 +103,6 @@ class ProfileController: UIViewController ,MEDelegate{
         return 4
     }
     
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DetailTableViewCell") as! DetailTableViewCell
@@ -122,7 +118,7 @@ class ProfileController: UIViewController ,MEDelegate{
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
             if accessToken != "" {
                 let url = String(format: MEApiUrls().MELogout.logOutUrl, accessToken)
-                startLoadingAnimation(true)
+                startLoadingAnimation(false)
                 NetworkManager.sharedManager.delegate = self
                 NetworkManager.sharedManager.postDetails([:], methodName: MEmethodNames().meMethodNames.MELogoutMethod, appendUrl: url)
             }

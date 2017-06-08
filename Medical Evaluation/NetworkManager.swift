@@ -123,6 +123,7 @@ class NetworkManager {
         completeUrlPath = NSURL(string: url)
         request.URL = completeUrlPath
         request.HTTPMethod = "GET"
+        request.setValue(jApplicationJSON, forHTTPHeaderField: jContentType)
 
         print(request)
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()

@@ -99,7 +99,15 @@ class ListController: UIViewController ,MEDelegate{
             cell.nameLabel.text = userList[indexPath.row].userName //Sometimes they didnt give the fullname in api..so i take username insted(for sake)
         }
         cell.roleLabel.text =  getRoleValueFromApi(userList[indexPath.row].role!)
-      
+        if var isEvaluated = userList[indexPath.row].isEvaluated{
+            print(isEvaluated)
+            if isEvaluated{
+                cell.tickImageView.image = UIImage(named: "GreenTick")
+            }
+            else{
+                cell.tickImageView.image = UIImage(named: "")
+            }
+        }
         return cell
     }
 
@@ -140,7 +148,7 @@ class ListController: UIViewController ,MEDelegate{
 }
 
 class ListTableViewCell : UITableViewCell{
-    
+    @IBOutlet weak var tickImageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 }

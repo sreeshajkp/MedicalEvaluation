@@ -66,7 +66,7 @@ class MEMemberList{
     var mContactNumber : String?
     var mCreatedDate : String?
     var mFullName : String?
-    var misEvaluated : Int?
+    var misEvaluated : Bool?
     var mRole : Int?
     var mUserId : String?
     var mUserName : String?
@@ -75,7 +75,7 @@ class MEMemberList{
         self.mContactNumber = values["ContactNumber"] as? String
         self.mCreatedDate = values["CreatedDate"] as? String
         self.mFullName = values["FullName"] as? String
-        self.misEvaluated = values["IsEvaluated"] as? Int
+        self.misEvaluated = values["IsEvaluated"] as? Bool
         self.mRole = values["Role"] as? Int
         self.mUserId = values["UserId"] as? String
         self.mUserName = values["UserName"] as? String
