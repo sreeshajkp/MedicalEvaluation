@@ -82,7 +82,7 @@ class ViewController: UIViewController ,MEDelegate{
        let validateResult = checkValidationFields()
         if validateResult.0{
             NetworkManager.sharedManager.delegate = self
-            NetworkManager.sharedManager.postDetails(fetchDetailsForLoginAccess(), methodName: MEmethodNames().meMethodNames.MELoginMethod, appendUrl: MEApiUrls().MELogin.loginUrl)
+             NetworkManager.sharedManager.apiCallHandler(fetchDetailsForLoginAccess(), methodName: MEmethodNames().meMethodNames.MELoginMethod, appendUrl: MEApiUrls().MELogin.loginUrl)
         }else{
             showAlertController(MEAppName, message: validateResult.1, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
@@ -104,7 +104,7 @@ class ViewController: UIViewController ,MEDelegate{
         }
     }
     }
-    func networkAPIResultFetchedWithError(error: AnyObject, methodName: String, status: Int) {
+    func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
              self.stopLoadingAnimation()
             self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)

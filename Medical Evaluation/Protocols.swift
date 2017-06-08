@@ -11,5 +11,5 @@ import Foundation
 @objc protocol MEDelegate
 {
     optional func networkAPIResultFetched(result:AnyObject,message:String,methodName:String)
-    optional func networkAPIResultFetchedWithError(error:AnyObject,methodName:String,status:Int)
+    optional func networkAPIResultFetchedWithError(error:AnyObject,methodName:String)
 }

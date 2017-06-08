@@ -34,7 +34,7 @@ class ListController: UIViewController ,MEDelegate{
             if accessToken != "" {
                 let url = String(format: MEApiUrls().MEGetUsersProfile.getUsersProfile, accessToken,take,skip,filterType)
                 NetworkManager.sharedManager.delegate = self
-                NetworkManager.sharedManager.getDetails(MEmethodNames().meMethodNames.MEGetUsersMethod, appendUrl: url)
+                NetworkManager.sharedManager.apiCallHandler([:], methodName: MEmethodNames().meMethodNames.MEGetUsersMethod, appendUrl: url)
             }
         }
     }
@@ -89,7 +89,6 @@ class ListController: UIViewController ,MEDelegate{
     }
     
    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ListTableViewCell") as! ListTableViewCell
         if let fullName = userList[indexPath.row].fullName{
@@ -99,21 +98,16 @@ class ListController: UIViewController ,MEDelegate{
             cell.nameLabel.text = userList[indexPath.row].userName //Sometimes they didnt give the fullname in api..so i take username insted(for sake)
         }
         cell.roleLabel.text =  getRoleValueFromApi(userList[indexPath.row].role!)
-        if var isEvaluated = userList[indexPath.row].isEvaluated{
+        if let isEvaluated = userList[indexPath.row].isEvaluated{
             print(isEvaluated)
-            if isEvaluated{
-                cell.tickImageView.image = UIImage(named: "GreenTick")
-            }
-            else{
-                cell.tickImageView.image = UIImage(named: "")
-            }
+            if isEvaluated{ cell.tickImageView.image = UIImage(named: "GreenTick") }
+            else{ cell.tickImageView.image = UIImage(named: "")}
         }
         return cell
     }
 
     //MARK:- MEDelegate Methods
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
-      //  if let dataObj = result  as? NSDictionary || if let dataObj = result  as? NSDictionary{
             if   result  is NSArray {
             if methodName == MEmethodNames().meMethodNames.MEGetUsersMethod{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -128,7 +122,7 @@ class ListController: UIViewController ,MEDelegate{
         }
         
     }
-    func networkAPIResultFetchedWithError(error: AnyObject, methodName: String, status: Int) {
+    func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()
             self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)

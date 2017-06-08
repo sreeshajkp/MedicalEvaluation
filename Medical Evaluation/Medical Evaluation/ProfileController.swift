@@ -62,7 +62,8 @@ class ProfileController: UIViewController ,MEDelegate{
                 let skip = 0
                  url = String(format: MEApiUrls().MEGetGroupList.getGroupList, accessToken,take,skip)
             }
-        NetworkManager.sharedManager.getDetails(method, appendUrl: url)
+
+            NetworkManager.sharedManager.apiCallHandler([:], methodName: method, appendUrl: url)
         }
         }
     }
@@ -120,7 +121,7 @@ class ProfileController: UIViewController ,MEDelegate{
                 let url = String(format: MEApiUrls().MELogout.logOutUrl, accessToken)
                 startLoadingAnimation(false)
                 NetworkManager.sharedManager.delegate = self
-                NetworkManager.sharedManager.postDetails([:], methodName: MEmethodNames().meMethodNames.MELogoutMethod, appendUrl: url)
+                NetworkManager.sharedManager.apiCallHandler(["":""], methodName: MEmethodNames().meMethodNames.MELogoutMethod, appendUrl: url)
             }
         }
 
@@ -181,7 +182,7 @@ class ProfileController: UIViewController ,MEDelegate{
         }
         }
       
-    func networkAPIResultFetchedWithError(error: AnyObject, methodName: String, status: Int) {
+    func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()
         self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
