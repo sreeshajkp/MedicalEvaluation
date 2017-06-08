@@ -14,7 +14,9 @@ class MEApiUrls{
     let MELogout  = LogOut()
     let MEGetProfile  = GetProfile()
     let MEGetUsersProfile = GetUsersProfile()
+    let MEGetGroupList = GetGroupList()
 }
+
 struct Login {
     let loginUrl = "Api/Account/Login"
 }
@@ -26,4 +28,7 @@ struct GetProfile{
 }
 struct GetUsersProfile{
     let getUsersProfile = "Api/Account/GetUserList?accessToken=%@&take=%d&skip=%d&filterType=%d"
+}
+struct GetGroupList {
+    let  getGroupList = "Api/Group/GetList?accessToken=%@&take=%d&skip=%d"
 }

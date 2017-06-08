@@ -12,21 +12,21 @@ class MELoginModel{
     var contactNumber : String?
     var createdDate : String?
     var fullName : String?
-    var isEvaluated : Int?
+    var isEvaluated : Int
     var role : Int?
     var userId : String?
     var userName : String?
     
     
     init(values: NSDictionary){
-        accessToken = values["AccessToken"] as? String
-        contactNumber = values["ContactNumber"] as? String
-        createdDate = values["CreatedDate"] as? String
-        fullName = values["FullName"] as? String
-        isEvaluated = values["IsEvaluated"] as? Int
-        role = values["Role"] as? Int
-        userId = values["UserId"] as? String
-        userName = values["UserName"] as? String
+        self.accessToken = values["AccessToken"] as? String
+        self.contactNumber = values["ContactNumber"] as? String
+        self.createdDate = values["CreatedDate"] as? String
+        self.fullName = values["FullName"] as? String
+        self.isEvaluated = (values["IsEvaluated"] as? Int)!
+        self.role = values["Role"] as? Int
+        self.userId = values["UserId"] as? String
+        self.userName = values["UserName"] as? String
     }
     
 }

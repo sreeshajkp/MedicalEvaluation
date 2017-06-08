@@ -19,6 +19,8 @@
 		133C2EED1EE7FB7300D2B68E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133C2EEC1EE7FB7300D2B68E /* DBManager.swift */; };
 		133C2EF01EE7FD0C00D2B68E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 133C2EEF1EE7FD0C00D2B68E /* Podfile */; };
 		133C2EF41EE7FFE300D2B68E /* HZActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */; };
+		136B9B8E1EE90A1D0004C12A /* MEGroupListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */; };
+		136B9B901EE9176D0004C12A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B9B8F1EE9176D0004C12A /* Global.swift */; };
 		15B0D7CF686B6B6469BB9D0D /* Pods_Medical_Evaluation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */; };
 		457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */; };
 		457AE2B71EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -57,6 +59,8 @@
 		133C2EEF1EE7FD0C00D2B68E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		133C2EF21EE7FFE300D2B68E /* HZActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZActivityIndicatorView.h; sourceTree = "<group>"; };
 		133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZActivityIndicatorView.m; sourceTree = "<group>"; };
+		136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEGroupListModel.swift; sourceTree = "<group>"; };
+		136B9B8F1EE9176D0004C12A /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = "Medical Evaluation/SkyFloatingLabelTextField.swift"; sourceTree = "<group>"; };
 		457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = "Medical Evaluation/SkyFloatingLabelTextFieldWithIcon.swift"; sourceTree = "<group>"; };
 		457AE2B51EE7CF360051CC7E /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Medical Evaluation/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		133C2EE71EE7F86B00D2B68E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */,
 				13303B161EE80FEC00CFB6A7 /* MEProfileModel.swift */,
 				133C2EEA1EE7F9B300D2B68E /* ModelManager.swift */,
 				13303B141EE80FBC00CFB6A7 /* MELoginModel.swift */,
@@ -245,6 +250,7 @@
 				1334F88C1EE7EB9300C48A26 /* AlertView */,
 				1334F88B1EE7DC1F00C48A26 /* Reachability */,
 				457AE2BE1EE7D2A20051CC7E /* NetworkManager.swift */,
+				136B9B8F1EE9176D0004C12A /* Global.swift */,
 				133C2EEC1EE7FB7300D2B68E /* DBManager.swift */,
 				1334F8851EE7D8E800C48A26 /* Constants.swift */,
 				1334F8931EE7EEA300C48A26 /* APIUrls.swift */,
@@ -425,11 +431,13 @@
 			files = (
 				AE8DEF3F1E212656004A69E3 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				457AE2B71EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				136B9B8E1EE90A1D0004C12A /* MEGroupListModel.swift in Sources */,
 				457AE2B81EE7CF360051CC7E /* UITextField+fixCaretPosition.swift in Sources */,
 				133C2EED1EE7FB7300D2B68E /* DBManager.swift in Sources */,
 				AE8DEF431E212B70004A69E3 /* ListController.swift in Sources */,
 				1334F8901EE7EBDC00C48A26 /* DOAlertController.swift in Sources */,
 				AE8DEF401E212656004A69E3 /* TPKeyboardAvoidingTableView.m in Sources */,
+				136B9B901EE9176D0004C12A /* Global.swift in Sources */,
 				AE8DEF471E213CB4004A69E3 /* PagerController.swift in Sources */,
 				133C2EEB1EE7F9B300D2B68E /* ModelManager.swift in Sources */,
 				133C2EF41EE7FFE300D2B68E /* HZActivityIndicatorView.m in Sources */,

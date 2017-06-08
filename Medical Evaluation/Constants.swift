@@ -21,9 +21,11 @@ let MEAlertNo = "No" //
 
 //MARK:- Alert Constants
 let MEusername = "username"
+
 //MARK:- Constants
 let MEAccessToken = "AccessToken"
 var emptyFields = "Please fill the %@ field"
+var hi = "Hi"
 
 //MARK:- Response Constants
 let MEResponseStatus = "status"
@@ -68,4 +70,5 @@ struct  MeMethods{
     let MEGetUsersMethod = "MEGetUsersMethod"
     let MEGetProfileMethod = "MEGetProfileMethod"
     let MELogoutMethod = "MELogoutMethod"
+    let MEGetGroupListMethod = "MEGetGroupListMethod"
 }

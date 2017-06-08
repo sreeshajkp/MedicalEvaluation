@@ -18,12 +18,12 @@ class MEProfileModel{
     var userName : String?
     
     init(values: NSDictionary){
-        contactNumber = values["ContactNumber"] as? String
-        createdDate = values["CreatedDate"] as? String
-        fullName = values["FullName"] as? String
-        isEvaluated = values["IsEvaluated"] as? Int
-        role = values["Role"] as? Int
-        userId = values["UserId"] as? String
-        userName = values["UserName"] as? String
+        self.contactNumber = values["ContactNumber"] as? String
+        self.createdDate = values["CreatedDate"] as? String
+        self.fullName = values["FullName"] as? String
+        self.isEvaluated = values["IsEvaluated"] as? Int
+        self.role = values["Role"] as? Int
+        self.userId = values["UserId"] as? String
+        self.userName = values["UserName"] as? String
     }
 }

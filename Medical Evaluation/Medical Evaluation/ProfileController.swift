@@ -18,7 +18,6 @@ class ProfileController: UIViewController ,MEDelegate{
     
     @IBOutlet weak var introductionLabel: UILabel!
     @IBOutlet weak var detailTable: UITableView!
-    
     var titles = [String]()
     let images = ["Id","Student","Group","Call"]
     
@@ -30,6 +29,7 @@ class ProfileController: UIViewController ,MEDelegate{
     }
     
     override func viewWillAppear(animated: Bool) {
+        titles = []
         getProfileDetails()
     }
     
@@ -40,37 +40,54 @@ class ProfileController: UIViewController ,MEDelegate{
         
     }
     
+    func getGroupListForRole(){
+        callApiCallForProfile(MEmethodNames().meMethodNames.MEGetGroupListMethod)
+    }
+    
     func getProfileDetails(){
+        callApiCallForProfile(MEmethodNames().meMethodNames.MEGetProfileMethod)
+    }
+    
+    func callApiCallForProfile(method: String){
+        var url = ""
         startLoadingAnimation(true)
         NetworkManager.sharedManager.delegate = self
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
-            if accessToken != ""{
-                let url = String(format: MEApiUrls().MEGetProfile.getProfileUrl, accessToken)
-                NetworkManager.sharedManager.getDetails(MEmethodNames().meMethodNames.MEGetProfileMethod, appendUrl: url)
+        if accessToken != ""{
+            if method == MEmethodNames().meMethodNames.MEGetProfileMethod{
+                url = String(format: MEApiUrls().MEGetProfile.getProfileUrl, accessToken)
             }
+            else{
+                let take = 15
+                let skip = 0
+                 url = String(format: MEApiUrls().MEGetGroupList.getGroupList, accessToken,take,skip)
+            }
+        NetworkManager.sharedManager.getDetails(method, appendUrl: url)
+        }
         }
     }
-    
     func populateProfileDetailsWthAPI(profile:MEProfileModel){
         
-        if let _ = profile.fullName{
-           titles.append(profile.fullName!)
-            introductionLabel.text = " Hi \(profile.fullName!), I hope you're doing well."
-        }
         if let _ = profile.userName{
-            titles.append(profile.userName!)
+           titles.append(profile.userName!)
+           
+        }
+        if let _ = profile.fullName{
+     //  introductionLabel.setAttrib
+             introductionLabel.text = " Hi \(profile.fullName!), I hope you're doing well."
+           // titles.append(profile.userName!)
         }
         
         if let role = profile.role{
             switch role {
             case RoleType.User.rawValue:
-                titles.append("User")
+                titles.append("Admin")
                 break;
             case RoleType.User.rawValue:
                 titles.append("Student")
                 break;
             case RoleType.User.rawValue:
-                titles.append("Member")
+                titles.append("Lecturer")
                 break;
             default:
                 break;
@@ -80,7 +97,7 @@ class ProfileController: UIViewController ,MEDelegate{
             titles.append(profile.contactNumber!)
         }
            print(titles)
-        detailTable.reloadData()
+      // detailTable.reloadData()
     }
    
     // MARK: - Table view data source
@@ -94,10 +111,10 @@ class ProfileController: UIViewController ,MEDelegate{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DetailTableViewCell") as! DetailTableViewCell
         if titles.count > 0{
-            cell.titleLabel.text = titles[indexPath.row] as? String
-        }
+            print(titles)
+       cell.titleLabel.text = titles[indexPath.row] as? String
         cell.icon.image = UIImage(named:images[indexPath.row])
-        
+        }
         return cell
     }
 
@@ -147,12 +164,27 @@ class ProfileController: UIViewController ,MEDelegate{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                          let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEProfileModel) as? [MEProfileModel]
                         self.populateProfileDetailsWthAPI(profileDetails![0])
+                         self.getGroupListForRole()
                         self.stopLoadingAnimation()
                     })
             }
+            
+        }
+        else if result is NSArray{
+             if methodName == MEmethodNames().meMethodNames.MEGetGroupListMethod{
+                dispatch_async(dispatch_get_main_queue(),{() -> Void in
+                    let groupList = ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEGroupListModel) as? [MEGroupListModel]
+                    if let _ = groupList![0].name{
+                    var roleName = groupList![0].name!
+                    self.titles.insert(roleName, atIndex: 2)
+                    self.detailTable.reloadData()
+                    self.stopLoadingAnimation()
+                    }
+                })
+            }
+        }
         }
       
-    }
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String, status: Int) {
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()

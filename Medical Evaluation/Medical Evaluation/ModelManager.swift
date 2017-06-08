@@ -12,6 +12,7 @@ import UIKit
 enum ModelType:String {
     case MELoginModel            = "MELoginModel"
     case MEProfileModel           = "MEProfileModel"
+    case MEGroupListModel       = "MEGroupListModel"
 }
 
 class ModelClassManager{
@@ -34,7 +35,8 @@ class ModelClassManager{
                 switch modelType {
                 case .MELoginModel:  object              = MELoginModel(values: eachData)
                 case .MEProfileModel: object              = MEProfileModel(values: eachData)
-                           default:
+                case .MEGroupListModel: object          = MEGroupListModel(values: eachData)
+               default:
                     break
                 }
                 results.append(object!)
