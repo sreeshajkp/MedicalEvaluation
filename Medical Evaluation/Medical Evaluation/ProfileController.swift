@@ -29,7 +29,6 @@ class ProfileController: UIViewController ,MEDelegate{
     }
     
     override func viewWillAppear(animated: Bool) {
-        titles = []
         getProfileDetails()
     }
     
@@ -45,6 +44,7 @@ class ProfileController: UIViewController ,MEDelegate{
     }
     
     func getProfileDetails(){
+         titles = []
         callApiCallForProfile(MEmethodNames().meMethodNames.MEGetProfileMethod)
     }
     
@@ -80,13 +80,13 @@ class ProfileController: UIViewController ,MEDelegate{
         if let role = profile.role{
             switch role {
             case RoleType.User.rawValue:
-                titles.append("Admin")
+                titles.append(eAdmin)
                 break;
             case RoleType.User.rawValue:
-                titles.append("Student")
+                titles.append(eStudent)
                 break;
             case RoleType.User.rawValue:
-                titles.append("Lecturer")
+                titles.append(eLecturer)
                 break;
             default:
                 break;
@@ -106,7 +106,7 @@ class ProfileController: UIViewController ,MEDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("DetailTableViewCell") as! DetailTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meDetailTableViewCell) as! DetailTableViewCell
         if titles.count > 0{
             print(titles)
        cell.titleLabel.text = titles[indexPath.row] as? String
@@ -121,7 +121,7 @@ class ProfileController: UIViewController ,MEDelegate{
                 let url = String(format: MEApiUrls().MELogout.logOutUrl, accessToken)
                 startLoadingAnimation(false)
                 NetworkManager.sharedManager.delegate = self
-                NetworkManager.sharedManager.apiCallHandler(["":""], methodName: MEmethodNames().meMethodNames.MELogoutMethod, appendUrl: url)
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDic, methodName: MEmethodNames().meMethodNames.MELogoutMethod, appendUrl: url)
             }
         }
 
@@ -138,7 +138,7 @@ class ProfileController: UIViewController ,MEDelegate{
     
         if let dataObj = result  as? NSDictionary{
                 if methodName == MEmethodNames().meMethodNames.MELogoutMethod{
-            if let successStatus = dataObj["Result"] as? Bool{
+            if let successStatus = dataObj[jResult] as? Bool{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.stopLoadingAnimation()
                 if successStatus {
@@ -200,9 +200,9 @@ class ProfileController: UIViewController ,MEDelegate{
     }
     */
     func moveTheLoginPage(){
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+       
         let appDeligate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let loginVC = mainStoryboard.instantiateViewControllerWithIdentifier("startNav") as! UINavigationController
+        let loginVC = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meStartNav) as! UINavigationController
         appDeligate.window?.rootViewController = loginVC
         appDeligate.window?.makeKeyAndVisible()
     }

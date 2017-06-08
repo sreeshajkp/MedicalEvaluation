@@ -20,9 +20,8 @@ class EvaluateController: PagerController,PagerDataSource {
     
     func setUpPagerTabsViewControllers(){
           
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let firstVc  = mainStoryboard.instantiateViewControllerWithIdentifier("EvaluateFirstPageController") as! EvaluateFirstPageController
-        let secondVc  = mainStoryboard.instantiateViewControllerWithIdentifier("EvaluateSecondPageController") as! EvaluateSecondPageController
+        let firstVc  = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meEvaluateFirstPageController) as! EvaluateFirstPageController
+        let secondVc  = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meEvaluateSecondPageController) as! EvaluateSecondPageController
         
         let viewControllers = [firstVc,secondVc]
         
