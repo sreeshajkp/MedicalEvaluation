@@ -15,7 +15,7 @@ import UIKit
 func setAttributedText(fontToBold : UIFont,fontToLight : UIFont,text : String,constantTex :String,label : UILabel){
     let boldAttribute = [NSFontAttributeName: fontToBold]
     let regularAttribute = [NSFontAttributeName: fontToLight]
-    let beginningAttributedString = NSAttributedString(string: hi, attributes: boldAttribute )
+    let beginningAttributedString = NSAttributedString(string: hi, attributes: regularAttribute )
     let boldAttributedString = NSAttributedString(string: text, attributes: boldAttribute)
     let endAttributedString = NSAttributedString(string: constantTex, attributes: regularAttribute )
     let fullString =  NSMutableAttributedString()

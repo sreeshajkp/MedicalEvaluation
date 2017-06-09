@@ -74,7 +74,7 @@ class ProfileController: UIViewController ,MEDelegate{
            
         }
         if let _ = profile.fullName{
-            setAttributedText(UIFont.meBoldFont(), fontToLight: UIFont.systemFontOfSize(15), text: profile.fullName!, constantTex: staticText, label: introductionLabel)
+            setAttributedText(UIFont.meBoldFont(), fontToLight: UIFont.systemFontOfSize(13), text: profile.fullName!, constantTex: staticText, label: introductionLabel)
         }
         
         if let role = profile.role{
