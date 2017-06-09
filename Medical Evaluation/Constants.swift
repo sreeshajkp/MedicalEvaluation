@@ -46,6 +46,7 @@ let jSuccess = "Success"
 let jContentType = "Content-Type"
 let jApplicationJSON = "application/json"
 let jError = "Error"
+let jResult = "Result"
 let jDeviceType = "DeviceType"
 let jDeviceID = "DeviceID"
 let jRegistrationID = "RegistrationID"
@@ -53,24 +54,18 @@ let jUsername = "UserName"
 let jPassword = "Password"
 let jDevice = "Device"
 
-//MARK:- Segues Names
-class MEseguesNames{
-    let seguesToLogin = SeguesToLoginPage()
-}
-struct  SeguesToLoginPage{
-    let loginSegue = "LoginSegue"
-}
+//MARK :- Enum Constants
+let eMember = "Member"
+let eUser = "User"
+let eStudent = "Student"
+let eNurse = "Nurse"
+let eTeacher = "Teacher"
+let eAdmin = "Admin"
+let eLecturer = "Lecturer"
 
-//MARK:- Method Names
+//MARK:- Validation Constants
+let vUsername = "username"
+let vPassword = "password"
 
-class MEmethodNames{
-    let meMethodNames = MeMethods()
-}
-struct  MeMethods{
-    let MELoginMethod = "MELoginMethod"
-    let MEGetUsersMethod = "MEGetUsersMethod"
-    let MEGetProfileMethod = "MEGetProfileMethod"
-    let MELogoutMethod = "MELogoutMethod"
-    let MEGetGroupListMethod = "MEGetGroupListMethod"
-}
-
+//MARK:- Empty Dic
+let meEmptyDic = ["":""]

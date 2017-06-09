@@ -9,8 +9,48 @@
 import Foundation
 import UIKit
 
-//MARK :- UIlabel attributed text
+//MARK :- StoryBoard
+ let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
+//MARK:- Segues Names
+class MEseguesNames{
+    let seguesToLogin = SeguesToLoginPage()
+}
+struct  SeguesToLoginPage{
+    let loginSegue = "LoginSegue"
+}
+
+//MARK:- Method Names
+
+class MEmethodNames{
+    let meMethodNames = MeMethods()
+}
+struct  MeMethods{
+    let MELoginMethod = "MELoginMethod"
+    let MEGetUsersMethod = "MEGetUsersMethod"
+    let MEGetProfileMethod = "MEGetProfileMethod"
+    let MELogoutMethod = "MELogoutMethod"
+    let MEGetGroupListMethod = "MEGetGroupListMethod"
+}
+
+//MARK:- StoryBoard Names
+class MEStoryBoardIds{
+    let meStoryBoardIds = MEStoryBoards()
+}
+struct MEStoryBoards {
+    let meStartNav = "startNav"
+    let meEvaluateFirstPageController = "EvaluateFirstPageController"
+    let meEvaluateSecondPageController = "EvaluateSecondPageController"
+}
+
+//MARK:- TableViewCell Names
+class METableViewCells{
+    let meTableViewCells = METableCells()
+}
+struct METableCells {
+    let meDetailTableViewCell = "DetailTableViewCell"
+    let meListTableViewCell = "ListTableViewCell"
+}
 
 func setAttributedText(fontToBold : UIFont,fontToLight : UIFont,text : String,constantTex :String,label : UILabel){
     let boldAttribute = [NSFontAttributeName: fontToBold]

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ListController: UIViewController ,MEDelegate{
 
     @IBOutlet weak var listTable: UITableView!
@@ -58,23 +59,23 @@ class ListController: UIViewController ,MEDelegate{
         }
         switch role {
         case RoleType.User.rawValue:
-            roleValue = "User"
+            roleValue = eUser
             return roleValue
             
         case RoleType.Student.rawValue:
-            roleValue = "Student"
+            roleValue = eStudent
             return roleValue
             
         case RoleType.Member.rawValue:
-            roleValue = "Member"
+            roleValue = eMember
             return roleValue
             
         case RoleType.Nurse.rawValue:
-            roleValue = "Nurse"
+            roleValue = eNurse
             return roleValue
             
         case RoleType.Teacher.rawValue:
-            roleValue = "Teacher"
+            roleValue = eTeacher
             return roleValue
         default:
             break
@@ -90,7 +91,7 @@ class ListController: UIViewController ,MEDelegate{
     
    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ListTableViewCell") as! ListTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meListTableViewCell) as! ListTableViewCell
         if let fullName = userList[indexPath.row].fullName{
         cell.nameLabel.text = fullName
         }

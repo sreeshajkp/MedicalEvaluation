@@ -84,6 +84,7 @@ class ViewController: UIViewController ,MEDelegate{
             NetworkManager.sharedManager.delegate = self
              NetworkManager.sharedManager.apiCallHandler(fetchDetailsForLoginAccess(), methodName: MEmethodNames().meMethodNames.MELoginMethod, appendUrl: MEApiUrls().MELogin.loginUrl)
         }else{
+            stopLoadingAnimation()
             showAlertController(MEAppName, message: validateResult.1, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
     }
@@ -128,10 +129,10 @@ class ViewController: UIViewController ,MEDelegate{
         
         var isSuccess = false
         if matricField.text == ""{
-            emptyFields = String(format:emptyFields,"username")
+            emptyFields = String(format:emptyFields,vUsername)
             isSuccess = false
         }else if passwordField.text == ""{
-            emptyFields = String(format:emptyFields,"password")
+            emptyFields = String(format:emptyFields,vPassword)
             isSuccess = false
         }
         else{
