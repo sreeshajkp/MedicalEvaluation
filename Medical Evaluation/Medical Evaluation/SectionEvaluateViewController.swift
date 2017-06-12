@@ -21,9 +21,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
+        print(mySectionCount)
         registerTheNib()
         setButtonTitlesForPageReload()
-        getQuestionList(mySectionCount)
+        getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
         print(sectionNames)
         setHeaderText()
         
@@ -41,21 +42,26 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             self.navigationController?.pushViewController(goToNextPage!, animated: true)
         }
         }
+        else{
+            getApiCall(MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod, sectionId: 0)
+        }
+        
+        
     }
     
     @IBAction func backButtonAction(sender: UIButton) {
-        if mySectionCount > 0{
-            if mySectionCount == 1{
-                mySectionCount = mySectionCount + 1
-            }
+        print(mySectionCount)
+        if mySectionCount > 0 && mySectionCount != 1{
         mySectionCount = mySectionCount - 1
         self.navigationController?.popViewControllerAnimated(true)
-        }else{
-            delegate!.dismissViewControllersWithNavigation!()
+        }
+       else{
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
- 
+
+    
     func registerTheNib(){
         self.navigationController?.navigationBarHidden = true
         questionTable.tableFooterView = UIView()
@@ -98,15 +104,26 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         return 130
     }
     
-    func getQuestionList(sectionId : Int){
+ 
+    
+    func getApiCall(methodName: String,sectionId: Int){
         startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
         if let accessToken  = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
-            let url = String(format: MEApiUrls().MEGetQuestionList.getQuestionList, accessToken,sectionId,15,0)
-            print(url)
-            NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName:  MEmethodNames().meMethodNames.MEGetQuestionListMethod, appendUrl: url)
+            var url = ""
+            if methodName == MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod{
+             url = String(format: MEApiUrls().MESubmitQuestionList.getQuestionSubmit, accessToken)
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDic, methodName:  methodName, appendUrl: url)
+            }
+            else if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
+                 url = String(format: MEApiUrls().MEGetQuestionList.getQuestionList, accessToken,sectionId,15,0)
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName:  methodName, appendUrl: url)
+            }
+            
         }
     }
+    
+    
 //MARK:- Delegate functions
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
@@ -120,6 +137,19 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 self.stopLoadingAnimation()
             })
             
+        }
+        else if methodName == MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod{
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if let success = result[jResult] as? Bool{
+                    if success  {
+                        self.stopLoadingAnimation()
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    else{
+                        self.stopLoadingAnimation()
+                    }
+                }
+            })
         }
     }
     
