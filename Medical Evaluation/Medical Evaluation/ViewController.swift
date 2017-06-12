@@ -64,12 +64,10 @@ class ViewController: UIViewController ,MEDelegate{
             }
             
             if let selectedBtn = self.view.viewWithTag(202) as? UIButton{
-                
                 selectedBtn.selected = false
             }
             
             if let selectedBtn = self.view.viewWithTag(203) as? UIButton{
-                
                 selectedBtn.selected = true
             }
 
@@ -99,7 +97,7 @@ class ViewController: UIViewController ,MEDelegate{
                 if let accessToken = datObj[JaccessToken] as? String{
                 DBManager.sharedManager.insertValue(accessToken, forKey: MEAccessToken)
                 }
-                let userDetails = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
+                _ = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
                 self.performSegueWithIdentifier(MEseguesNames().seguesToLogin.loginSegue, sender: self)
             })
         }

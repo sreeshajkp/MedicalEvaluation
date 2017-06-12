@@ -15,8 +15,10 @@ class EvaluateController: PagerController,PagerDataSource {
         self.dataSource = self
         setUpPagerTabsViewControllers()
 
+        
         // Do any additional setup after loading the view.
     }
+    
     
     func setUpPagerTabsViewControllers(){
           
