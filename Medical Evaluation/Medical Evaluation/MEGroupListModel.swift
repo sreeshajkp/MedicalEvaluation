@@ -9,39 +9,27 @@
 import Foundation
 
 class MEGroupListModel{
-
-var userId : String?
-var userName : String?
-var fullName : String?
-var contactNumber : String?
+    
 var createdDate : String?
-var role : Int?
-var isEvaluation : Bool?
-var group : MEGroup?
-    
-
-    
-
+var evaluation : MEEvaluation?
 var memberList : [MEMemberList]?
-
-
-
+var groupId : Int?
+var lastUpdatedDate : String?
+var name : String?
+var wardName : String?
 
 init(values : NSDictionary){
-     self.userId = values["UserId"] as? String
-    self.contactNumber = values["ContactNumber"] as? String
-    self.role = values["Role"] as? Int
-    self.isEvaluation = values["IsEvaluated"] as? Bool
-     self.userName = values["UserName"] as? String
-   self.fullName = values["FullName"] as? String
     self.createdDate = values["CreatedDate"] as? String
-//    if let groupValues = values["Group"] as! NSArray{
-//        
-//    }
+    if let evaluationDict = values["Evaluation"] as? NSDictionary{
+     self.evaluation = MEEvaluation(values: evaluationDict)
+    }
+     self.groupId = values["GroupId"] as? Int
+     self.lastUpdatedDate = values["LastUpdatedDate"] as? String
     if let memberListArray = values["MemberList"] as? NSArray{
         memberList = fetchingMemberList(memberListArray)
     }
-
+     self.name = values["Name"] as? String
+     self.wardName = values["Name"] as? String
 }
     
     func fetchingMemberList(memberArray: NSArray) -> [MEMemberList]{
@@ -58,12 +46,11 @@ init(values : NSDictionary){
 }
 
 class MEEvaluation{
-     var eEvaluationId : Int?
-     var eName : String?
-     var eDescription : String?
     var eCreatedDate : String?
+    var eDescription : String?
+    var eEvaluationId : Int?
     var eLastUpdatedDate : String?
-//    var sectionList : []
+    var eName : String?
 
     init(values: NSDictionary){
         self.eCreatedDate = values["CreatedDate"] as? String
@@ -71,25 +58,9 @@ class MEEvaluation{
         self.eEvaluationId = values["EvaluationId"] as? Int
         self.eLastUpdatedDate = values["LastUpdatedDate"] as? String
         self.eName = values["Name"] as? String
-      //  if let
     }
 }
 
-class MEGroup{
-    var groupId : Int?
-    var name : String?
-    var wardName : String?
-    var lastUpdatedDate : String?
-    var createdDate : String?
-    var evaluation : MEEvaluation?
-    init(values: NSDictionary){
-        self.groupId = values["GroupId"] as? Int
-        self.name = values["Name"] as? String
-        self.wardName = values["WardName"] as? String
-        self.lastUpdatedDate = values["LastUpdatedDate"] as? String
-        self.createdDate = values["CreatedDate"] as? String
-    }
-}
 
 class MEMemberList{
     var mContactNumber : String?

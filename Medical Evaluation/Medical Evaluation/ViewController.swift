@@ -15,7 +15,7 @@ class ViewController: UIViewController ,MEDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordField.text = "12345678"
-        matricField.text = "admin@admin.com"
+        matricField.text = "12312d345678waq9"
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func didReceiveMemoryWarning() {
