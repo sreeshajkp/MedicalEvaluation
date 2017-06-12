@@ -92,6 +92,7 @@ class ListController: UIViewController ,MEDelegate{
    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meListTableViewCell) as! ListTableViewCell
+        cell.selectionStyle = .None
         if let fullName = userList[indexPath.row].fullName{
         cell.nameLabel.text = fullName
         }
@@ -99,7 +100,7 @@ class ListController: UIViewController ,MEDelegate{
             cell.nameLabel.text = userList[indexPath.row].userName //Sometimes they didnt give the fullname in api..so i take username insted(for sake)
         }
         cell.roleLabel.text =  getRoleValueFromApi(userList[indexPath.row].role!)
-        if let isEvaluated = userList[indexPath.row].isEvaluated{
+        if let isEvaluated = userList[indexPath.row].isEvaluation{
             print(isEvaluated)
             if isEvaluated{ cell.tickImageView.image = UIImage(named: "GreenTick") }
             else{ cell.tickImageView.image = UIImage(named: "")}

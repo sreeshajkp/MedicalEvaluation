@@ -10,8 +10,10 @@ import UIKit
 
 enum RoleType: Int{
     case User = 1
-    case Student = 2
+    case Staff = 2
     case Member = 3
+    case Lecturer = 4
+    case Student = 5
 }
 
 class ProfileController: UIViewController ,MEDelegate{
@@ -40,7 +42,7 @@ class ProfileController: UIViewController ,MEDelegate{
     }
     
     func getGroupListForRole(){
-        callApiCallForProfile(MEmethodNames().meMethodNames.MEGetGroupListMethod)
+     //   callApiCallForProfile(MEmethodNames().meMethodNames.MEGetGroupListMethod)
     }
     
     func getProfileDetails(){
@@ -74,6 +76,7 @@ class ProfileController: UIViewController ,MEDelegate{
            
         }
         if let _ = profile.fullName{
+           // titles .append(profile.fullName!)
             setAttributedText(UIFont.meBoldFont(), fontToLight: UIFont.systemFontOfSize(13), text: profile.fullName!, constantTex: staticText, label: introductionLabel)
         }
         
@@ -82,15 +85,22 @@ class ProfileController: UIViewController ,MEDelegate{
             case RoleType.User.rawValue:
                 titles.append(eAdmin)
                 break;
-            case RoleType.User.rawValue:
+            case RoleType.Student.rawValue:
                 titles.append(eStudent)
                 break;
-            case RoleType.User.rawValue:
+            case RoleType.Member.rawValue:
                 titles.append(eLecturer)
                 break;
+            case RoleType.Lecturer.rawValue:
+                titles.append(eNurse)
+            case RoleType.Staff.rawValue:
+                titles.append(eTeacher)
             default:
                 break;
             }
+        }
+        if let _ = profile.group?.name{
+            titles.append((profile.group?.name)!)
         }
         if let _ = profile.contactNumber{
             titles.append(profile.contactNumber!)
@@ -109,8 +119,8 @@ class ProfileController: UIViewController ,MEDelegate{
         let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meDetailTableViewCell) as! DetailTableViewCell
         if titles.count > 0{
             print(titles)
-       cell.titleLabel.text = titles[indexPath.row] as? String
-        cell.icon.image = UIImage(named:images[indexPath.row])
+            cell.titleLabel.text = titles[indexPath.row] as? String
+            cell.icon.image = UIImage(named:images[indexPath.row])
         }
         return cell
     }
@@ -161,25 +171,13 @@ class ProfileController: UIViewController ,MEDelegate{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                          let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEProfileModel) as? [MEProfileModel]
                         self.populateProfileDetailsWthAPI(profileDetails![0])
-                         self.getGroupListForRole()
+                        self.detailTable.reloadData()
                         self.stopLoadingAnimation()
                     })
             }
             
         }
-        else if result is NSArray{
-             if methodName == MEmethodNames().meMethodNames.MEGetGroupListMethod{
-                dispatch_async(dispatch_get_main_queue(),{() -> Void in
-                    let groupList = ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEGroupListModel) as? [MEGroupListModel]
-                    if let _ = groupList![0].name{
-                    var roleName = groupList![0].name!
-                    self.titles.insert(roleName, atIndex: 2)
-                    self.detailTable.reloadData()
-                    self.stopLoadingAnimation()
-                    }
-                })
-            }
-        }
+
         }
       
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
