@@ -47,6 +47,7 @@ struct MEStoryBoards {
     let meStartNav = "startNav"
     let meEvaluateFirstPageController = "EvaluateFirstPageController"
     let meEvaluateSecondPageController = "EvaluateSecondPageController"
+    let meSectionEvaluateViewController = "SectionEvaluateViewController"
 }
 
 //MARK:- TableViewCell Names
@@ -56,6 +57,7 @@ class METableViewCells{
 struct METableCells {
     let meDetailTableViewCell = "DetailTableViewCell"
     let meListTableViewCell = "ListTableViewCell"
+    let meSectionEvaluationTableViewCell = "SectionEvaluationTableViewCell"
 }
 
 func setAttributedText(fontToBold : UIFont,fontToLight : UIFont,text : String,constantTex :String,label : UILabel){

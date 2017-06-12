@@ -19,6 +19,10 @@ let MEAlertOK = "OK"
 let MEAlertYes = "Yes"
 let MEAlertNo = "No" //
 
+//MARK:- Button Names
+let submit = "SUBMIT"
+let next = "NEXT"
+
 //MARK:- Alert Constants
 let MEusername = "username"
 

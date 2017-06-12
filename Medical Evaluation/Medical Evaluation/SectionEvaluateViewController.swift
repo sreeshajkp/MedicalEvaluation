@@ -35,10 +35,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     @IBAction func nextButtonAction(sender: UIButton) {
-        if nextButton.titleLabel?.text != "SUBMIT"{
+        if nextButton.titleLabel?.text != submit{
         mySectionCount = mySectionCount + 1
         if countSection! >= mySectionCount{
-       var goToNextPage = mainStoryboard.instantiateViewControllerWithIdentifier("SectionEvaluateViewController") as? SectionEvaluateViewController
+       var goToNextPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meSectionEvaluateViewController) as? SectionEvaluateViewController
             self.navigationController?.pushViewController(goToNextPage!, animated: true)
         }
         }
@@ -65,7 +65,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func registerTheNib(){
         self.navigationController?.navigationBarHidden = true
         questionTable.tableFooterView = UIView()
-        questionTable.registerNib(UINib(nibName: "SectionEvaluationTableViewCell", bundle: nil), forCellReuseIdentifier: "SectionEvaluationTableViewCell")
+        questionTable.registerNib(UINib(nibName: METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, bundle: nil), forCellReuseIdentifier: METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell)
     }
     
     func setHeaderText(){
@@ -77,10 +77,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     func setButtonTitlesForPageReload(){
         if countSection! == mySectionCount{
-            nextButton.setTitle("SUBMIT", forState: .Normal)
+            nextButton.setTitle(submit, forState: .Normal)
         }
         else{
-            nextButton.setTitle("NEXT", forState: .Normal)
+            nextButton.setTitle( next, forState: .Normal)
         }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +89,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCellWithIdentifier("SectionEvaluationTableViewCell", forIndexPath: indexPath) as? SectionEvaluationTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell
         cell?.selectionStyle = .None
         if questionList.count != 0{
              questionNum = questionNum + 1
