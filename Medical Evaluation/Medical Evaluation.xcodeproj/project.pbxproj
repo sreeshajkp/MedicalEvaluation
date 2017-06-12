@@ -21,6 +21,10 @@
 		133C2EF41EE7FFE300D2B68E /* HZActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */; };
 		136B9B8E1EE90A1D0004C12A /* MEGroupListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */; };
 		136B9B901EE9176D0004C12A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B9B8F1EE9176D0004C12A /* Global.swift */; };
+		136F5EFC1EEE871300D6D644 /* MEQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5EFB1EEE871300D6D644 /* MEQuestionModel.swift */; };
+		136F5F001EEE872700D6D644 /* SectionEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5EFE1EEE872700D6D644 /* SectionEvaluationTableViewCell.swift */; };
+		136F5F011EEE872700D6D644 /* SectionEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136F5EFF1EEE872700D6D644 /* SectionEvaluationTableViewCell.xib */; };
+		136F5F031EEE873100D6D644 /* SectionEvaluateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */; };
 		15B0D7CF686B6B6469BB9D0D /* Pods_Medical_Evaluation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */; };
 		457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */; };
 		457AE2B71EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -61,6 +65,10 @@
 		133C2EF31EE7FFE300D2B68E /* HZActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZActivityIndicatorView.m; sourceTree = "<group>"; };
 		136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEGroupListModel.swift; sourceTree = "<group>"; };
 		136B9B8F1EE9176D0004C12A /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		136F5EFB1EEE871300D6D644 /* MEQuestionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEQuestionModel.swift; sourceTree = "<group>"; };
+		136F5EFE1EEE872700D6D644 /* SectionEvaluationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionEvaluationTableViewCell.swift; sourceTree = "<group>"; };
+		136F5EFF1EEE872700D6D644 /* SectionEvaluationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionEvaluationTableViewCell.xib; sourceTree = "<group>"; };
+		136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionEvaluateViewController.swift; sourceTree = "<group>"; };
 		457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = "Medical Evaluation/SkyFloatingLabelTextField.swift"; sourceTree = "<group>"; };
 		457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = "Medical Evaluation/SkyFloatingLabelTextFieldWithIcon.swift"; sourceTree = "<group>"; };
 		457AE2B51EE7CF360051CC7E /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Medical Evaluation/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 			children = (
 				AE8DEF461E213CB4004A69E3 /* PagerController.swift */,
 				AEAE1E531E1C070C0078CE93 /* ViewController.swift */,
+				136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */,
 				AE8DEF421E212B70004A69E3 /* ListController.swift */,
 				AE8DEF441E2134E5004A69E3 /* ProfileController.swift */,
 				AE8DEF481E213CCA004A69E3 /* EvaluateController.swift */,
@@ -200,6 +209,7 @@
 			children = (
 				136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */,
 				13303B161EE80FEC00CFB6A7 /* MEProfileModel.swift */,
+				136F5EFB1EEE871300D6D644 /* MEQuestionModel.swift */,
 				133C2EEA1EE7F9B300D2B68E /* ModelManager.swift */,
 				13303B141EE80FBC00CFB6A7 /* MELoginModel.swift */,
 			);
@@ -222,6 +232,15 @@
 			);
 			name = HZActivityIndicator;
 			path = "Medical Evaluation/HZActivityIndicator";
+			sourceTree = "<group>";
+		};
+		136F5EFD1EEE871A00D6D644 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				136F5EFE1EEE872700D6D644 /* SectionEvaluationTableViewCell.swift */,
+				136F5EFF1EEE872700D6D644 /* SectionEvaluationTableViewCell.xib */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 		3263E43F60B8F903A854B45E /* Frameworks */ = {
@@ -322,6 +341,7 @@
 		AEAE1E501E1C070C0078CE93 /* Medical Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				136F5EFD1EEE871A00D6D644 /* TableViewCells */,
 				457AE2BD1EE7D2960051CC7E /* HelperClass */,
 				133C2EEE1EE7FCFD00D2B68E /* Podfile */,
 				133C2EE71EE7F86B00D2B68E /* Models */,
@@ -402,6 +422,7 @@
 				133C2EF01EE7FD0C00D2B68E /* Podfile in Resources */,
 				AEAE1E5C1E1C070C0078CE93 /* LaunchScreen.storyboard in Resources */,
 				AEAE1E591E1C070C0078CE93 /* Assets.xcassets in Resources */,
+				136F5F011EEE872700D6D644 /* SectionEvaluationTableViewCell.xib in Resources */,
 				AEAE1E571E1C070C0078CE93 /* Main.storyboard in Resources */,
 				AE8DEF4D1E214A3E004A69E3 /* Picker.xib in Resources */,
 			);
@@ -475,6 +496,7 @@
 				133C2EEB1EE7F9B300D2B68E /* ModelManager.swift in Sources */,
 				133C2EF41EE7FFE300D2B68E /* HZActivityIndicatorView.m in Sources */,
 				AE8DEF511E214D4F004A69E3 /* EvaluateSecondPageController.swift in Sources */,
+				136F5F031EEE873100D6D644 /* SectionEvaluateViewController.swift in Sources */,
 				AE8DEF491E213CCA004A69E3 /* EvaluateController.swift in Sources */,
 				1334F8941EE7EEA300C48A26 /* APIUrls.swift in Sources */,
 				1334F8921EE7ECED00C48A26 /* Extensions.swift in Sources */,
@@ -486,12 +508,14 @@
 				AEAE1E541E1C070C0078CE93 /* ViewController.swift in Sources */,
 				AE8DEF4C1E214A3E004A69E3 /* Picker.swift in Sources */,
 				AE8DEF451E2134E5004A69E3 /* ProfileController.swift in Sources */,
+				136F5EFC1EEE871300D6D644 /* MEQuestionModel.swift in Sources */,
 				AEAE1E521E1C070C0078CE93 /* AppDelegate.swift in Sources */,
 				457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */,
 				AE8DEF3E1E212656004A69E3 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				13303B151EE80FBC00CFB6A7 /* MELoginModel.swift in Sources */,
 				1334F88A1EE7DC0300C48A26 /* Reachability.swift in Sources */,
 				1334F8861EE7D8E800C48A26 /* Constants.swift in Sources */,
+				136F5F001EEE872700D6D644 /* SectionEvaluationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

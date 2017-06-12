@@ -9,12 +9,12 @@
 import UIKit
 
 class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,MEDelegate{
-
-     var questionList = [MEQuestionListModel]()
+    
+    var questionList = [MEQuestionModel]()
     @IBOutlet weak var questionTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
@@ -30,8 +30,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SectionEvaluationTableViewCell", forIndexPath: indexPath) as? SectionEvaluationTableViewCell
-        if let questionList = questionList[indexPath.row] as? MEQuestionListModel{
-        cell?.questionLabel.text = questionList.text
+        if let questionList = questionList[indexPath.row] as? MEQuestionModel{
+            cell?.questionLabel.text = questionList.text
         }
         return cell!
     }
@@ -40,19 +40,19 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
         if let accessToken  = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
-        let url = String(format: MEApiUrls().MEGetQuestionList.getQuestionList, accessToken,1,15,0)
-        NetworkManager.sharedManager.apiCallHandler(meEmptyDic, methodName:  MEmethodNames().meMethodNames.MEGetQuestionListMethod, appendUrl: url)
+            let url = String(format: MEApiUrls().MEGetQuestionList.getQuestionList, accessToken,1,15,0)
+            NetworkManager.sharedManager.apiCallHandler(meEmptyDic, methodName:  MEmethodNames().meMethodNames.MEGetQuestionListMethod, appendUrl: url)
         }
     }
     
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
-            questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionListModel) as? [MEQuestionListModel])!
+            questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionListModel) as? [MEQuestionModel])!
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.questionTable.reloadData()
                 self.stopLoadingAnimation()
             })
-
+            
         }
     }
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
@@ -61,12 +61,12 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         })
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */}
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */}
 

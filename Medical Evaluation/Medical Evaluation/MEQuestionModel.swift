@@ -1,13 +1,14 @@
 //
-//  MEQuestionListModel.swift
+//  MEQuestionModel.swift
 //  Medical Evaluation
 //
 //  Created by Veena on 12/06/17.
 //  Copyright © 2017 Sreeshaj Kp. All rights reserved.
 //
 
+
 import Foundation
-class MEQuestionListModel {
+class MEQuestionModel {
     var questionId : Int?
     var text : String?
     var textBoxFlag : Bool?

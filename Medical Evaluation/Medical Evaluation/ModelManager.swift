@@ -13,7 +13,7 @@ enum ModelType:String {
     case MELoginModel            = "MELoginModel"
     case MEProfileModel           = "MEProfileModel"
     case MEGroupListModel       = "MEGroupListModel"
-    case MEQuestionListModel   = "MEQuestionListModel"
+    case MEQuestionModel   = "MEQuestionModel"
 }
 
 class ModelClassManager{
@@ -37,7 +37,7 @@ class ModelClassManager{
                 case .MELoginModel:  object              = MELoginModel(values: eachData)
                 case .MEProfileModel: object              = MEProfileModel(values: eachData)
                 case .MEGroupListModel: object          = MEGroupListModel(values: eachData)
-                case .MEQuestionListModel : object   = MEQuestionListModel(values: eachData)
+                case .MEQuestionModel : object   = MEQuestionModel(values: eachData)
                default:
                     break
                 }
