@@ -40,6 +40,21 @@ extension UIFont{
     
 }
 
+
+class Colors {
+    var gl:CAGradientLayer!
+    
+    init() {
+        let colorTop = UIColor(red:  169.0 / 255.0, green: 2.0 / 255.0, blue: 0, alpha: 0.8).CGColor//UIColor(red: 192.0 / 255.0, green: 38.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 1, green:1 , blue: 1, alpha: 0.8).CGColor
+        
+        self.gl = CAGradientLayer()
+        self.gl.colors = [colorTop, colorBottom]
+        self.gl.locations = [0.0, 1.0]
+    }
+}
+
+
 //MARK:- UIViewcontroller
 
 extension UIViewController{
@@ -55,8 +70,16 @@ extension UIViewController{
         activityView.frame = CGRectMake(0, 0, screenRect.width, screenRect.height)
         }
         else{
-              activityView.frame = CGRectMake(0, 65, screenRect.width, screenRect.height)
+              activityView.frame = CGRectMake(0, 30, screenRect.width, screenRect.height)
         }
+        
+          let colors = Colors()
+        activityView.backgroundColor = UIColor.clearColor()
+        let backgroundLayer = colors.gl
+        backgroundLayer.frame = activityView.frame
+        activityView.layer.insertSublayer(backgroundLayer, atIndex: 0)
+        
+        
         
         print("activity indiactor frame \(NSStringFromCGRect(activityView.frame))")
 
@@ -70,7 +93,7 @@ extension UIViewController{
         activityIndicator.stepDuration = 0.100;
         activityIndicator.roundedCoreners = UIRectCorner.TopRight;
         activityIndicator.cornerRadii = CGSizeMake(10, 10);
-        activityIndicator.color = UIColor.MEAlertColor()         // animation direction
+        activityIndicator.color = UIColor.whiteColor()       // animation direction
         activityIndicator.direction = HZActivityIndicatorDirectionClockwise;
         activityIndicator.tag = 101011
         self.view.addSubview(activityIndicator)

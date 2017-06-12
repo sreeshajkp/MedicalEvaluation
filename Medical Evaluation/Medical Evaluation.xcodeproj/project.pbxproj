@@ -236,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				133C2EF11EE7FFE300D2B68E /* HZActivityIndicator */,
-				457AE2BD1EE7D2960051CC7E /* HelperClass */,
 				457AE2BC1EE7CFA50051CC7E /* FloatingTextField */,
 				457AE2BB1EE7CF8A0051CC7E /* Picker */,
 				457AE2BA1EE7CF770051CC7E /* TPkeyBoard */,
@@ -290,6 +289,7 @@
 				1334F88B1EE7DC1F00C48A26 /* Reachability */,
 			);
 			name = HelperClass;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		72D505F44FC6B7347E9A5BFC /* Pods */ = {
@@ -322,6 +322,7 @@
 		AEAE1E501E1C070C0078CE93 /* Medical Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				457AE2BD1EE7D2960051CC7E /* HelperClass */,
 				133C2EEE1EE7FCFD00D2B68E /* Podfile */,
 				133C2EE71EE7F86B00D2B68E /* Models */,
 				1334F8841EE7D82A00C48A26 /* BridgingFiles */,
