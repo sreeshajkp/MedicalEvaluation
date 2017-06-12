@@ -47,7 +47,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
-            questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionListModel) as? [MEQuestionModel])!
+            questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionModel) as? [MEQuestionModel])!
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.questionTable.reloadData()
                 self.stopLoadingAnimation()
