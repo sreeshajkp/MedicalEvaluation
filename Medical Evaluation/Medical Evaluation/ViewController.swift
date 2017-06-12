@@ -97,6 +97,9 @@ class ViewController: UIViewController ,MEDelegate{
                 if let accessToken = datObj[JaccessToken] as? String{
                 DBManager.sharedManager.insertValue(accessToken, forKey: MEAccessToken)
                 }
+                if let userId = datObj[jUserId] as? String{
+                    DBManager.sharedManager.insertValue(userId, forKey: myId)
+                }
                 _ = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
                 self.performSegueWithIdentifier(MEseguesNames().seguesToLogin.loginSegue, sender: self)
             })

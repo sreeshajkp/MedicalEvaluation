@@ -35,7 +35,7 @@ class ListController: UIViewController ,MEDelegate{
             if accessToken != "" {
                 let url = String(format: MEApiUrls().MEGetUsersProfile.getUsersProfile, accessToken,take,skip,filterType)
                 NetworkManager.sharedManager.delegate = self
-                NetworkManager.sharedManager.apiCallHandler([:], methodName: MEmethodNames().meMethodNames.MEGetUsersMethod, appendUrl: url)
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName: MEmethodNames().meMethodNames.MEGetUsersMethod, appendUrl: url)
             }
         }
     }
@@ -102,12 +102,27 @@ class ListController: UIViewController ,MEDelegate{
         cell.roleLabel.text =  getRoleValueFromApi(userList[indexPath.row].role!)
         if let isEvaluated = userList[indexPath.row].isEvaluation{
             print(isEvaluated)
-            if isEvaluated{ cell.tickImageView.image = UIImage(named: "GreenTick") }
-            else{ cell.tickImageView.image = UIImage(named: "")}
+            checkTheUserIdForAccessoryView(cell,userId: userList[indexPath.row].userId!, isEvaluated: isEvaluated)
         }
         return cell
     }
 
+    
+    func checkTheUserIdForAccessoryView(cell : ListTableViewCell,userId : String,isEvaluated : Bool){
+        if let myIdValue = DBManager.sharedManager.fetchValueForKey(myId){
+            if userId == myIdValue as! String{
+                cell.tickImageView.image = UIImage(named: "User")
+        }
+            else{
+                if isEvaluated{
+                    cell.tickImageView.image = UIImage(named: "GreenTick")
+                }
+                else{
+                     cell.tickImageView.image = UIImage(named: "Cross")
+                }
+            }
+    }
+    }
     //MARK:- MEDelegate Methods
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
             if   result  is NSArray {

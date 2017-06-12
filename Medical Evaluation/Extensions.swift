@@ -16,6 +16,10 @@ extension UIColor{
     {
         return UIColor.colorFromHEX(0xA90000)
     }
+    class func METextFieldColor() -> UIColor
+    {
+        return UIColor.colorFromHEX(0xC30D2B)
+    }
  
     class func colorFromHEX(hexValue: UInt) -> UIColor {
         return UIColor(

@@ -24,6 +24,8 @@ let MEusername = "username"
 
 //MARK:- Constants
 let MEAccessToken = "AccessToken"
+let myId = "UserId"
+let sectionCount = "sectionCount"
 var emptyFields = "Please fill the %@ field"
 let hi = "Hi  "
 let staticText =  ", I hope you're doing well."
@@ -41,6 +43,7 @@ let logOutMsg = "Logout successfully!"
 
 
 //MARK:- JSON Keys
+let jUserId = "UserId"
 let JaccessToken = "AccessToken"
 let jSuccess = "Success"
 let jContentType = "Content-Type"
@@ -69,3 +72,4 @@ let vPassword = "password"
 
 //MARK:- Empty Dic
 let meEmptyDic = ["":""]
+let meEmptyDics = [:]

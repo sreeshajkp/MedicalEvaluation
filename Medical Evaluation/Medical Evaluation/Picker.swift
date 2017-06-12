@@ -241,8 +241,8 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
         
         if pickerArray.count > 0{
             dropDownItemsArray = pickerArray as! [String]
-            let picker = pickerTextField.inputView as! UIPickerView
-            picker.reloadAllComponents()
+            let picker = pickerTextField.inputView as? UIPickerView
+            picker!.reloadAllComponents()
         }
     }
     

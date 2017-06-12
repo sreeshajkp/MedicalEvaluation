@@ -64,12 +64,23 @@ class MEEvaluations{
         self.eLastUpdatedDate = values["LastUpdatedDate"] as? String
         self.eName = values["Name"] as? String
         if let sectionList = values["SectionList"] as? NSArray{
+            DBManager.sharedManager.insertValue(sectionList.count, forKey: sectionCount)
           eSectionList =  fetchingMemberList(sectionList)
         }
     }
     func fetchingMemberList(memberArray: NSArray) -> [MESectionList]{
+        sectionNames = []
+        for each in memberArray{
+                if  let name = each["Name"] {
+                    sectionNames.append(name as! String)
+                  print(sectionNames)
+        }
+          
+           
+        }
         if memberArray.count != 0{
             for each in memberArray as! [NSDictionary]{
+            
                 let memberList = MESectionList(values: each)
                 let _ = eSectionList
                 self.eSectionList = [memberList]

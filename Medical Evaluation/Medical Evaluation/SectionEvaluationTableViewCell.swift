@@ -8,21 +8,30 @@
 
 import UIKit
 
-class SectionEvaluationTableViewCell: UITableViewCell {
+class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
     
     @IBOutlet weak var colourView: UIView!
         @IBOutlet weak var typingTextField: UITextField!
-        @IBOutlet weak var yesOrNoPicker: Picker!
+        @IBOutlet weak var yesOrNoPicker: UITextField!
         @IBOutlet weak var questionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        yesOrNoPicker.pickerInputItems(["Yes","No"])
+        typingTextField.delegate = self
+        yesOrNoPicker.loadDropdownData([MEAlertYes,MEAlertNo], selectedValue: MEAlertNo, isReuired: true, selectionType: "") {_,_ in
+            print("")
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        colourView.backgroundColor = UIColor.METextFieldColor()
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+         colourView.backgroundColor = UIColor.lightGrayColor()
     }
     
 }

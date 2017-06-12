@@ -12,4 +12,5 @@ import Foundation
 {
     optional func networkAPIResultFetched(result:AnyObject,message:String,methodName:String)
     optional func networkAPIResultFetchedWithError(error:AnyObject,methodName:String)
+    optional func dismissViewControllersWithNavigation()
 }

@@ -11,6 +11,10 @@ import UIKit
 
 //MARK :- StoryBoard
  let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+var countSection = DBManager.sharedManager.fetchValueForKey(sectionCount) as? Int
+var mySectionCount = Int()
+var sectionNames = [String]()
+ var goToEvaluationPage = mainStoryboard.instantiateViewControllerWithIdentifier("navBarToSectionEvaluate")
 
 //MARK:- Segues Names
 class MEseguesNames{

@@ -32,7 +32,9 @@ class EvaluateController: PagerController,PagerDataSource {
             self.reloadData()
     }
 
-
+    func dismissViewControllersWithNavigation(){
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

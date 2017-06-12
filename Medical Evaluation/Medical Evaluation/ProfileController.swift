@@ -65,7 +65,7 @@ class ProfileController: UIViewController ,MEDelegate{
                  url = String(format: MEApiUrls().MEGetGroupList.getGroupList, accessToken,take,skip)
             }
 
-            NetworkManager.sharedManager.apiCallHandler([:], methodName: method, appendUrl: url)
+            NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName: method, appendUrl: url)
         }
         }
     }
@@ -154,6 +154,7 @@ class ProfileController: UIViewController ,MEDelegate{
                 if successStatus {
                     
                 DBManager.sharedManager.removeValueForKey(MEAccessToken)
+                DBManager.sharedManager.removeValueForKey(myId)
                 self.showAlertController(MEAppName, message: logOutMsg, cancelButton: MEAlertOK, otherButtons: [], handler: { (buttonIndex) in
                     switch buttonIndex{
                     case 0:

@@ -25,6 +25,7 @@
 		136F5F001EEE872700D6D644 /* SectionEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5EFE1EEE872700D6D644 /* SectionEvaluationTableViewCell.swift */; };
 		136F5F011EEE872700D6D644 /* SectionEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136F5EFF1EEE872700D6D644 /* SectionEvaluationTableViewCell.xib */; };
 		136F5F031EEE873100D6D644 /* SectionEvaluateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */; };
+		136F5F051EEE97DC00D6D644 /* MyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5F041EEE97DC00D6D644 /* MyPickerView.swift */; };
 		15B0D7CF686B6B6469BB9D0D /* Pods_Medical_Evaluation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */; };
 		457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */; };
 		457AE2B71EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -69,6 +70,7 @@
 		136F5EFE1EEE872700D6D644 /* SectionEvaluationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		136F5EFF1EEE872700D6D644 /* SectionEvaluationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionEvaluateViewController.swift; sourceTree = "<group>"; };
+		136F5F041EEE97DC00D6D644 /* MyPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPickerView.swift; sourceTree = "<group>"; };
 		457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = "Medical Evaluation/SkyFloatingLabelTextField.swift"; sourceTree = "<group>"; };
 		457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = "Medical Evaluation/SkyFloatingLabelTextFieldWithIcon.swift"; sourceTree = "<group>"; };
 		457AE2B51EE7CF360051CC7E /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Medical Evaluation/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		457AE2BB1EE7CF8A0051CC7E /* Picker */ = {
 			isa = PBXGroup;
 			children = (
+				136F5F041EEE97DC00D6D644 /* MyPickerView.swift */,
 				AE8DEF4A1E214A3E004A69E3 /* Picker.swift */,
 				AE8DEF4B1E214A3E004A69E3 /* Picker.xib */,
 			);
@@ -499,6 +502,7 @@
 				136F5F031EEE873100D6D644 /* SectionEvaluateViewController.swift in Sources */,
 				AE8DEF491E213CCA004A69E3 /* EvaluateController.swift in Sources */,
 				1334F8941EE7EEA300C48A26 /* APIUrls.swift in Sources */,
+				136F5F051EEE97DC00D6D644 /* MyPickerView.swift in Sources */,
 				1334F8921EE7ECED00C48A26 /* Extensions.swift in Sources */,
 				AE8DEF411E212656004A69E3 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				13303B171EE80FEC00CFB6A7 /* MEProfileModel.swift in Sources */,
