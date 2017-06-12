@@ -31,6 +31,7 @@ struct  MeMethods{
     let MEGetProfileMethod = "MEGetProfileMethod"
     let MELogoutMethod = "MELogoutMethod"
     let MEGetGroupListMethod = "MEGetGroupListMethod"
+    let MEGetQuestionListMethod = "MEGetQuestionListMethod"
 }
 
 //MARK:- StoryBoard Names

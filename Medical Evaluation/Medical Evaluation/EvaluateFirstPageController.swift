@@ -25,6 +25,10 @@ class EvaluateFirstPageController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func startEvaluationButtonAction(sender: UIButton) {
+        var goToEvaluationPage = mainStoryboard.instantiateViewControllerWithIdentifier("SectionEvaluateViewController") as? SectionEvaluateViewController
+        navigationController?.pushViewController(goToEvaluationPage!, animated: true)
+    }
 
     /*
     // MARK: - Navigation

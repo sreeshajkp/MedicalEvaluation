@@ -13,7 +13,7 @@ class EvaluateController: PagerController,PagerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-        setUpPagerTabsViewControllers()
+      //  setUpPagerTabsViewControllers()
 
         
         // Do any additional setup after loading the view.

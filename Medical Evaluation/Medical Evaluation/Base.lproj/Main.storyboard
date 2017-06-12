@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -325,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWd-Kz-MTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="340"/>
+            <point key="canvasLocation" x="1106" y="309"/>
         </scene>
         <!--Evaluate First Page Controller-->
         <scene sceneID="4hE-fw-EKs">
@@ -370,6 +370,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startEvaluationButtonAction:" destination="KTE-l7-buK" eventType="touchUpInside" id="OcD-w5-sEN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -573,6 +576,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34b-2V-3Ne" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1878" y="309"/>
+        </scene>
+        <!--Section Evaluate View Controller-->
+        <scene sceneID="Xom-5L-iyN">
+            <objects>
+                <viewController storyboardIdentifier="SectionEvaluateViewController" id="49E-D6-CG0" customClass="SectionEvaluateViewController" customModule="Medical_Evaluation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vdk-gL-rer"/>
+                        <viewControllerLayoutGuide type="bottom" id="n23-n1-d10"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J3b-V8-L5y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vDj-zo-Bhd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="49E-D6-CG0" id="aLz-Oh-xSQ"/>
+                                    <outlet property="delegate" destination="49E-D6-CG0" id="Uiz-zr-cOs"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RM0-Vq-3ce">
+                                <rect key="frame" x="50" y="518" width="220" height="40"/>
+                                <color key="backgroundColor" red="0.59028416872024536" green="0.093233905732631683" blue="0.0048566665500402451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="6uD-TP-kmF"/>
+                                    <constraint firstAttribute="height" constant="40" id="f3f-yB-EfG"/>
+                                </constraints>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6uD-TP-kmF"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vDj-zo-Bhd" firstAttribute="top" secondItem="J3b-V8-L5y" secondAttribute="top" id="4nc-bC-YGX"/>
+                            <constraint firstItem="n23-n1-d10" firstAttribute="top" secondItem="RM0-Vq-3ce" secondAttribute="bottom" constant="10" id="6QW-Dm-Oji"/>
+                            <constraint firstAttribute="bottom" secondItem="vDj-zo-Bhd" secondAttribute="bottom" id="Bvl-aD-Xqb"/>
+                            <constraint firstAttribute="trailing" secondItem="RM0-Vq-3ce" secondAttribute="trailing" constant="50" id="C3g-ze-tKL"/>
+                            <constraint firstItem="RM0-Vq-3ce" firstAttribute="centerX" secondItem="J3b-V8-L5y" secondAttribute="centerX" id="Crc-Ki-QNF"/>
+                            <constraint firstItem="vDj-zo-Bhd" firstAttribute="leading" secondItem="J3b-V8-L5y" secondAttribute="leading" id="LX1-sg-3F7"/>
+                            <constraint firstItem="RM0-Vq-3ce" firstAttribute="top" secondItem="vDj-zo-Bhd" secondAttribute="bottom" constant="15" id="UHN-EH-GEc"/>
+                            <constraint firstAttribute="trailing" secondItem="vDj-zo-Bhd" secondAttribute="trailing" id="arb-dX-Hxu"/>
+                            <constraint firstItem="RM0-Vq-3ce" firstAttribute="leading" secondItem="J3b-V8-L5y" secondAttribute="leading" constant="50" id="g69-sa-oCU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bvl-aD-Xqb"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="questionTable" destination="vDj-zo-Bhd" id="Yo6-yE-JUe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A7C-Ra-qzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2254" y="309"/>
         </scene>
         <!--Profile-->
         <scene sceneID="pWx-W7-W5i">
