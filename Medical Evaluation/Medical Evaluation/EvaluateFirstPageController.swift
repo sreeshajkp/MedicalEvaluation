@@ -10,12 +10,16 @@ import UIKit
 
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
 
+    var goToEvaluationPage = mainStoryboard.instantiateViewControllerWithIdentifier("navBarToSectionEvaluate")
+    
+
     @IBOutlet weak var studentPicker: Picker!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         studentPicker.pickerTextField.text = "Ali"
         studentPicker.pickerInputItems(["Ali","Timmy","Lim","Hong"])
+        setNotification()
 
         // Do any additional setup after loading the view.
     }
@@ -26,6 +30,15 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setNotification(){
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(EvaluateFirstPageController.dismissView),
+            name: "dismissView",
+            object: nil)
     }
     
     func callApiCallForProfile(){
@@ -68,6 +81,12 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     }
     func dismissViewControllersWithNavigation(){
     
+    }
+    
+    func dismissView(){
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.goToEvaluationPage.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 
     /*

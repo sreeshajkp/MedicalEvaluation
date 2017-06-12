@@ -38,12 +38,13 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if nextButton.titleLabel?.text != submit{
         mySectionCount = mySectionCount + 1
         if countSection! >= mySectionCount{
-       var goToNextPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meSectionEvaluateViewController) as? SectionEvaluateViewController
+       let goToNextPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meSectionEvaluateViewController) as? SectionEvaluateViewController
             self.navigationController?.pushViewController(goToNextPage!, animated: true)
         }
         }
         else{
             getApiCall(MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod, sectionId: 0)
+            NSNotificationCenter.defaultCenter().postNotificationName("dismissView", object: nil)
         }
         
         
@@ -53,10 +54,12 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         print(mySectionCount)
         if mySectionCount > 0 && mySectionCount != 1{
         mySectionCount = mySectionCount - 1
-        self.navigationController?.popViewControllerAnimated(true)
+       // self.navigationController?.popViewControllerAnimated(true)
+            NSNotificationCenter.defaultCenter().postNotificationName("dismissView", object: nil)
         }
        else{
-            self.dismissViewControllerAnimated(true, completion: nil)
+            //self.dismissViewControllerAnimated(true, completion: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("dismissView", object: nil)
         }
     }
     
@@ -107,7 +110,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
  
     
     func getApiCall(methodName: String,sectionId: Int){
-        startLoadingAnimation(false)
+   //     startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
         if let accessToken  = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
             var url = ""
