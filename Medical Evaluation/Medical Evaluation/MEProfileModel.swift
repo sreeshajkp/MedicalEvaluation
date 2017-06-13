@@ -27,12 +27,6 @@ class MEProfileModel{
     var isEvaluation : Bool?
     var group : MEGroup?
     
-    
-    //var memberList : [MEMemberList]?
-    
-    
-    
-    
     init(values : NSDictionary){
         self.userId = values["UserId"] as? String
         self.contactNumber = values["ContactNumber"] as? String
@@ -44,8 +38,7 @@ class MEProfileModel{
         if let groupValues = values["Group"] as? NSDictionary{
               self.group = MEGroup(values: groupValues)
         }
-            }
-        
+     }
     }
 
 
@@ -65,18 +58,18 @@ class MEEvaluations{
         self.eName = values["Name"] as? String
         if let sectionList = values["SectionList"] as? NSArray{
             DBManager.sharedManager.insertValue(sectionList.count, forKey: sectionCount)
-          eSectionList =  fetchingMemberList(sectionList)
+          eSectionList =  fetchingSectionListList(sectionList)
         }
     }
-    func fetchingMemberList(memberArray: NSArray) -> [MESectionList]{
+    func fetchingSectionListList(memberArray: NSArray) -> [MESectionList]{
         sectionNames = []
         for each in memberArray{
-                if  let name = each["Name"] {
-                    sectionNames.append(name as! String)
-                  print(sectionNames)
-        }
-          
-           
+            if  let name = each["Name"] {
+                sectionNames.append(name as! String)
+                print(sectionNames)
+            }
+            
+            
         }
         if memberArray.count != 0{
             for each in memberArray as! [NSDictionary]{

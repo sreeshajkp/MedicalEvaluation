@@ -9,21 +9,30 @@
 import Foundation
 
 class MEStartEvaluationModel{
-   // var evaluator :
-   // var evalutee :
+   var evaluator : MEEvaluator?
+    var evalutee : MEEvaluatee?
     var responseId : Int?
     var startDate : String?
     var startTime : String?
-  //  var group :
+   var group : MEGroup?
     
     init(values: NSDictionary){
+        if let evalObj = values["Evaluator"] as? NSDictionary{
+        self.evaluator = MEEvaluator(values: evalObj)
+        }
+        if let evaluObj = values["Evaluatee"] as? NSDictionary{
+            self.evaluator = MEEvaluator(values: evaluObj)
+        }
         self.responseId = values["ResponseId"] as? Int
         self.startDate = values["StartDate"] as? String
         self.startTime = values["StartTime"] as? String
+        if let groupValues = values["Group"] as? NSDictionary{
+            self.group = MEGroup(values: groupValues)
+        }
     }
 }
 
-class Evaluator{
+class MEEvaluator{
     var userId : String?
     var userName : String?
     var fullName : String?
@@ -41,7 +50,7 @@ class Evaluator{
     self.userName = values["UserName"] as? String
     }
 }
-class Evaluatee{
+class MEEvaluatee{
     var userId : String?
     var userName : String?
     var fullName : String?
@@ -59,3 +68,8 @@ class Evaluatee{
         self.userName = values["UserName"] as? String
     }
 }
+
+
+
+
+

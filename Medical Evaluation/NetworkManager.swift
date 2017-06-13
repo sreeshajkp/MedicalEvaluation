@@ -30,12 +30,12 @@ class NetworkManager {
     }
     
 
-    func apiCallHandler(detailDictionary : NSDictionary, methodName : String, appendUrl : String){
+    func apiCallHandler(detailDictionary : AnyObject, methodName : String, appendUrl : String){
         if !isInternetAvailable(){
             self.delegate?.networkAPIResultFetchedWithError!(noNetworkMsg, methodName: methodName)
             return
         }
-        
+        print(delegate)
         let url = MEBASE_URLS.stringByAppendingString(appendUrl)
         print("final url is :",url)
         let completeUrlPath = NSURL(string: url)
@@ -57,7 +57,7 @@ class NetworkManager {
         }
         let session = NSURLSession.sharedSession()
         _ = session.dataTaskWithRequest(registerRequest) { (data, response, error) in
-          _ = ""
+          _ = meNilString
             var jsonResult : AnyObject?
 
             if error == nil{

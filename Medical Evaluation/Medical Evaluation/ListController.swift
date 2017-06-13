@@ -23,19 +23,26 @@ class ListController: UIViewController ,MEDelegate{
          // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-        getUsersList()
+        callApiCall(MEmethodNames().meMethodNames.MEGetProfileMethod)
+        callApiCall(MEmethodNames().meMethodNames.MEGetUsersMethod)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func getUsersList(){
+    func callApiCall(method: String){
+        var url = meNilString
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
-            if accessToken != "" {
-                let url = String(format: MEApiUrls().MEGetUsersProfile.getUsersProfile, accessToken,take,skip,filterType)
+            if accessToken != meNilString {
+                if method == MEmethodNames().meMethodNames.MEGetUsersMethod{
+                 url = String(format: MEApiUrls().MEGetUsersProfile.getUsersProfile, accessToken,take,skip,filterType)
+                }
+                else if method == MEmethodNames().meMethodNames.MEGetProfileMethod{
+                    url = String(format: MEApiUrls().MEGetProfile.getProfileUrl, accessToken)
+                }
                 NetworkManager.sharedManager.delegate = self
-                NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName: MEmethodNames().meMethodNames.MEGetUsersMethod, appendUrl: url)
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName: method, appendUrl: url)
             }
         }
     }
@@ -81,7 +88,7 @@ class ListController: UIViewController ,MEDelegate{
             break
            
         }
-         return ""
+         return meNilString
     }
     
     // MARK: - Table view data source
@@ -128,14 +135,21 @@ class ListController: UIViewController ,MEDelegate{
             if   result  is NSArray {
             if methodName == MEmethodNames().meMethodNames.MEGetUsersMethod{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    
                     let profileDetails = ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEProfileModel) as? [MEProfileModel]
                     self.userList = profileDetails!
-                   
                     self.stopLoadingAnimation()
                      self.listTable.reloadData()
                 })
             }
+        }
+            else if result is NSDictionary{
+                 if methodName == MEmethodNames().meMethodNames.MEGetProfileMethod{
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        DBManager.sharedManager.insertValue(result, forKey: meUserDetails)
+                        _ = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEProfileModel) as? [MEProfileModel]
+                        self.stopLoadingAnimation()
+                    })
+                }
         }
         
     }

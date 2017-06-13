@@ -41,10 +41,8 @@ class MyPickerView: UIPickerView,UIPickerViewDelegate,UIPickerViewDataSource {
         
         toolBar.tintColor = UIColor.whiteColor()
         
-        toolBar.backgroundColor = UIColor.lightGrayColor()
+        toolBar.backgroundColor = UIColor.whiteColor()
         
-        
-//        let defaultButton = UIBarButtonItem(title: "Default", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyPickerView.tappedToolBarBtn))
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(MyPickerView.donePressed))
         
@@ -56,9 +54,8 @@ class MyPickerView: UIPickerView,UIPickerViewDelegate,UIPickerViewDataSource {
         
         label.backgroundColor = UIColor.clearColor()
         
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.blackColor()
         
-//        label.text = "Pick one number"
         
         label.textAlignment = NSTextAlignment.Center
         
@@ -87,14 +84,13 @@ class MyPickerView: UIPickerView,UIPickerViewDelegate,UIPickerViewDataSource {
         
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if pickerData.count > 0 {
-                if selectedString != "" {
+                if selectedString != meNilString {
                     if let i = pickerData.indexOf(selectedString){
                         self.pickerTextField.text = self.pickerData[i]
                         self.selectRow(i, inComponent: 0, animated: true)
                     }
                 }
                 else{
-//                    self.pickerTextField.text = self.pickerData[0]
                      self.pickerTextField.placeholder = "Select"
                 }
                 self.pickerTextField.userInteractionEnabled = true

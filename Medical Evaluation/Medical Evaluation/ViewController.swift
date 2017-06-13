@@ -10,19 +10,22 @@ import UIKit
 
 class ViewController: UIViewController ,MEDelegate{
     
+    @IBOutlet weak var studentButton: UIButton!
     @IBOutlet weak var passwordField: SkyFloatingLabelTextField!
     @IBOutlet weak var matricField: SkyFloatingLabelTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordField.text = "12345678"
-        matricField.text = "12312d345678waq9"
+       matricField.text = "12312d345678waq9"
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        setInitialButtonAsSelected()
+    }
     
     @IBAction func accountTypeButtonAction(sender: AnyObject) {
         
@@ -31,6 +34,7 @@ class ViewController: UIViewController ,MEDelegate{
         
         if resultTag == 201{
             if let selectedBtn = self.view.viewWithTag(201) as? UIButton{
+                setUIwithRespectToRole(201)
                 selectedBtn.selected = true
             }
             
@@ -49,7 +53,7 @@ class ViewController: UIViewController ,MEDelegate{
             }
             
             if let selectedBtn = self.view.viewWithTag(202) as? UIButton{
-               
+                setUIwithRespectToRole(202)
                 selectedBtn.selected = true
             }
             
@@ -68,6 +72,7 @@ class ViewController: UIViewController ,MEDelegate{
             }
             
             if let selectedBtn = self.view.viewWithTag(203) as? UIButton{
+                setUIwithRespectToRole(203)
                 selectedBtn.selected = true
             }
 
@@ -100,7 +105,7 @@ class ViewController: UIViewController ,MEDelegate{
                 if let userId = datObj[jUserId] as? String{
                     DBManager.sharedManager.insertValue(userId, forKey: myId)
                 }
-                _ = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
+               let details   = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
                 self.performSegueWithIdentifier(MEseguesNames().seguesToLogin.loginSegue, sender: self)
             })
         }
@@ -129,18 +134,35 @@ class ViewController: UIViewController ,MEDelegate{
     func checkValidationFields() ->(Bool,String){
         
         var isSuccess = false
-        if matricField.text == ""{
+        if matricField.text == meNilString{
             emptyFields = String(format:emptyFields,vUsername)
             isSuccess = false
-        }else if passwordField.text == ""{
+        }else if passwordField.text == meNilString{
             emptyFields = String(format:emptyFields,vPassword)
             isSuccess = false
         }
         else{
               isSuccess = true
-            emptyFields = ""
+            emptyFields = meNilString
         }
         return (isSuccess,emptyFields)
         }
+    
+    func setInitialButtonAsSelected(){
+        studentButton.selected = true
+        matricField.placeholder = meMatricNo
+        passwordField.placeholder = mePassword
+    }
+    
+    func setUIwithRespectToRole(buttonTag : Int){
+        if buttonTag == 202 || buttonTag == 203{
+        matricField.placeholder = meStaffNo
+        matricField.selectedTitle = meStaffNo
+        }
+        else{
+            matricField.placeholder = meMatricNo
+            matricField.selectedTitle = meMatricNo
+        }
+    }
 }
 

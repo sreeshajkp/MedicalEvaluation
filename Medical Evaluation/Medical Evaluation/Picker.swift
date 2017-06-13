@@ -37,7 +37,7 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
     var delegateCatgeory : DidSelectCategoryProtocol?
     var selectedIndex : Int?
     var inputIdArray =  [Int]()
-    var selectedValue = ""
+    var selectedValue = meNilString
     var selectedTagValue = 0
 
     @IBOutlet weak var normalTextField: UITextField!
@@ -72,7 +72,7 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
         }
     }
     
-    @IBInspectable var placeholder:String = ""{
+    @IBInspectable var placeholder:String = meNilString{
         didSet{
             if pickerType == .TextField{
                 normalTextField.placeholder = placeholder
@@ -207,7 +207,7 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
     
     func doneAction(){
         if pickerType == .Picker{
-            if selectedValue != ""{
+            if selectedValue != meNilString{
                 pickerTextField.text = selectedValue
                 pickerTextField.tag = selectedTagValue
                 delegate?.pickerSelected?(self)

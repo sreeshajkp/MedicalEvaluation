@@ -190,7 +190,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /// A Boolean value that determines whether the receiver has an error message.
     public var hasErrorMessage:Bool {
         get {
-            return self.errorMessage != nil && self.errorMessage != ""
+            return self.errorMessage != nil && self.errorMessage != meNilString
         }
     }
 

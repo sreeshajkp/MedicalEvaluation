@@ -51,11 +51,11 @@ class ProfileController: UIViewController ,MEDelegate{
     }
     
     func callApiCallForProfile(method: String){
-        var url = ""
+        var url = meNilString
         startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
-        if accessToken != ""{
+        if accessToken != meNilString{
             if method == MEmethodNames().meMethodNames.MEGetProfileMethod{
                 url = String(format: MEApiUrls().MEGetProfile.getProfileUrl, accessToken)
             }
@@ -76,7 +76,6 @@ class ProfileController: UIViewController ,MEDelegate{
            
         }
         if let _ = profile.fullName{
-           // titles .append(profile.fullName!)
             setAttributedText(UIFont.meBoldFont(), fontToLight: UIFont.systemFontOfSize(13), text: profile.fullName!, constantTex: staticText, label: introductionLabel)
         }
         
@@ -127,7 +126,7 @@ class ProfileController: UIViewController ,MEDelegate{
 
     @IBAction func logOutAcction(sender: AnyObject) {
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
-            if accessToken != "" {
+            if accessToken != meNilString {
                 let url = String(format: MEApiUrls().MELogout.logOutUrl, accessToken)
                 startLoadingAnimation(false)
                 NetworkManager.sharedManager.delegate = self

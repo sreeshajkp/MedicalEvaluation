@@ -17,6 +17,11 @@ class MEApiUrls{
     let MEGetGroupList = GetGroupList()
     let MEGetQuestionList =  GetQuestionList()
      let MESubmitQuestionList =  GetQuestionSubmit()
+    let MEGetStudentList =  GetStudentList()
+     let MEGetStartList =  GetStartList()
+     let MEGetMyEvaluationList =  GetMyEvaluationList()
+    let MEGetMemberList =  GetMemberList()
+    
 }
 
 struct Login {
@@ -40,3 +45,16 @@ struct GetQuestionList {
 struct GetQuestionSubmit {
     let  getQuestionSubmit = "Api/Response/Submit?accessToken=%@"
 }
+struct GetStudentList{
+     let  getStudentList = "Api/Account/GetStudentList?accessToken=%@&take=%d&skip=%d&filterType=%d"
+}
+struct GetStartList{
+    let  getStartList = "Api/Response/Start?accessToken=%@&groupdId=%d&evaluationId=%d&userName=%@"
+}
+struct GetMyEvaluationList{
+    let  getMyEvaluationList = "Api/Evaluation/Get?accessToken=%@&evaluationId=%d"
+}
+struct GetMemberList{
+    let  getMemberList = "Api/Account/GetMemberList?accessToken=%@&take=%d&skip=%d"
+}
+

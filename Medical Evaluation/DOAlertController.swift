@@ -446,8 +446,8 @@ class DOAlertController : UIViewController, UITextFieldDelegate, UIViewControlle
         //------------------------------
         // TextArea Layout
         //------------------------------
-        let hasTitle: Bool = title != nil && title != ""
-        let hasMessage: Bool = message != nil && message != ""
+        let hasTitle: Bool = title != nil && title != meNilString
+        let hasMessage: Bool = message != nil && message != meNilString
         let hasTextField: Bool = textFields != nil && textFields!.count > 0
         
         var textAreaPositionY: CGFloat = alertViewPadding
@@ -787,7 +787,7 @@ extension UIViewController{
             }
             if buttonTitles.count != 0 {
                 for buttonTitle in buttonTitles{
-                    if buttonTitle != ""{
+                    if buttonTitle != meNilString{
                         let okAction = DOAlertAction(title: buttonTitle, style: .Default, handler: { (action) -> Void in
                             if let buttonIndex = buttonTitles.indexOf(buttonTitle){
                                 if let _ = handler{
@@ -826,7 +826,7 @@ extension UIViewController{
             
             if buttonTitles.count != 0 {
                 for buttonTitle in buttonTitles{
-                    if buttonTitle != ""{
+                    if buttonTitle != meNilString{
                         let okAction = DOAlertAction(title: buttonTitle, style: .Default, handler: { (action) -> Void in
                             if let buttonIndex = buttonTitles.indexOf(buttonTitle){
                                 if let _ = handler{

@@ -17,8 +17,8 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
     override func awakeFromNib() {
         super.awakeFromNib()
         typingTextField.delegate = self
-        yesOrNoPicker.loadDropdownData([MEAlertYes,MEAlertNo], selectedValue: MEAlertNo, isReuired: true, selectionType: "") {_,_ in
-            print("")
+        yesOrNoPicker.loadDropdownData([MEAlertYes,MEAlertNo], selectedValue: MEAlertNo, isReuired: true, selectionType: meNilString) {_,_ in
+            print(meNilString)
         }
     }
 

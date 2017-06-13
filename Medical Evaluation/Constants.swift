@@ -29,6 +29,7 @@ let MEusername = "username"
 //MARK:- Constants
 let MEAccessToken = "AccessToken"
 let myId = "UserId"
+let meUserDetails = "meUserDetails"
 let sectionCount = "sectionCount"
 var emptyFields = "Please fill the %@ field"
 let hi = "Hi  "
@@ -60,6 +61,7 @@ let jRegistrationID = "RegistrationID"
 let jUsername = "UserName"
 let jPassword = "Password"
 let jDevice = "Device"
+let jfullName =  "FullName"
 
 //MARK :- Enum Constants
 let eMember = "Member"
@@ -77,3 +79,28 @@ let vPassword = "password"
 //MARK:- Empty Dic
 let meEmptyDic = ["":""]
 let meEmptyDics = [:]
+
+//MARK:- PlaceholderText 
+let meStaffNo = "Staff No"
+let meMatricNo = "Matric No"
+let mePassword = "Password"
+
+//MARK :- NotificationName 
+let meNotification = "dismissView"
+
+//MARK:- SubmitResponse Keys
+let meResponseId = "ResponseId"
+let meResponse = "Response"
+let meQuestionId = "QuestionId"
+let meQuestion = "Question"
+let meResponseChoiceId = "ResponseChoiceId"
+let meResponseChoice = "ResponseChoice"
+let meComment = "Comment"
+let meNilString = ""
+
+//MARK:- Parse Constsnts
+let meUserName = "UserName"
+let meGroup = "Group"
+let meGroupId = "GroupId"
+let meEvaluation = "Evaluation"
+let meEvaluationId = "EvaluationId"

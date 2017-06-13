@@ -13,7 +13,10 @@ import UIKit
  let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var countSection = DBManager.sharedManager.fetchValueForKey(sectionCount) as? Int
 var mySectionCount = Int()
+var startList : [MEStartEvaluationModel]?
+var questionResponseArray = NSMutableArray()
 var sectionNames = [String]()
+
 //MARK:- Segues Names
 class MEseguesNames{
     let seguesToLogin = SeguesToLoginPage()
@@ -35,6 +38,9 @@ struct  MeMethods{
     let MEGetGroupListMethod = "MEGetGroupListMethod"
     let MEGetQuestionListMethod = "MEGetQuestionListMethod"
     let MEGetQuestionSubmitMethod = "MEGetQuestionSubmitMethod"
+    let MEGetStudentMethod = "MEGetStudentMethod"
+    let MEGetStartMethod = "MEGetStartMethod"
+     let MEGetMyEvaluationMethod = "MEGetMyEvaluationMethod"
 }
 
 //MARK:- StoryBoard Names
@@ -46,6 +52,7 @@ struct MEStoryBoards {
     let meEvaluateFirstPageController = "EvaluateFirstPageController"
     let meEvaluateSecondPageController = "EvaluateSecondPageController"
     let meSectionEvaluateViewController = "SectionEvaluateViewController"
+    let meNavBarToSectionEvaluate = "navBarToSectionEvaluate"
 }
 
 //MARK:- TableViewCell Names

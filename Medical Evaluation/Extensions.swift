@@ -111,7 +111,7 @@ extension UIViewController{
         
         dispatch_async(dispatch_get_main_queue(), {
             func getString()->String{
-                var str = ""
+                var str = meNilString
                 if let _ = type{
                     
                     str = "No items available"
