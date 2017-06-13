@@ -61,7 +61,10 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                 else if methodName == MEmethodNames().meMethodNames.MEGetStartMethod{
                      dict = meEmptyDic
                     if let details = DBManager.sharedManager.fetchValueForKey(meUserDetails) {
-                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken, getIdDetailsFromUserDetails(details).0,getIdDetailsFromUserDetails(details).1,getIdDetailsFromUserDetails(details).2)
+                        let key = studentPicker.pickerTextField.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+                        if groupIdArray.count != 0 && evaluationIdArray.count != 0{
+                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken, studentPicker.pickerTextField.tag,evaluationIdWithTag(studentPicker.pickerTextField.tag),key)
+                        }
                     }
                 }
                 NetworkManager.sharedManager.apiCallHandler(dict, methodName: methodName, appendUrl: url)
@@ -96,9 +99,20 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
             
         }
 }
-
+    
+    func evaluationIdWithTag(tag : Int) -> Int{
+        var idValue = Int()
+        for each in groupIdArray{
+            if tag == each{
+                let index = groupIdArray.indexOf(tag)
+                let fromEvaluationIdArrayValue = evaluationIdArray[index!]
+                idValue = fromEvaluationIdArrayValue
+            }
+        }
+        return idValue
+    }
+    
     func getIdDetailsFromUserDetails(details : AnyObject) -> (Int,Int,String){
-        print(details)
             let userName = details[meUserName] as? String
             var userGroupId  = Int()
             var evalId = Int()
@@ -109,11 +123,9 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                     evalId = (evaluationValue[meEvaluationId] as? Int)!
             }
         }
-      
-
              return (userGroupId,evalId,userName!)
-       
     }
+    
     
     func fetchAllFullNamesFromJson(result : NSArray) {
           if result.count != 0{
@@ -125,8 +137,11 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                  fullNameArray.append("null")
             }
             }
-            studentPicker.pickerTextField.text = fullNameArray[0]
             studentPicker.pickerInputItems(fullNameArray)
+            studentPicker.pickerInputIDitems(groupIdArray)
+            studentPicker.pickerTextField.text = fullNameArray[0]
+            studentPicker.pickerTextField.tag = groupIdArray[0]
+        
         }
         }
     

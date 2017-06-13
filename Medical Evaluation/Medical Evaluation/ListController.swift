@@ -137,6 +137,7 @@ class ListController: UIViewController ,MEDelegate{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let profileDetails = ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEProfileModel) as? [MEProfileModel]
                     self.userList = profileDetails!
+                    self.parseTheUsersDataToGetPickerInputs(self.userList)
                     self.stopLoadingAnimation()
                      self.listTable.reloadData()
                 })
@@ -160,6 +161,18 @@ class ListController: UIViewController ,MEDelegate{
         })
     }
 
+    func parseTheUsersDataToGetPickerInputs(model : [MEProfileModel]) -> ([Int],[Int]){
+     
+        for each in model{
+            if let group = each.group{
+            groupIdArray.append((group.groupId)!)
+            }
+            if let evalu = each.group?.evaluation{
+                evaluationIdArray.append((evalu.eEvaluationId)!)
+            }
+        }
+        return (groupIdArray,evaluationIdArray)
+    }
     /*
     // MARK: - Navigation
 

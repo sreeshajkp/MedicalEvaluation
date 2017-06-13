@@ -91,6 +91,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     func registerTheNib(){
+        questionTable.estimatedRowHeight = 130
+        questionTable.rowHeight = UITableViewAutomaticDimension
         self.navigationController?.navigationBarHidden = true
         questionTable.tableFooterView = UIView()
         questionTable.registerNib(UINib(nibName: METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, bundle: nil), forCellReuseIdentifier: METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell)
@@ -129,9 +131,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 130
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 130
+//    }
     
  
     

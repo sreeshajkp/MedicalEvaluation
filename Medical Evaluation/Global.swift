@@ -15,6 +15,8 @@ var countSection = DBManager.sharedManager.fetchValueForKey(sectionCount) as? In
 var mySectionCount = Int()
 var startList : [MEStartEvaluationModel]?
 var questionResponseArray = NSMutableArray()
+var groupIdArray =  [Int]()
+var evaluationIdArray =  [Int]()
 var sectionNames = [String]()
 
 //MARK:- Segues Names
