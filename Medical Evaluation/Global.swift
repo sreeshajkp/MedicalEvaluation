@@ -47,6 +47,8 @@ struct  MeMethods{
      let MEGetMyEvaluationMethod = "MEGetMyEvaluationMethod"
     let MEGetMemberListMethod = "MEGetMemberListMethod"
      let MEGetEvaluationStopMethod = "MEGetEvaluationStopMethod"
+    let MEGetChoiceID = "MEGetChoiceID"
+    
 }
 
 //MARK:- StoryBoard Names

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -692,31 +692,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHC-v2-DDZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-3M-ERe">
-                                        <rect key="frame" x="10" y="24" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Zx2-e9-zQt"/>
-                                            <constraint firstAttribute="height" constant="30" id="mcL-nR-s9d"/>
-                                        </constraints>
-                                        <state key="normal" image="Student"/>
-                                        <connections>
-                                            <action selector="backButtonAction:" destination="49E-D6-CG0" eventType="touchUpInside" id="g3t-lm-Hza"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx1-Ch-a6U">
-                                        <rect key="frame" x="55" y="28" width="90" height="22"/>
+                                        <rect key="frame" x="60" y="28" width="90" height="22"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-3M-ERe">
+                                        <rect key="frame" x="0.0" y="9" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Zx2-e9-zQt"/>
+                                            <constraint firstAttribute="height" constant="60" id="mcL-nR-s9d"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="20" minY="15" maxX="20" maxY="15"/>
+                                        <state key="normal" image="Back"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="49E-D6-CG0" eventType="touchUpInside" id="g3t-lm-Hza"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66274509800000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="8Qw-3M-ERe" firstAttribute="centerY" secondItem="sx1-Ch-a6U" secondAttribute="centerY" id="9BC-iy-6BY"/>
                                     <constraint firstAttribute="height" constant="65" id="Gr9-Rl-ISG"/>
-                                    <constraint firstItem="8Qw-3M-ERe" firstAttribute="leading" secondItem="OHC-v2-DDZ" secondAttribute="leading" constant="10" id="Oxg-mm-usH"/>
+                                    <constraint firstItem="8Qw-3M-ERe" firstAttribute="leading" secondItem="OHC-v2-DDZ" secondAttribute="leading" id="Oxg-mm-usH"/>
                                     <constraint firstItem="sx1-Ch-a6U" firstAttribute="centerX" secondItem="OHC-v2-DDZ" secondAttribute="centerX" id="dGF-j4-nY6"/>
-                                    <constraint firstItem="sx1-Ch-a6U" firstAttribute="leading" secondItem="8Qw-3M-ERe" secondAttribute="trailing" constant="15" id="gu4-h8-L7p"/>
+                                    <constraint firstItem="sx1-Ch-a6U" firstAttribute="leading" secondItem="8Qw-3M-ERe" secondAttribute="trailing" id="gu4-h8-L7p"/>
                                     <constraint firstItem="sx1-Ch-a6U" firstAttribute="centerY" secondItem="OHC-v2-DDZ" secondAttribute="centerY" multiplier="1.2" id="oRA-gW-uEm"/>
                                 </constraints>
                                 <variation key="default">
@@ -742,6 +743,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XzY-4U-uX6"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="headerTextLabel" destination="sx1-Ch-a6U" id="gvN-2s-FqS"/>
@@ -1068,6 +1070,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back" width="25" height="42"/>
         <image name="EvaluateTab" width="25" height="25"/>
         <image name="ListTab" width="25" height="25"/>
         <image name="LogOut" width="15" height="15"/>
@@ -1076,6 +1079,5 @@
         <image name="ProfileTab" width="25" height="25"/>
         <image name="RadioOff" width="25" height="25"/>
         <image name="RadioOn" width="25" height="25"/>
-        <image name="Student" width="20" height="20"/>
     </resources>
 </document>

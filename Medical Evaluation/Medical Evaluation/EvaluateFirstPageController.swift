@@ -75,6 +75,9 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
                         url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
                         }
+                }else if methodName == MEmethodNames().meMethodNames.MEGetChoiceID{
+                    
+                    url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId)
                 }
                 NetworkManager.sharedManager.apiCallHandler(dict, methodName: methodName, appendUrl: url)
             }
@@ -106,6 +109,13 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                 self.navigationController?.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
             })
             
+        }else if methodName == MEmethodNames().meMethodNames.MEGetChoiceID{
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if  let resultArry = result as? NSArray{
+                    let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
+                    self.setChoiceIds(choices)
+                }
+            })
         }
 }
     
@@ -115,6 +125,12 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
     })
 }
+    
+    
+    func setChoiceIds(choices:[MEResponseChoiceModel]){
+        
+    }
+    
     
     //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {

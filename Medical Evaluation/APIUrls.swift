@@ -22,6 +22,7 @@ class MEApiUrls{
      let MEGetMyEvaluationList =  GetMyEvaluationList()
     let MEGetMemberList =  GetMemberList()
     let MEGetStopEvaluation =  GetStopEvaluation()
+    let MEGetChoiceId = GetChoiceId()
     
 }
 
@@ -60,5 +61,9 @@ struct GetMemberList{
 }
 struct GetStopEvaluation{
     let  getStopEvaluation = "/Api/Response/End?accessToken=%@&responseId=%d"
+}
+
+struct GetChoiceId {
+    let getChoiceId = "Api/ResponseChoice/GetList?accessToken=I%@=%d&take=%d&skip=%d"
 }
 

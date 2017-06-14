@@ -117,7 +117,7 @@ class ProfileController: UIViewController ,MEDelegate{
         let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meDetailTableViewCell) as! DetailTableViewCell
         if titles.count > 0{
             print(titles)
-            cell.titleLabel.text = titles[indexPath.row] as? String
+            cell.titleLabel.text = titles[indexPath.row] 
             cell.icon.image = UIImage(named:images[indexPath.row])
         }
         return cell
