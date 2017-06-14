@@ -47,7 +47,7 @@ struct  MeMethods{
      let MEGetMyEvaluationMethod = "MEGetMyEvaluationMethod"
     let MEGetMemberListMethod = "MEGetMemberListMethod"
      let MEGetEvaluationStopMethod = "MEGetEvaluationStopMethod"
-    let MEGetChoiceID = "MEGetChoiceID"
+    let MEGetChoiceIDMethod = "MEGetChoiceIDMethod"
     
 }
 
