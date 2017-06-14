@@ -26,6 +26,8 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func viewWillAppear(animated: Bool) {
      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
       callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
+        
+        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetChoiceID)
         if isCompletelySubmited{
             self.showSuccessAlert()
         }
@@ -77,7 +79,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                         }
                 }else if methodName == MEmethodNames().meMethodNames.MEGetChoiceID{
                     
-                    url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId)
+                    url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId,accessToken,1,15,0)
                 }
                 NetworkManager.sharedManager.apiCallHandler(dict, methodName: methodName, appendUrl: url)
             }
@@ -113,7 +115,6 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 if  let resultArry = result as? NSArray{
                     let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
-                    self.setChoiceIds(choices)
                 }
             })
         }
@@ -127,10 +128,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
 }
     
     
-    func setChoiceIds(choices:[MEResponseChoiceModel]){
-        
-    }
-    
+       
     
     //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {

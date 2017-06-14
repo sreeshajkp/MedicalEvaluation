@@ -47,6 +47,32 @@ class DBManager {
             userDefaults.synchronize()
         }
     }
+    
+    func setChoiceIds(choices:[MEResponseChoiceModel]){
+        
+        
+        var choiceIdsDict = Dictionary<String,AnyObject>()
+        
+        for choice in choices{
+            
+            if let choiceId = choice.responseChoiceId{
+                
+                var questionIds = [Int]()
+                
+                for question in (choice.section?.questionList)!{
+                    if let questionObj = question as? MEQuestionModel{
+                        questionIds.append(questionObj.questionId!)
+                    }
+                }
+                
+                choiceIdsDict["\(choiceId)"] = questionIds
+            }
+        }
+        
+        print("section question choiceIds :",choiceIdsDict)
+        
+    }
+
  
 }
 

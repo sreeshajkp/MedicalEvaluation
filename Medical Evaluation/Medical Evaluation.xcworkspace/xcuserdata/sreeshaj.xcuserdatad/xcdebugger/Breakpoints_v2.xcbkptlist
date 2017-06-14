@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Medical Evaluation/EvaluateFirstPageController.swift"
+            timestampString = "519136451.262614"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Medical Evaluation/EvaluateFirstPageController.swift"
+            timestampString = "519136456.236589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "callApiForEvaluatePage(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Medical Evaluation/EvaluateFirstPageController.swift"
+            timestampString = "519136847.122603"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "networkAPIResultFetched(_:message:methodName:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Medical_Evaluation.EvaluateFirstPageController.(networkAPIResultFetched (Swift.AnyObject, message : Swift.String, methodName : Swift.String) -&gt; ()).(closure #4)"
+                  moduleName = "Medical Evaluation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sreeshaj/InApp%20Projects/R&amp;D/MD/Medical%20Evaluation/Medical%20Evaluation/EvaluateFirstPageController.swift"
+                  timestampString = "519136847.692291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Medical_Evaluation.EvaluateFirstPageController.(networkAPIResultFetched (Swift.AnyObject, message : Swift.String, methodName : Swift.String) -&gt; ()).(closure #4)"
+                  moduleName = "Medical Evaluation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sreeshaj/InApp%20Projects/R&amp;D/MD/Medical%20Evaluation/Medical%20Evaluation/EvaluateFirstPageController.swift"
+                  timestampString = "519136847.692426"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "125">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
