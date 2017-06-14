@@ -32,7 +32,6 @@ let myUserDetails = "myUserDetails"
 let myId = "UserId"
 let meUserDetails = "meUserDetails"
 let sectionCount = "sectionCount"
-var emptyFields = "Please fill the %@ field"
 let hi = "Hi  "
 let staticText =  ", I hope you're doing well."
 
