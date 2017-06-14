@@ -276,7 +276,6 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
             }
             selectedValue = dropDownItemsArray[row] as! String
             selectedIndex = row
-//            delegate?.selectedRow!(self)
         }
     }
     

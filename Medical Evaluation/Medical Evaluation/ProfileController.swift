@@ -105,7 +105,6 @@ class ProfileController: UIViewController ,MEDelegate{
             titles.append(profile.contactNumber!)
         }
            print(titles)
-      // detailTable.reloadData()
     }
    
     // MARK: - Table view data source
@@ -152,8 +151,7 @@ class ProfileController: UIViewController ,MEDelegate{
                 self.stopLoadingAnimation()
                 if successStatus {
                     
-                DBManager.sharedManager.removeValueForKey(MEAccessToken)
-                DBManager.sharedManager.removeValueForKey(myId)
+                removeAllValuesFromUserDefaults()
                 self.showAlertController(MEAppName, message: logOutMsg, cancelButton: MEAlertOK, otherButtons: [], handler: { (buttonIndex) in
                     switch buttonIndex{
                     case 0:

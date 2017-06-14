@@ -17,6 +17,7 @@ enum ModelType:String {
     case MESubmitResponseModel   = "MESubmitResponseModel"
     case MEStartEvaluationModel   = "MEStartEvaluationModel"
     case MEEvaluations = "MEEvaluations"
+    case MEMemberListModel = "MEMemberListModel"
 }
 
 class ModelClassManager{
@@ -44,7 +45,7 @@ class ModelClassManager{
                 case .MESubmitResponseModel : object = MESubmitResponseModel(values: eachData)
                 case .MEStartEvaluationModel : object = MEStartEvaluationModel(values: eachData)
                 case .MEEvaluations : object = MEEvaluations(values: eachData)
-                    
+                case .MEMemberListModel : object = MEMemberListModel(values: eachData)
                default:
                     break
                 }

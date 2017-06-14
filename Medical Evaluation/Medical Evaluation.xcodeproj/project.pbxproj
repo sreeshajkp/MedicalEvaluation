@@ -27,6 +27,7 @@
 		136F5F031EEE873100D6D644 /* SectionEvaluateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */; };
 		136F5F051EEE97DC00D6D644 /* MyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5F041EEE97DC00D6D644 /* MyPickerView.swift */; };
 		136F5F071EEECBDD00D6D644 /* MEStartEvaluationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5F061EEECBDD00D6D644 /* MEStartEvaluationModel.swift */; };
+		1373F6741EF0F51A00D25873 /* MEMemberListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373F6731EF0F51A00D25873 /* MEMemberListModel.swift */; };
 		137AEA371EEFAD370038CFE5 /* MESubmitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137AEA361EEFAD370038CFE5 /* MESubmitResponseModel.swift */; };
 		15B0D7CF686B6B6469BB9D0D /* Pods_Medical_Evaluation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D195B86A7F501053751A /* Pods_Medical_Evaluation.framework */; };
 		457AE2B61EE7CF360051CC7E /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */; };
@@ -74,6 +75,7 @@
 		136F5F021EEE873100D6D644 /* SectionEvaluateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionEvaluateViewController.swift; sourceTree = "<group>"; };
 		136F5F041EEE97DC00D6D644 /* MyPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPickerView.swift; sourceTree = "<group>"; };
 		136F5F061EEECBDD00D6D644 /* MEStartEvaluationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEStartEvaluationModel.swift; sourceTree = "<group>"; };
+		1373F6731EF0F51A00D25873 /* MEMemberListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEMemberListModel.swift; sourceTree = "<group>"; };
 		137AEA361EEFAD370038CFE5 /* MESubmitResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MESubmitResponseModel.swift; sourceTree = "<group>"; };
 		457AE2B31EE7CF360051CC7E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = "Medical Evaluation/SkyFloatingLabelTextField.swift"; sourceTree = "<group>"; };
 		457AE2B41EE7CF360051CC7E /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = "Medical Evaluation/SkyFloatingLabelTextFieldWithIcon.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		133C2EE71EE7F86B00D2B68E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1373F6731EF0F51A00D25873 /* MEMemberListModel.swift */,
 				137AEA361EEFAD370038CFE5 /* MESubmitResponseModel.swift */,
 				136F5F061EEECBDD00D6D644 /* MEStartEvaluationModel.swift */,
 				136B9B8D1EE90A1D0004C12A /* MEGroupListModel.swift */,
@@ -499,6 +502,7 @@
 				457AE2B81EE7CF360051CC7E /* UITextField+fixCaretPosition.swift in Sources */,
 				133C2EED1EE7FB7300D2B68E /* DBManager.swift in Sources */,
 				AE8DEF431E212B70004A69E3 /* ListController.swift in Sources */,
+				1373F6741EF0F51A00D25873 /* MEMemberListModel.swift in Sources */,
 				1334F8901EE7EBDC00C48A26 /* DOAlertController.swift in Sources */,
 				AE8DEF401E212656004A69E3 /* TPKeyboardAvoidingTableView.m in Sources */,
 				136B9B901EE9176D0004C12A /* Global.swift in Sources */,

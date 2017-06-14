@@ -11,7 +11,7 @@ import UIKit
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
 
     var goToEvaluationPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meNavBarToSectionEvaluate)
-    
+    var memberList : [MEMemberListModel]?
 
     @IBOutlet weak var studentPicker: Picker!
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     }
     override func viewWillAppear(animated: Bool) {
      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
-      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetStudentMethod)
+      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,8 +54,8 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                     }
                 }
                     
-                else if methodName == MEmethodNames().meMethodNames.MEGetStudentMethod{
-                      url = String(format: MEApiUrls().MEGetStudentList.getStudentList, accessToken,15,0,2)
+                else if methodName == MEmethodNames().meMethodNames.MEGetMemberListMethod{
+                      url = String(format: MEApiUrls().MEGetMemberList.getMemberList, accessToken,15,0)
                 }
                     
                 else if methodName == MEmethodNames().meMethodNames.MEGetStartMethod{
@@ -63,7 +63,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                     if let details = DBManager.sharedManager.fetchValueForKey(meUserDetails) {
                         let key = studentPicker.pickerTextField.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
-                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken, studentPicker.pickerTextField.tag,evaluationIdWithTag(studentPicker.pickerTextField.tag),key)
+                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,key) //key
                         }
                     }
                 }
@@ -82,10 +82,11 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                 self.stopLoadingAnimation()
             })
         }
-        else if methodName ==  MEmethodNames().meMethodNames.MEGetStudentMethod{
+        else if methodName ==  MEmethodNames().meMethodNames.MEGetMemberListMethod{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-          _ = ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEProfileModel) as? [MEProfileModel]
-                self.fetchAllFullNamesFromJson(result as! NSArray)
+          self.memberList = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEMemberListModel) as? [MEMemberListModel]
+               print(self.memberList![0])
+                self.setPicker()
                 self.stopLoadingAnimation()
             })
         }
@@ -94,56 +95,10 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                 startList = ModelClassManager.sharedManager.createModelArray([result] , modelType: ModelType.MEStartEvaluationModel) as? [MEStartEvaluationModel]
                 self.stopLoadingAnimation()
                 self.navigationController?.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
-
             })
             
         }
 }
-    
-    func evaluationIdWithTag(tag : Int) -> Int{
-        var idValue = Int()
-        for each in groupIdArray{
-            if tag == each{
-                let index = groupIdArray.indexOf(tag)
-                let fromEvaluationIdArrayValue = evaluationIdArray[index!]
-                idValue = fromEvaluationIdArrayValue
-            }
-        }
-        return idValue
-    }
-    
-    func getIdDetailsFromUserDetails(details : AnyObject) -> (Int,Int,String){
-            let userName = details[meUserName] as? String
-            var userGroupId  = Int()
-            var evalId = Int()
-        if let groupValue = details[meGroup] {
-                userGroupId = (groupValue![meGroupId] as? Int)!
-            
-            if let evaluationValue = groupValue![meEvaluation] as? NSDictionary{
-                    evalId = (evaluationValue[meEvaluationId] as? Int)!
-            }
-        }
-             return (userGroupId,evalId,userName!)
-    }
-    
-    
-    func fetchAllFullNamesFromJson(result : NSArray) {
-          if result.count != 0{
-           var fullNameArray = [String]()
-            for each in result{
-            if  let name = each[jfullName]  as? String{
-                fullNameArray.append(name)
-            }else{
-                 fullNameArray.append("null")
-            }
-            }
-            studentPicker.pickerInputItems(fullNameArray)
-            studentPicker.pickerInputIDitems(groupIdArray)
-            studentPicker.pickerTextField.text = fullNameArray[0]
-            studentPicker.pickerTextField.tag = groupIdArray[0]
-        
-        }
-        }
     
 func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -158,13 +113,31 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         }
     }
    
-    
+    //MARK:- Notification
     func dismissView(){
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             self.goToEvaluationPage.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 
+    func getIdDetailsFromUserDetails(details : AnyObject) -> (Int,Int,String){
+        let userName = details[meUserName] as? String
+        var userGroupId  = Int()
+        var evalId = Int()
+        if let groupValue = details[meGroup] {
+            userGroupId = (groupValue![meGroupId] as? Int)!
+            
+            if let evaluationValue = groupValue![meEvaluation] as? NSDictionary{
+                evalId = (evaluationValue[meEvaluationId] as? Int)!
+            }
+        }
+        return (userGroupId,evalId,userName!)
+    }
+    
+    func setPicker(){
+        studentPicker.pickerInputItems(pickerArrays)
+        studentPicker.pickerTextField.text = pickerArrays[0]
+    }
     /*
     // MARK: - Navigation
 

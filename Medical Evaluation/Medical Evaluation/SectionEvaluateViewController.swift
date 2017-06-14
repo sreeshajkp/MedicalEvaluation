@@ -13,7 +13,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     var cellArray = [SectionEvaluationTableViewCell]()
     var delegate : MEDelegate?
     var questionList = [MEQuestionModel]()
-    var cell = SectionEvaluationTableViewCell()
     var isBack = false
     @IBOutlet weak var questionTable: UITableView!
     @IBOutlet weak var headerTextLabel: UILabel!
@@ -60,8 +59,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         print(mySectionCount)
         if mySectionCount > 0 && mySectionCount != 1{
         mySectionCount = mySectionCount - 1
-       isBack = true
-       getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
+        isBack = true
+            getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
         }
        else{
             questionResponseArray = []
@@ -119,7 +118,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         tableViewHeightConstraint.constant = tableView.contentSize.height
-        cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
+       let cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
         cell.selectionStyle = .None
         if questionList.count != 0{
              questionNum = questionNum + 1
@@ -204,7 +203,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func setQuestionsForSubmit(model : [MEQuestionModel]){
         print(cellArray.count)
         for each in cellArray{
-            print(each.typingTextField.text)
             let index = cellArray.indexOf(each)
             let eachValue = model[index!]
             let responseDict = NSMutableDictionary()

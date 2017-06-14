@@ -18,6 +18,7 @@ var questionResponseArray = NSMutableArray()
 var groupIdArray =  [Int]()
 var evaluationIdArray =  [Int]()
 var sectionNames = [String]()
+var pickerArrays = [String]()
 
 //MARK:- Segues Names
 class MEseguesNames{
@@ -43,6 +44,7 @@ struct  MeMethods{
     let MEGetStudentMethod = "MEGetStudentMethod"
     let MEGetStartMethod = "MEGetStartMethod"
      let MEGetMyEvaluationMethod = "MEGetMyEvaluationMethod"
+    let MEGetMemberListMethod = "MEGetMemberListMethod"
 }
 
 //MARK:- StoryBoard Names
@@ -79,4 +81,11 @@ func setAttributedText(fontToBold : UIFont,fontToLight : UIFont,text : String,co
     fullString.appendAttributedString(boldAttributedString)
     fullString.appendAttributedString(endAttributedString)
     label.attributedText = fullString
+}
+
+//MARK:- REMOVE FROM DB
+func removeAllValuesFromUserDefaults(){
+    DBManager.sharedManager.removeValueForKey(MEAccessToken)
+    DBManager.sharedManager.removeValueForKey(myId)
+    DBManager.sharedManager.removeValueForKey(meUserDetails)
 }
