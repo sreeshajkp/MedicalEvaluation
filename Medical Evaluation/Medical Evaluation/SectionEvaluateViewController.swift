@@ -121,6 +121,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         tableViewHeightConstraint.constant = tableView.contentSize.height
        let cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
+        if isFirst {
+            isFirst = false
+        cell.typingTextField.text = ""
+        }
         cell.selectionStyle = .None
         if questionList.count != 0{
              questionNum = questionNum + 1

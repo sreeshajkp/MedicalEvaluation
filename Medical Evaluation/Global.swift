@@ -13,6 +13,7 @@ import UIKit
  let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var countSection = DBManager.sharedManager.fetchValueForKey(sectionCount) as? Int
 var mySectionCount = Int()
+var isFirst = false
 var startList : [MEStartEvaluationModel]?
 var questionResponseArray = NSMutableArray()
 var groupIdArray =  [Int]()

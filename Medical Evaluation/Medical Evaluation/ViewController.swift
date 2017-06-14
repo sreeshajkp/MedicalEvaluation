@@ -15,8 +15,8 @@ class ViewController: UIViewController ,MEDelegate{
     @IBOutlet weak var matricField: SkyFloatingLabelTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-    //   passwordField.text = "12345678"
-    //  matricField.text = "12312d345678waq9"
+       passwordField.text = "12345678"
+        matricField.text = "12312d345678waq9"
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func didReceiveMemoryWarning() {
