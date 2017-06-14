@@ -150,7 +150,6 @@ class ProfileController: UIViewController ,MEDelegate{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.stopLoadingAnimation()
                 if successStatus {
-                    
                 removeAllValuesFromUserDefaults()
                 self.showAlertController(MEAppName, message: logOutMsg, cancelButton: MEAlertOK, otherButtons: [], handler: { (buttonIndex) in
                     switch buttonIndex{

@@ -48,7 +48,7 @@ class MEEvaluations{
     var eDescription : String?
     var eCreatedDate : String?
     var eLastUpdatedDate : String?
-    var eSectionList : [MESectionList]?
+    var eSectionList = [MESectionList]()
     
     init(values: NSDictionary){
         self.eCreatedDate = values["CreatedDate"] as? String
@@ -76,11 +76,11 @@ class MEEvaluations{
             
                 let memberList = MESectionList(values: each)
                 let _ = eSectionList
-                self.eSectionList = [memberList]
+                self.eSectionList.append(memberList)
             }
         }
         print(eSectionList)
-        return eSectionList!
+        return eSectionList
     }
 }
 

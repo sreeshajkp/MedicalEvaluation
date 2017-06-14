@@ -104,8 +104,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             }
         }
     }
+    
     func setButtonTitlesForPageReload(){
-        if countSection! == mySectionCount{
+        print(countSection)
+        if countSection == mySectionCount{
             nextButton.setTitle(submit, forState: .Normal)
         }
         else{
@@ -130,12 +132,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         return cell
     }
     
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 130
-//    }
-    
- 
-    
+
     func getApiCall(methodName: String,sectionId: Int){
       startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
@@ -199,6 +196,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             self.stopLoadingAnimation()
         })
     }
+    
+    //MARK:- setQuestionsForSubmit
     
     func setQuestionsForSubmit(model : [MEQuestionModel]){
         print(cellArray.count)

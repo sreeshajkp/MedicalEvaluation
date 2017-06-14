@@ -28,6 +28,7 @@ let MEusername = "username"
 
 //MARK:- Constants
 let MEAccessToken = "AccessToken"
+let myUserDetails = "myUserDetails"
 let myId = "UserId"
 let meUserDetails = "meUserDetails"
 let sectionCount = "sectionCount"
@@ -50,6 +51,7 @@ let logOutMsg = "Logout successfully!"
 //MARK:- JSON Keys
 let jUserId = "UserId"
 let JaccessToken = "AccessToken"
+let JUserName = "UserName"
 let jSuccess = "Success"
 let jContentType = "Content-Type"
 let jApplicationJSON = "application/json"

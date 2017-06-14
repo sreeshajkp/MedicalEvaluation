@@ -60,12 +60,9 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                     
                 else if methodName == MEmethodNames().meMethodNames.MEGetStartMethod{
                      dict = meEmptyDic
-                    if let details = DBManager.sharedManager.fetchValueForKey(meUserDetails) {
-                        let key = studentPicker.pickerTextField.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
-                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,key) //key
+                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
                         }
-                    }
                 }
                 NetworkManager.sharedManager.apiCallHandler(dict, methodName: methodName, appendUrl: url)
             }
@@ -106,6 +103,8 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
     })
 }
+    
+    
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
         if countSection != 0{
         mySectionCount = 1
@@ -135,8 +134,23 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     }
     
     func setPicker(){
-        studentPicker.pickerInputItems(pickerArrays)
-        studentPicker.pickerTextField.text = pickerArrays[0]
+        studentPicker.pickerInputItems(pickerDict.allKeys)
+        studentPicker.pickerTextField.text = pickerDict.allKeys[0] as? String
+    }
+    
+    func getCorrespondingValueUsingKeyFromDict(key : String) -> String{
+        var value = meNilString
+        if pickerDict.count != 0{
+            for each in pickerDict{
+                if each.key as! String == key{
+                    value = each.value as! String
+                }
+            }
+            return value
+        }
+        else{
+            return meNilString
+        }
     }
     /*
     // MARK: - Navigation

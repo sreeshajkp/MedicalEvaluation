@@ -100,7 +100,10 @@ class ViewController: UIViewController ,MEDelegate{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.stopLoadingAnimation()
                 if let accessToken = datObj[JaccessToken] as? String{
+                    if let userName = datObj[JUserName] as? String{
+                DBManager.sharedManager.insertValue(datObj, forKey: myUserDetails)
                 DBManager.sharedManager.insertValue(accessToken, forKey: MEAccessToken)
+                    }
                 }
                 if let userId = datObj[jUserId] as? String{
                     DBManager.sharedManager.insertValue(userId, forKey: myId)

@@ -18,7 +18,7 @@ var questionResponseArray = NSMutableArray()
 var groupIdArray =  [Int]()
 var evaluationIdArray =  [Int]()
 var sectionNames = [String]()
-var pickerArrays = [String]()
+var pickerDict = NSMutableDictionary()
 
 //MARK:- Segues Names
 class MEseguesNames{
@@ -85,7 +85,19 @@ func setAttributedText(fontToBold : UIFont,fontToLight : UIFont,text : String,co
 
 //MARK:- REMOVE FROM DB
 func removeAllValuesFromUserDefaults(){
+     DBManager.sharedManager.removeValueForKey(myUserDetails)
     DBManager.sharedManager.removeValueForKey(MEAccessToken)
     DBManager.sharedManager.removeValueForKey(myId)
     DBManager.sharedManager.removeValueForKey(meUserDetails)
+}
+func getUserNameFromProfile() -> String{
+    var user = meNilString
+    if let details = DBManager.sharedManager.fetchValueForKey(myUserDetails){
+        print(details)
+        if let userName = details["UserName"] as? String{
+          user = userName
+        }
+    }
+    print(user)
+    return user
 }

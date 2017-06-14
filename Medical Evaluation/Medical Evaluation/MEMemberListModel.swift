@@ -10,7 +10,7 @@ import Foundation
 
 class MEMemberListModel{
     var group : MEGroup?
-    var member : [MEMemberList]?
+    var member = [MEMemberList]()
     
     init(values : NSDictionary){
         if let group = values["Group"] as? NSDictionary{
@@ -21,29 +21,30 @@ class MEMemberListModel{
         }
     }
     func fetchingMemberList(memberArray: NSArray) -> [MEMemberList]{
-        
-        pickerArrays = []
+        pickerDict = [:]
         for each in memberArray{
               let role = each["Role"] as? Int
                 let eval = each["IsEvaluated"] as? Bool
-                    if role == 5 && eval == false{
+                let userName = each["UserName"] as? String
+                    if role == 5 && eval == false && userName != getUserNameFromProfile() {
                         if let name = each["FullName"] as? String{
-                pickerArrays.append(name as! String)
+                            let nameUser = each["UserName"] as? String
+                            pickerDict.setObject(nameUser!, forKey: name)
                         }
                         else{
-                pickerArrays.append("null")
-                        }
-                print(pickerArrays)
+                            let nameUser = each["UserName"] as? String
+                            pickerDict.setObject(nameUser!, forKey: "null")
+                }
+                print(pickerDict)
             }
         }
         if memberArray.count != 0{
             for each in memberArray as! [NSDictionary]{
                 let memberList = MEMemberList(values: each)
-                let _ = self.member
-                self.member = [memberList]
+                self.member.append(memberList)
             }
         }
         print(member)
-        return member!
+        return member
     }
 }
