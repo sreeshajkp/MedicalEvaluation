@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import JLToast
+
+var isLogedOut = false
 
 class ViewController: UIViewController ,MEDelegate{
     
@@ -25,6 +28,9 @@ class ViewController: UIViewController ,MEDelegate{
     }
     override func viewWillAppear(animated: Bool) {
         setInitialButtonAsSelected()
+        if isLogedOut{
+            showSuccessLogOut()
+        }
     }
     
      //MARK :- Button Actions)
@@ -80,7 +86,13 @@ class ViewController: UIViewController ,MEDelegate{
         }
         
     }
-   
+    
+    func showSuccessLogOut(){
+        let toast = JLToast.makeText("Loged Out Successfully")
+        toast.show()
+        isLogedOut = false
+    }
+
   
     @IBAction func logInAction(sender: AnyObject) {
         startLoadingAnimation(true)

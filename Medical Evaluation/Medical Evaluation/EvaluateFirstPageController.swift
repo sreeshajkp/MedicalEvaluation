@@ -20,7 +20,6 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setNotification()
-        showSuccessAlert()
 
         // Do any additional setup after loading the view.
     }
@@ -50,6 +49,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     func showSuccessAlert(){
         let toast = JLToast.makeText("Evaluation Submited Successfully")
         toast.show()
+        isCompletelySubmited = false
     }
  
     //MARK :- Api call handler

@@ -227,6 +227,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 if let success = result[jResult] as? Bool{
                     if success  {
                         self.stopLoadingAnimation()
+                        isCompletelySubmited = true
                         //Alert
                         NSNotificationCenter.defaultCenter().postNotificationName(meNotification, object: nil)
                     }

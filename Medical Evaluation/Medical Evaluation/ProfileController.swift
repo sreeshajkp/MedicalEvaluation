@@ -139,41 +139,39 @@ class ProfileController: UIViewController ,MEDelegate{
     
 //MARK:- MEDelgate Methods
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
-    
+        
         if let dataObj = result  as? NSDictionary{
-                if methodName == MEmethodNames().meMethodNames.MELogoutMethod{
-            if let successStatus = dataObj[jResult] as? Bool{
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.stopLoadingAnimation()
-                if successStatus {
-                removeAllValuesFromUserDefaults()
-                self.showAlertController(MEAppName, message: logOutMsg, cancelButton: MEAlertOK, otherButtons: [], handler: { (buttonIndex) in
-                    switch buttonIndex{
-                    case 0:
-                        self.moveTheLoginPage()
-                        break
-                    default:
-                        break;
-                    }
-                })
-                }
-                })
-            }
-            }
-                else if methodName == MEmethodNames().meMethodNames.MEGetProfileMethod{
+            if methodName == MEmethodNames().meMethodNames.MELogoutMethod{
+                if let successStatus = dataObj[jResult] as? Bool{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                          let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEProfileModel) as? [MEProfileModel]
                         if profileDetails?.count != 0{
                             self.populateProfileDetailsWthAPI(profileDetails![0])
                             self.detailTable.reloadData()
                             self.stopLoadingAnimation()
+
+                        if successStatus {
+                            removeAllValuesFromUserDefaults()
+                            isLogedOut = true
+                            self.moveTheLoginPage()
+                        }
                         }
                     })
+                }
+            }
+            else if methodName == MEmethodNames().meMethodNames.MEGetProfileMethod{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEProfileModel) as? [MEProfileModel]
+                    self.populateProfileDetailsWthAPI(profileDetails![0])
+                    self.detailTable.reloadData()
+                    self.stopLoadingAnimation()
+                })
+                
             }
             
         }
-
-        }
+        
+    }
       
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
