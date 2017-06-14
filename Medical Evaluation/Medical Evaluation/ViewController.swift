@@ -13,11 +13,11 @@ class ViewController: UIViewController ,MEDelegate{
     @IBOutlet weak var studentButton: UIButton!
     @IBOutlet weak var passwordField: SkyFloatingLabelTextField!
     @IBOutlet weak var matricField: SkyFloatingLabelTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       passwordField.text = "12345678"
+       passwordField.text = "12345678" //Need to comment
         matricField.text = "12312d345678waq9"
-        // Do any additional setup after loading the view, typically from a nib.
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,6 +27,7 @@ class ViewController: UIViewController ,MEDelegate{
         setInitialButtonAsSelected()
     }
     
+     //MARK :- Button Actions)
     @IBAction func accountTypeButtonAction(sender: AnyObject) {
         
          let touchedBtn  = sender as! UIButton
@@ -79,6 +80,7 @@ class ViewController: UIViewController ,MEDelegate{
         }
         
     }
+   
   
     @IBAction func logInAction(sender: AnyObject) {
         startLoadingAnimation(true)
@@ -93,8 +95,8 @@ class ViewController: UIViewController ,MEDelegate{
         }
     }
     
-    //MEDelegate delegate methods
     
+    //MARK:- MEDelegate delegate methods
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         if methodName == MEmethodNames().meMethodNames.MELoginMethod{
         if let datObj  = result as? NSDictionary{
@@ -115,13 +117,16 @@ class ViewController: UIViewController ,MEDelegate{
         }
     }
     }
+    
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
              self.stopLoadingAnimation()
             self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         })
     }
+    
  
+    //MARK:- Fetching the dictionary for login api call
     func fetchDetailsForLoginAccess() -> NSMutableDictionary{
         let dict = NSMutableDictionary()
         let mainDict = NSMutableDictionary()
@@ -135,6 +140,7 @@ class ViewController: UIViewController ,MEDelegate{
     }
 
     
+    //MARK:- Validation in username and password field
     func checkValidationFields() ->(Bool,String){
         var emptyFields = "Please fill the %@ field"
         var isSuccess = false
@@ -154,12 +160,15 @@ class ViewController: UIViewController ,MEDelegate{
         return (isSuccess,emptyFields)
         }
     
+    
+    //MARK:- Initially student radio button should selected
     func setInitialButtonAsSelected(){
         studentButton.selected = true
         matricField.placeholder = meMatricNo
         passwordField.placeholder = mePassword
     }
     
+    //MARK:- Changing the ui wrt the radio button selection
     func setUIwithRespectToRole(buttonTag : Int){
         if buttonTag == 202 || buttonTag == 203{
         matricField.placeholder = meStaffNo

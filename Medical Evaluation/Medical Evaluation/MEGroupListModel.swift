@@ -12,7 +12,7 @@ class MEGroupListModel{
     
 var createdDate : String?
 var evaluation : MEEvaluation?
-var memberList : [MEMemberList]?
+var memberList  = [MEMemberList]()
 var groupId : Int?
 var lastUpdatedDate : String?
 var name : String?
@@ -37,11 +37,11 @@ init(values : NSDictionary){
             for each in memberArray as! [NSDictionary]{
                 let memberList = MEMemberList(values: each)
                  let _ = self.memberList
-                    self.memberList = [memberList]
+                    self.memberList.append(memberList)
             }
         }
         print(memberList)
-        return memberList!
+        return memberList
     }
 }
 

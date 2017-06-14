@@ -18,15 +18,16 @@ enum RoleType: Int{
 
 class ProfileController: UIViewController ,MEDelegate{
     
-    @IBOutlet weak var introductionLabel: UILabel!
-    @IBOutlet weak var detailTable: UITableView!
     var titles = [String]()
     let images = ["Id","Student","Group","Call"]
+    
+    @IBOutlet weak var introductionLabel: UILabel!
+    @IBOutlet weak var detailTable: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewProporties()
-        self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
     }
     
@@ -34,22 +35,23 @@ class ProfileController: UIViewController ,MEDelegate{
         getProfileDetails()
     }
     
+    
+    //MARK:- Set tableview properties
     func setTableViewProporties(){
+         self.automaticallyAdjustsScrollViewInsets = false
         detailTable.estimatedRowHeight = 60.00
         detailTable.rowHeight = UITableViewAutomaticDimension
         detailTable.tableFooterView = UIView()
         
     }
     
-    func getGroupListForRole(){
-     //   callApiCallForProfile(MEmethodNames().meMethodNames.MEGetGroupListMethod)
-    }
-    
+    //MARK:- Get profile details
     func getProfileDetails(){
          titles = []
         callApiCallForProfile(MEmethodNames().meMethodNames.MEGetProfileMethod)
     }
     
+    //MARK :- Api handling
     func callApiCallForProfile(method: String){
         var url = meNilString
         startLoadingAnimation(false)
@@ -64,21 +66,19 @@ class ProfileController: UIViewController ,MEDelegate{
                 let skip = 0
                  url = String(format: MEApiUrls().MEGetGroupList.getGroupList, accessToken,take,skip)
             }
-
             NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName: method, appendUrl: url)
         }
         }
     }
+    
+    //MARK:- Populating the profile details in ui
     func populateProfileDetailsWthAPI(profile:MEProfileModel){
-        
         if let _ = profile.userName{
            titles.append(profile.userName!)
-           
         }
         if let _ = profile.fullName{
             setAttributedText(UIFont.meBoldFont(), fontToLight: UIFont.systemFontOfSize(13), text: profile.fullName!, constantTex: staticText, label: introductionLabel)
         }
-        
         if let role = profile.role{
             switch role {
             case RoleType.All.rawValue:
@@ -123,6 +123,7 @@ class ProfileController: UIViewController ,MEDelegate{
         return cell
     }
 
+    //MARK :- Button Actions
     @IBAction func logOutAcction(sender: AnyObject) {
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
             if accessToken != meNilString {
@@ -135,13 +136,8 @@ class ProfileController: UIViewController ,MEDelegate{
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 //MARK:- MEDelgate Methods
-    
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
     
         if let dataObj = result  as? NSDictionary{
@@ -167,9 +163,11 @@ class ProfileController: UIViewController ,MEDelegate{
                 else if methodName == MEmethodNames().meMethodNames.MEGetProfileMethod{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                          let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEProfileModel) as? [MEProfileModel]
-                        self.populateProfileDetailsWthAPI(profileDetails![0])
-                        self.detailTable.reloadData()
-                        self.stopLoadingAnimation()
+                        if profileDetails?.count != 0{
+                            self.populateProfileDetailsWthAPI(profileDetails![0])
+                            self.detailTable.reloadData()
+                            self.stopLoadingAnimation()
+                        }
                     })
             }
             
@@ -194,8 +192,9 @@ class ProfileController: UIViewController ,MEDelegate{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK:- Moving to login page after logout
     func moveTheLoginPage(){
-       
         let appDeligate = UIApplication.sharedApplication().delegate as! AppDelegate
         let loginVC = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meStartNav) as! UINavigationController
         appDeligate.window?.rootViewController = loginVC

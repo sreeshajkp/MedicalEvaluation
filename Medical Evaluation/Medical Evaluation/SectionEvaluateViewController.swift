@@ -9,60 +9,52 @@
 import UIKit
 
 class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,MEDelegate{
+    
     var questionNum = Int()
     var cellArray = [SectionEvaluationTableViewCell]()
     var delegate : MEDelegate?
     var questionList = [MEQuestionModel]()
     var isBack = false
+    
     @IBOutlet weak var questionTable: UITableView!
     @IBOutlet weak var headerTextLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(animated: Bool) {
         cellArray = []
-        print(mySectionCount)
         registerTheNib()
         setButtonTitlesForPageReload()
         getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
-        print(sectionNames)
         setHeaderText()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //MARK:- ButtonActions
     @IBAction func nextButtonAction(sender: UIButton) {
         isFirst = false
         if nextButton.titleLabel?.text != submit{
-        mySectionCount = mySectionCount + 1
-        if countSection! >= mySectionCount{
-         setQuestionsForSubmit(questionList)
-            let goToNextPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meSectionEvaluateViewController) as? SectionEvaluateViewController
-            self.navigationController?.pushViewController(goToNextPage!, animated: true)
-        }
+            nextButtonAction()
         }
         else{
             getApiCall(MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod, sectionId: 0)
-          
         }
-        
-        
     }
     
     @IBAction func backButtonAction(sender: UIButton) {
         isFirst = false
         print(mySectionCount)
         if mySectionCount > 0 && mySectionCount != 1{
-        mySectionCount = mySectionCount - 1
-        isBack = true
-            getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
+            setMySectionCountAndRefreshingTheQuestionList()
         }
        else{
             questionResponseArray = []
@@ -71,6 +63,27 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         }
     }
     
+    
+    //MARK :- Navigation to next page on next button click
+    func nextButtonAction(){
+        mySectionCount = mySectionCount + 1
+        if countSection! >= mySectionCount{
+            setQuestionsForSubmit(questionList)
+            let goToNextPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meSectionEvaluateViewController) as? SectionEvaluateViewController
+            self.navigationController?.pushViewController(goToNextPage!, animated: true)
+        }
+    }
+    
+    
+    //MARK:- SetMySectionCountAndRefreshingTheQuestionList
+    func setMySectionCountAndRefreshingTheQuestionList(){
+    mySectionCount = mySectionCount - 1
+    isBack = true
+    getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
+    }
+    
+    
+    //MARK:- RemoveResponseFromGlobalArray
     func removeResponseFromGlobalArray(){
         var newArray = NSMutableArray()
         print(questionResponseArray.count)
@@ -91,6 +104,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         }
     }
     
+    //MARK:- TableViewSetUps
     func registerTheNib(){
         questionTable.estimatedRowHeight = 130
         questionTable.rowHeight = UITableViewAutomaticDimension
@@ -99,6 +113,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         questionTable.registerNib(UINib(nibName: METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, bundle: nil), forCellReuseIdentifier: METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell)
     }
     
+    
+    //MARK:- Set each page with  the section names
     func setHeaderText(){
         if sectionNames.count != 0{
             if mySectionCount > 0{
@@ -107,6 +123,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         }
     }
     
+    //MARK :- Setup the button text
     func setButtonTitlesForPageReload(){
         print(countSection)
         if countSection == mySectionCount{
@@ -116,6 +133,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             nextButton.setTitle( next, forState: .Normal)
         }
     }
+    
+    //MARK:- TableView Delegates method
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questionList.count
     }
@@ -138,6 +157,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
 
+    //MARK:- Api Methods
     func getApiCall(methodName: String,sectionId: Int){
       startLoadingAnimation(false)
         NetworkManager.sharedManager.delegate = self
@@ -184,8 +204,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                     self.navigationController?.popViewControllerAnimated(true)
                 }
             })
-            
         }
+            
         else if methodName == MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 if let success = result[jResult] as? Bool{
@@ -201,6 +221,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 }
             })
         }
+            
         else  if methodName == MEmethodNames().meMethodNames.MEGetEvaluationStopMethod{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 if let success = result[jResult] as? Bool{
@@ -222,8 +243,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             self.stopLoadingAnimation()
         })
     }
-    //MARK:- setQuestionsForSubmit
     
+    
+    //MARK:- setQuestionsResponseForSubmit
     func setQuestionsForSubmit(model : [MEQuestionModel]){
         print(cellArray.count)
         for each in cellArray{
@@ -253,6 +275,5 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
            let user = ModelClassManager.sharedManager.createModelArray(questionResponseArray, modelType: ModelType.MESubmitResponseModel) as? [MESubmitResponseModel]
             print(user?.count)
     }
-   
-       }
+    }
 

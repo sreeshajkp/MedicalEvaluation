@@ -10,18 +10,18 @@ import UIKit
 
 
 class ListController: UIViewController ,MEDelegate{
-
-    @IBOutlet weak var listTable: UITableView!
+    
     var userList = [MEMemberListModel]()
-    var filterType = 1
     var skip = 0
     var take = 10
+
+    @IBOutlet weak var listTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewProporties()
-         // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(animated: Bool) {
         callApiCall(MEmethodNames().meMethodNames.MEGetProfileMethod)
         callApiCall(MEmethodNames().meMethodNames.MEGetMemberListMethod)
@@ -31,31 +31,35 @@ class ListController: UIViewController ,MEDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK :- Call Api Methods
     func callApiCall(method: String){
         var url = meNilString
         if let accessToken = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
             if accessToken != meNilString {
+                
                 if method == MEmethodNames().meMethodNames.MEGetMemberListMethod{
                  url = String(format: MEApiUrls().MEGetMemberList.getMemberList, accessToken,take,skip)
                 }
+                    
                 else if method == MEmethodNames().meMethodNames.MEGetProfileMethod{
                     url = String(format: MEApiUrls().MEGetProfile.getProfileUrl, accessToken)
                 }
+                
                 NetworkManager.sharedManager.delegate = self
                 NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName: method, appendUrl: url)
             }
         }
     }
+    
+    //MARK:- Set Tableview properties
     func setTableViewProporties(){
-        
         listTable.estimatedRowHeight = 60.00
         listTable.rowHeight = UITableViewAutomaticDimension
         listTable.tableFooterView = UIView()
-        
     }
+    
     //MARK:- Get RoleName from role
-    //all : 1. lec: = 2,staff : 3, pat:4,stu:5
-
     func getRoleValueFromApi(role: Int) -> String{
         var roleValue = String()
         enum RoleType: Int{
@@ -87,7 +91,6 @@ class ListController: UIViewController ,MEDelegate{
             return roleValue
         default:
             break
-           
         }
          return meNilString
     }
@@ -101,7 +104,6 @@ class ListController: UIViewController ,MEDelegate{
 
         }
     }
-    
    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meListTableViewCell) as! ListTableViewCell
@@ -121,6 +123,7 @@ class ListController: UIViewController ,MEDelegate{
     }
 
     
+    //MARK:- Checking my userid with each menbers id
     func checkTheUserIdForAccessoryView(cell : ListTableViewCell,userId : String,isEvaluated : Bool){
         if let myIdValue = DBManager.sharedManager.fetchValueForKey(myId){
             if userId == myIdValue as! String{
@@ -136,6 +139,7 @@ class ListController: UIViewController ,MEDelegate{
             }
     }
     }
+    
     //MARK:- MEDelegate Methods
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
             if   result  is NSDictionary {
@@ -148,6 +152,7 @@ class ListController: UIViewController ,MEDelegate{
                      self.listTable.reloadData()
                 })
             }
+                
               else  if methodName == MEmethodNames().meMethodNames.MEGetProfileMethod{
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         DBManager.sharedManager.insertValue(result, forKey: meUserDetails)
@@ -157,6 +162,7 @@ class ListController: UIViewController ,MEDelegate{
                 }
         }
     }
+    
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()
@@ -164,8 +170,8 @@ class ListController: UIViewController ,MEDelegate{
         })
     }
 
+    //MARK:- Seperationg the evaluationid and groupid  of each member
     func parseTheUsersDataToGetPickerInputs(model : [MEMemberListModel]) -> ([Int],[Int]){
-     
         for each in model{
             if let group = each.group{
             groupIdArray.append((group.groupId)!)
