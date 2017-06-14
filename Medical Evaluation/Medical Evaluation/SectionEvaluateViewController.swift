@@ -39,6 +39,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     @IBAction func nextButtonAction(sender: UIButton) {
+        isFirst = false
         if nextButton.titleLabel?.text != submit{
         mySectionCount = mySectionCount + 1
         if countSection! >= mySectionCount{
@@ -56,6 +57,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     @IBAction func backButtonAction(sender: UIButton) {
+        isFirst = false
         print(mySectionCount)
         if mySectionCount > 0 && mySectionCount != 1{
         mySectionCount = mySectionCount - 1
@@ -121,6 +123,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         tableViewHeightConstraint.constant = tableView.contentSize.height
        let cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
+        if isFirst {
+        cell.typingTextField.text = ""
+        }
         cell.selectionStyle = .None
         if questionList.count != 0{
              questionNum = questionNum + 1

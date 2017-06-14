@@ -119,6 +119,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
         if countSection != 0{
+       isFirst = true
         mySectionCount = 1
        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetStartMethod)
         }
