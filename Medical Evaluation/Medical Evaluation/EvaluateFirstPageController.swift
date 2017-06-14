@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JLToast
 
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
 
@@ -17,6 +18,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setNotification()
+        showSuccessAlert()
 
         // Do any additional setup after loading the view.
     }
@@ -39,6 +41,11 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
             object: nil)
     }
     
+    
+    func showSuccessAlert(){
+        let toast = JLToast.makeText("Successfully Submited")
+        toast.show()
+    }
  
     
     func callApiForEvaluatePage(methodName : String){
