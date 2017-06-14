@@ -9,6 +9,8 @@
 import UIKit
 import JLToast
 
+var isCompletelySubmited = false
+
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
 
     var goToEvaluationPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meNavBarToSectionEvaluate)
@@ -25,6 +27,9 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func viewWillAppear(animated: Bool) {
      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
       callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
+        if isCompletelySubmited{
+            self.showSuccessAlert()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +48,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     
     
     func showSuccessAlert(){
-        let toast = JLToast.makeText("Successfully Submited")
+        let toast = JLToast.makeText("Evaluation Submited Successfully")
         toast.show()
     }
  
