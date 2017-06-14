@@ -138,15 +138,22 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         NetworkManager.sharedManager.delegate = self
         if let accessToken  = DBManager.sharedManager.fetchValueForKey(MEAccessToken) as? String{
             var url = meNilString
+            
             if methodName == MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod{
              url = String(format: MEApiUrls().MESubmitQuestionList.getQuestionSubmit, accessToken)
                 print(questionResponseArray)
                  print(questionResponseArray.count)
                 NetworkManager.sharedManager.apiCallHandler(questionResponseArray, methodName:  methodName, appendUrl: url)
             }
+                
             else if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
                  url = String(format: MEApiUrls().MEGetQuestionList.getQuestionList, accessToken,sectionId,15,0)
                 NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName:  methodName, appendUrl: url)
+            }
+                
+            else if methodName == MEmethodNames().meMethodNames.MEGetEvaluationStopMethod{
+                url = String(format: MEApiUrls().MEGetStopEvaluation.getStopEvaluation, accessToken,Int(startList![0].responseId!))
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDic, methodName:  methodName, appendUrl: url)
             }
             
         }
@@ -181,6 +188,20 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                         self.stopLoadingAnimation()
                         questionResponseArray = []
                         self.cellArray = []
+                        self.getApiCall(MEmethodNames().meMethodNames.MEGetEvaluationStopMethod, sectionId: 0)
+                    }
+                    else{
+                        self.stopLoadingAnimation()
+                    }
+                }
+            })
+        }
+        else  if methodName == MEmethodNames().meMethodNames.MEGetEvaluationStopMethod{
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if let success = result[jResult] as? Bool{
+                    if success  {
+                        self.stopLoadingAnimation()
+                        //Alert
                         NSNotificationCenter.defaultCenter().postNotificationName(meNotification, object: nil)
                     }
                     else{
@@ -196,7 +217,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             self.stopLoadingAnimation()
         })
     }
-    
     //MARK:- setQuestionsForSubmit
     
     func setQuestionsForSubmit(model : [MEQuestionModel]){
@@ -223,6 +243,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 responseDict.setObject(meNilString, forKey: meComment)
             }
             questionResponseArray.addObject(responseDict)
+            print(questionResponseArray)
         }
            let user = ModelClassManager.sharedManager.createModelArray(questionResponseArray, modelType: ModelType.MESubmitResponseModel) as? [MESubmitResponseModel]
             print(user?.count)

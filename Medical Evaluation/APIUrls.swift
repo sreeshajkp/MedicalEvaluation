@@ -21,6 +21,7 @@ class MEApiUrls{
      let MEGetStartList =  GetStartList()
      let MEGetMyEvaluationList =  GetMyEvaluationList()
     let MEGetMemberList =  GetMemberList()
+    let MEGetStopEvaluation =  GetStopEvaluation()
     
 }
 
@@ -56,5 +57,8 @@ struct GetMyEvaluationList{
 }
 struct GetMemberList{
     let  getMemberList = "Api/Account/GetMemberList?accessToken=%@&take=%d&skip=%d"
+}
+struct GetStopEvaluation{
+    let  getStopEvaluation = "/Api/Response/End?accessToken=%@&responseId=%d"
 }
 
