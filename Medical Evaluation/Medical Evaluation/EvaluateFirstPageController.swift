@@ -32,8 +32,8 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:-  Notification Observer
     func setNotification(){
-        
         NSNotificationCenter.defaultCenter().addObserver(
             self,
             selector:#selector(EvaluateFirstPageController.dismissView),
@@ -41,13 +41,13 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
             object: nil)
     }
     
-    
+    //MARK:- Success Alert
     func showSuccessAlert(){
         let toast = JLToast.makeText("Successfully Submited")
         toast.show()
     }
  
-    
+    //MARK :- Api call handler
     func callApiForEvaluatePage(methodName : String){
         var url = meNilString
         startLoadingAnimation(false)
@@ -111,7 +111,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     })
 }
     
-    
+    //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
         if countSection != 0{
        isFirst = true
@@ -127,6 +127,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         }
     }
 
+    //MARK :- GetIdDetailsFromUserDetails
     func getIdDetailsFromUserDetails(details : AnyObject) -> (Int,Int,String){
         let userName = details[meUserName] as? String
         var userGroupId  = Int()
@@ -141,11 +142,14 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         return (userGroupId,evalId,userName!)
     }
     
+    //MARK:- Set the student picker and set its initial value
     func setPicker(){
         studentPicker.pickerInputItems(pickerDict.allKeys)
         studentPicker.pickerTextField.text = pickerDict.allKeys[0] as? String
     }
     
+    
+    //MARK:- Get Corresponding Value Using Key From dict
     func getCorrespondingValueUsingKeyFromDict(key : String) -> String{
         var value = meNilString
         if pickerDict.count != 0{
