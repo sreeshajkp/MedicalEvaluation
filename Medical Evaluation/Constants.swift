@@ -67,11 +67,12 @@ let jfullName =  "FullName"
 
 //MARK :- Enum Constants
 let eMember = "Member"
-let eUser = "User"
+let eUser = "All"
 let eStudent = "Student"
-let eNurse = "Nurse"
+let ePatient = "Patient"
 let eTeacher = "Teacher"
 let eAdmin = "Admin"
+let eStaff = "Staff"
 let eLecturer = "Lecturer"
 
 //MARK:- Validation Constants

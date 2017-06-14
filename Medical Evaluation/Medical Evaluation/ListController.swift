@@ -54,35 +54,36 @@ class ListController: UIViewController ,MEDelegate{
         
     }
     //MARK:- Get RoleName from role
-    
+    //all : 1. lec: = 2,staff : 3, pat:4,stu:5
+
     func getRoleValueFromApi(role: Int) -> String{
         var roleValue = String()
         enum RoleType: Int{
-            case User = 1
-            case Student = 2
-            case Member = 3
-            case Nurse = 4
-            case Teacher = 5
+            case All = 1
+            case Lecturer = 2
+            case Staff = 3
+            case Patient = 4
+            case Student = 5
         }
         switch role {
-        case RoleType.User.rawValue:
+        case RoleType.All.rawValue:
             roleValue = eUser
+            return roleValue
+            
+        case RoleType.Lecturer.rawValue:
+            roleValue = eLecturer
+            return roleValue
+            
+        case RoleType.Staff.rawValue:
+            roleValue = eStaff
+            return roleValue
+            
+        case RoleType.Patient.rawValue:
+            roleValue = ePatient
             return roleValue
             
         case RoleType.Student.rawValue:
             roleValue = eStudent
-            return roleValue
-            
-        case RoleType.Member.rawValue:
-            roleValue = eMember
-            return roleValue
-            
-        case RoleType.Nurse.rawValue:
-            roleValue = eNurse
-            return roleValue
-            
-        case RoleType.Teacher.rawValue:
-            roleValue = eTeacher
             return roleValue
         default:
             break
@@ -192,4 +193,3 @@ class ListTableViewCell : UITableViewCell{
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 }
-//all : 1. lec: = 2,staff : 3, pat:4,stu:5

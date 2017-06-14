@@ -9,10 +9,10 @@
 import UIKit
 
 enum RoleType: Int{
-    case User = 1
-    case Staff = 2
-    case Member = 3
-    case Lecturer = 4
+    case All = 1
+    case Lecturer = 2
+    case Staff = 3
+    case Patient = 4
     case Student = 5
 }
 
@@ -81,19 +81,19 @@ class ProfileController: UIViewController ,MEDelegate{
         
         if let role = profile.role{
             switch role {
-            case RoleType.User.rawValue:
-                titles.append(eAdmin)
-                break;
-            case RoleType.Student.rawValue:
-                titles.append(eStudent)
-                break;
-            case RoleType.Member.rawValue:
-                titles.append(eLecturer)
+            case RoleType.All.rawValue:
+                titles.append(eUser)
                 break;
             case RoleType.Lecturer.rawValue:
-                titles.append(eNurse)
+                titles.append(eLecturer)
+                break;
             case RoleType.Staff.rawValue:
-                titles.append(eTeacher)
+                titles.append(eStaff)
+                break;
+            case RoleType.Patient.rawValue:
+                titles.append(ePatient)
+            case RoleType.Student.rawValue:
+                titles.append(eStudent)
             default:
                 break;
             }
