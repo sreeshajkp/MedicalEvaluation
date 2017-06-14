@@ -15,6 +15,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     var delegate : MEDelegate?
     var questionList = [MEQuestionModel]()
     var isBack = false
+    var choiceIdDict : Dictionary<String,AnyObject>?
     
     @IBOutlet weak var questionTable: UITableView!
     @IBOutlet weak var headerTextLabel: UILabel!
@@ -148,8 +149,14 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         cell.selectionStyle = .None
         if questionList.count != 0{
              questionNum = questionNum + 1
-        if let questionList = questionList[indexPath.row] as? MEQuestionModel{
-            cell.questionLabel.text = "\(questionNum)" + ".  " + questionList.text!
+        if let question = questionList[indexPath.row] as? MEQuestionModel{
+            cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
+            
+            if let questionId = question.questionId{
+                
+                cell.choiceIds = self.getPickerArrayForTheQuestion(questionId)
+            }
+            
         }
           cellArray.append(cell)
         }
@@ -187,6 +194,36 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             }
             
         }
+    }
+    
+    func getPickerArrayForTheQuestion(questionId:Int) -> [String]{
+        
+        
+        var pickerValues = [String]()
+        
+        for key in (self.choiceIdDict?.keys)!{
+            
+            if key == "1"{
+                
+                if let array =  self.choiceIdDict![key] as? [Int]{
+                    
+                    if array.contains(questionId){
+                        pickerValues.append("Yes")
+                    }
+                }
+            }else if key == "2"{
+                
+                if let array =  self.choiceIdDict![key] as? [Int]{
+                    
+                    if array.contains(questionId){
+                        pickerValues.append("No")
+                    }
+                }
+            }
+        }
+        
+        return pickerValues
+        
     }
     
     
@@ -239,7 +276,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         else if methodName == MEmethodNames().meMethodNames.MEGetChoiceIDMethod{
             if  let resultArry = result as? NSArray{
                 let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
-             let choiceIds = DBManager.sharedManager.setChoiceIds(choices!)
+             self.choiceIdDict = DBManager.sharedManager.setChoiceIds(choices!)
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.questionNum = 0
                 self.questionTable.reloadData()

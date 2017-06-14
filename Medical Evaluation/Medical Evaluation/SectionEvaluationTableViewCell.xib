@@ -21,14 +21,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-tq-ZeJ">
-                        <rect key="frame" x="8" y="102" width="421" height="2"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="8" y="103" width="421" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.60924122431506844" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="2" id="np1-6b-VG7"/>
+                            <constraint firstAttribute="height" constant="1" id="np1-6b-VG7"/>
                         </constraints>
                     </view>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPL-CF-kVT">
-                        <rect key="frame" x="8" y="65" width="421" height="27"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPL-CF-kVT">
+                        <rect key="frame" x="8" y="65" width="421" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="ahy-NS-mlu"/>
                         </constraints>
@@ -47,14 +47,41 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k35-tW-Lsa">
+                        <rect key="frame" x="8" y="55" width="421" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="x2k-ch-Qde"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-ac-c5f">
+                        <rect key="frame" x="0.0" y="121" width="437" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="1Pb-fa-36r"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="c4F-FG-gzY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4l6-cf-OGi"/>
+                    <constraint firstAttribute="bottom" secondItem="AGL-ac-c5f" secondAttribute="bottom" id="8Xc-WI-71h"/>
                     <constraint firstItem="OPL-CF-kVT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="9MW-aF-f6I"/>
+                    <constraint firstItem="AGL-ac-c5f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Bbx-uW-JNO"/>
                     <constraint firstItem="TLO-tq-ZeJ" firstAttribute="top" secondItem="OPL-CF-kVT" secondAttribute="bottom" constant="10" id="CG4-JJ-iS6"/>
                     <constraint firstItem="OPL-CF-kVT" firstAttribute="top" secondItem="O7b-xV-5do" secondAttribute="bottom" constant="10" id="FVY-j1-FIR"/>
                     <constraint firstItem="OPL-CF-kVT" firstAttribute="leading" secondItem="O7b-xV-5do" secondAttribute="leading" id="MuG-f0-TWJ"/>
+                    <constraint firstItem="k35-tW-Lsa" firstAttribute="leading" secondItem="O7b-xV-5do" secondAttribute="leading" id="P7L-dY-mQi"/>
+                    <constraint firstItem="k35-tW-Lsa" firstAttribute="top" secondItem="O7b-xV-5do" secondAttribute="bottom" id="S8E-T8-l4f"/>
+                    <constraint firstAttribute="trailing" secondItem="AGL-ac-c5f" secondAttribute="trailing" id="SMF-oL-Ett"/>
                     <constraint firstItem="TLO-tq-ZeJ" firstAttribute="trailing" secondItem="OPL-CF-kVT" secondAttribute="trailing" id="bd3-O7-ur5"/>
                     <constraint firstAttribute="trailing" secondItem="c4F-FG-gzY" secondAttribute="trailing" constant="8" id="dNp-Z7-Gcr"/>
                     <constraint firstItem="c4F-FG-gzY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="drV-eT-xxb"/>
@@ -63,6 +90,7 @@
                     <constraint firstItem="O7b-xV-5do" firstAttribute="top" secondItem="c4F-FG-gzY" secondAttribute="bottom" constant="15" id="jWx-Uk-eTK"/>
                     <constraint firstItem="TLO-tq-ZeJ" firstAttribute="leading" secondItem="OPL-CF-kVT" secondAttribute="leading" id="mrw-ts-zuj"/>
                     <constraint firstAttribute="bottom" secondItem="TLO-tq-ZeJ" secondAttribute="bottom" constant="18" id="uZI-Ya-DkS"/>
+                    <constraint firstItem="k35-tW-Lsa" firstAttribute="trailing" secondItem="O7b-xV-5do" secondAttribute="trailing" id="v0c-ZT-6so"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

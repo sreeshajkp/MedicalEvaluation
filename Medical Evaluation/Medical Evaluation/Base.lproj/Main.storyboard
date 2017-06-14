@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -635,15 +635,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RM0-Vq-3ce">
-                                <rect key="frame" x="50" y="478" width="220" height="40"/>
+                                <rect key="frame" x="70" y="478" width="180" height="40"/>
                                 <color key="backgroundColor" red="0.59028416872024536" green="0.093233905732631683" blue="0.0048566665500402451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="6uD-TP-kmF"/>
                                     <constraint firstAttribute="height" constant="40" id="f3f-yB-EfG"/>
+                                    <constraint firstAttribute="width" constant="180" id="pIs-dD-Jn6"/>
                                 </constraints>
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6uD-TP-kmF"/>
@@ -659,7 +665,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plw-5s-73h">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="388"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vDj-zo-Bhd">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vDj-zo-Bhd">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="388"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -731,13 +737,11 @@
                         <constraints>
                             <constraint firstItem="n23-n1-d10" firstAttribute="top" secondItem="RM0-Vq-3ce" secondAttribute="bottom" constant="50" id="6QW-Dm-Oji"/>
                             <constraint firstAttribute="trailing" secondItem="ykE-HC-GTX" secondAttribute="trailing" id="A1q-hq-iMc"/>
-                            <constraint firstAttribute="trailing" secondItem="RM0-Vq-3ce" secondAttribute="trailing" constant="50" id="C3g-ze-tKL"/>
                             <constraint firstItem="RM0-Vq-3ce" firstAttribute="centerX" secondItem="J3b-V8-L5y" secondAttribute="centerX" id="Crc-Ki-QNF"/>
                             <constraint firstItem="RM0-Vq-3ce" firstAttribute="top" secondItem="ykE-HC-GTX" secondAttribute="bottom" constant="15" id="QcC-Ld-VXE"/>
                             <constraint firstItem="ykE-HC-GTX" firstAttribute="leading" secondItem="J3b-V8-L5y" secondAttribute="leading" id="VPN-jL-fyN"/>
                             <constraint firstAttribute="trailing" secondItem="OHC-v2-DDZ" secondAttribute="trailing" id="ZS0-fQ-RPR"/>
                             <constraint firstItem="OHC-v2-DDZ" firstAttribute="top" secondItem="J3b-V8-L5y" secondAttribute="top" id="eoz-rk-pOt"/>
-                            <constraint firstItem="RM0-Vq-3ce" firstAttribute="leading" secondItem="J3b-V8-L5y" secondAttribute="leading" constant="50" id="g69-sa-oCU"/>
                             <constraint firstItem="ykE-HC-GTX" firstAttribute="top" secondItem="OHC-v2-DDZ" secondAttribute="bottom" constant="10" id="nOW-JT-wSz"/>
                             <constraint firstItem="OHC-v2-DDZ" firstAttribute="leading" secondItem="J3b-V8-L5y" secondAttribute="leading" id="ySe-26-YCM"/>
                         </constraints>
