@@ -14,12 +14,22 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
         @IBOutlet weak var typingTextField: UITextField!
         @IBOutlet weak var yesOrNoPicker: UITextField!
         @IBOutlet weak var questionLabel: UILabel!
+    var choiceIds : [String] = [""]{
+        didSet{
+            
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         typingTextField.delegate = self
         yesOrNoPicker.loadDropdownData([MEAlertYes,MEAlertNo], selectedValue: MEAlertNo, isReuired: true, selectionType: meNilString) {_,_ in
             print(meNilString)
         }
+    }
+    
+    func loadPickerArrayValues(){
+        
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

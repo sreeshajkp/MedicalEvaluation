@@ -181,6 +181,11 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 NetworkManager.sharedManager.apiCallHandler(meEmptyDic, methodName:  methodName, appendUrl: url)
             }
             
+            else if methodName == MEmethodNames().meMethodNames.MEGetChoiceIDMethod{
+                url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId,accessToken,sectionId,15,0)
+                NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName:  methodName, appendUrl: url)
+            }
+            
         }
     }
     
@@ -193,16 +198,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             }
             questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionModel) as? [MEQuestionModel])!
             print(questionList.count)
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-              
-                self.questionNum = 0
-                self.questionTable.reloadData()
-                self.stopLoadingAnimation()
-                if self.isBack{
-                    self.isBack = false
-                    self.removeResponseFromGlobalArray()
-                    self.navigationController?.popViewControllerAnimated(true)
-                }
+           dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.stopLoadingAnimation()
+                self.getApiCall(MEmethodNames().meMethodNames.MEGetChoiceIDMethod, sectionId: mySectionCount)
             })
         }
             
@@ -237,6 +235,23 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 }
             })
         }
+        
+        else if methodName == MEmethodNames().meMethodNames.MEGetChoiceIDMethod{
+            if  let resultArry = result as? NSArray{
+                let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
+             let choiceIds = DBManager.sharedManager.setChoiceIds(choices!)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.questionNum = 0
+                self.questionTable.reloadData()
+                self.stopLoadingAnimation()
+                if self.isBack{
+                    self.isBack = false
+                    self.removeResponseFromGlobalArray()
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            })
+            }
+        }
     }
     
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
@@ -246,7 +261,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     
-    //MARK:- setQuestionsResponseForSubmit
+       //MARK:- setQuestionsResponseForSubmit
     func setQuestionsForSubmit(model : [MEQuestionModel]){
         print(cellArray.count)
         for each in cellArray{

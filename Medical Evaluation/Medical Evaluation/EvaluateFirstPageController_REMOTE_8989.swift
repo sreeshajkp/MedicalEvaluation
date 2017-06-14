@@ -26,7 +26,6 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func viewWillAppear(animated: Bool) {
      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
       callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
-        
         if isCompletelySubmited{
             self.showSuccessAlert()
         }
@@ -76,7 +75,6 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
                         url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
                         }
-
                 }
              
                 NetworkManager.sharedManager.apiCallHandler(dict, methodName: methodName, appendUrl: url)
@@ -119,7 +117,9 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     })
 }
     
-
+    
+    
+    
     
     //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {

@@ -48,7 +48,7 @@ class DBManager {
         }
     }
     
-    func setChoiceIds(choices:[MEResponseChoiceModel]){
+    func setChoiceIds(choices:[MEResponseChoiceModel]) -> Dictionary<String,AnyObject>{
         
         
         var choiceIdsDict = Dictionary<String,AnyObject>()
@@ -70,6 +70,8 @@ class DBManager {
         }
         
         print("section question choiceIds :",choiceIdsDict)
+        
+        return choiceIdsDict
         
     }
 

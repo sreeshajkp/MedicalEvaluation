@@ -27,6 +27,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
       callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
         
+        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetChoiceID)
         if isCompletelySubmited{
             self.showSuccessAlert()
         }
@@ -76,7 +77,12 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
                         url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
                         }
-
+<<<<<<< HEAD
+                }else if methodName == MEmethodNames().meMethodNames.MEGetChoiceID{
+                    
+                    url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId,accessToken,1,15,0)
+=======
+>>>>>>> d9aa733e26f9c33bad4ed384eeca247a7fa5646c
                 }
              
                 NetworkManager.sharedManager.apiCallHandler(dict, methodName: methodName, appendUrl: url)
@@ -109,6 +115,15 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                 self.navigationController?.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
             })
             
+<<<<<<< HEAD
+        }else if methodName == MEmethodNames().meMethodNames.MEGetChoiceID{
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if  let resultArry = result as? NSArray{
+                    let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
+                }
+            })
+=======
+>>>>>>> d9aa733e26f9c33bad4ed384eeca247a7fa5646c
         }
 }
     
@@ -119,7 +134,13 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     })
 }
     
-
+    
+<<<<<<< HEAD
+       
+=======
+    
+    
+>>>>>>> d9aa733e26f9c33bad4ed384eeca247a7fa5646c
     
     //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
