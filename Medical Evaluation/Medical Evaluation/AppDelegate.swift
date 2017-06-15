@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        if DBManager.sharedManager.fetchValueForKey(MEAccessToken) != nil{
+            DBManager.sharedManager.moveToTabBarView()
+        }
         return true
     }
 

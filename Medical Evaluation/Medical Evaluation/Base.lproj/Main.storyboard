@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-56" y="-146"/>
+            <point key="canvasLocation" x="-128" y="66"/>
         </scene>
         <!--Evaluate-->
         <scene sceneID="s8L-gX-45s">
@@ -1027,7 +1027,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="T5c-Kj-efE">
             <objects>
-                <tabBarController id="1Li-t5-UPK" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" id="1Li-t5-UPK" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" itemPositioning="centered" id="5ri-b8-Uhf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -1055,6 +1055,7 @@
         <!--Navigation Controller-->
         <scene sceneID="DKp-vD-a9U">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dj-TY-cn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="startNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z4L-ks-FUA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -1068,9 +1069,8 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wo9-KI-4A5"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4dj-TY-cn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-269" y="354"/>
+            <point key="canvasLocation" x="-512" y="-50"/>
         </scene>
     </scenes>
     <resources>

@@ -91,7 +91,12 @@ class DBManager {
         return choiceValues
     }
 
- 
+func moveToTabBarView(){
+    let appDeligate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let loginVC = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meTabBarViewController)
+    appDeligate.window?.rootViewController = loginVC
+    appDeligate.window?.makeKeyAndVisible()
+    }
 }
 
 
