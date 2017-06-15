@@ -106,7 +106,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 startList = ModelClassManager.sharedManager.createModelArray([result] , modelType: ModelType.MEStartEvaluationModel) as? [MEStartEvaluationModel]
                 self.stopLoadingAnimation()
-                self.navigationController?.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
+                self.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
             })
             
         }
