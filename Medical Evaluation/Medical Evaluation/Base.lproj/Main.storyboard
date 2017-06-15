@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4L-ks-FUA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -46,7 +46,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="muf-dJ-OKg"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -76,7 +76,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="lFk-sF-vKO"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -775,8 +775,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKU-RE-sDd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32F-G2-5r1">
-                                        <rect key="frame" x="132" y="28" width="56" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32F-G2-5r1">
+                                        <rect key="frame" x="133" y="28" width="54" height="22"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -796,7 +796,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-Re-cAH">
-                                                <rect key="frame" x="20" y="50" width="280" height="0.0"/>
+                                                <rect key="frame" x="20" y="30" width="280" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -850,8 +850,8 @@
                                                     <outlet property="delegate" destination="fUw-1Y-ouA" id="zWn-pa-Roe"/>
                                                 </connections>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDP-EI-MYq">
-                                                <rect key="frame" x="101" y="270" width="120" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDP-EI-MYq">
+                                                <rect key="frame" x="20" y="270" width="120" height="40"/>
                                                 <color key="backgroundColor" red="0.66274509800000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="gjp-qU-kTd"/>
@@ -876,13 +876,13 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="DDP-EI-MYq" firstAttribute="top" secondItem="n0U-iZ-Q59" secondAttribute="bottom" constant="10" id="2So-Ys-RmH"/>
-                                            <constraint firstItem="VBx-Re-cAH" firstAttribute="top" secondItem="vuW-8g-eni" secondAttribute="top" constant="50" id="2Tx-k9-Lj5"/>
+                                            <constraint firstItem="VBx-Re-cAH" firstAttribute="top" secondItem="vuW-8g-eni" secondAttribute="top" constant="30" id="2Tx-k9-Lj5"/>
                                             <constraint firstItem="n0U-iZ-Q59" firstAttribute="leading" secondItem="vuW-8g-eni" secondAttribute="leading" constant="20" id="7Sz-7x-09x"/>
+                                            <constraint firstItem="DDP-EI-MYq" firstAttribute="leading" secondItem="n0U-iZ-Q59" secondAttribute="leading" id="IPY-6H-Lmg"/>
                                             <constraint firstAttribute="trailing" secondItem="n0U-iZ-Q59" secondAttribute="trailing" constant="20" id="PE0-YK-vOK"/>
-                                            <constraint firstItem="DDP-EI-MYq" firstAttribute="centerX" secondItem="vuW-8g-eni" secondAttribute="centerX" id="YFJ-bs-agL"/>
-                                            <constraint firstItem="VBx-Re-cAH" firstAttribute="leading" secondItem="vuW-8g-eni" secondAttribute="leading" constant="20" id="dfD-Bx-cXe"/>
                                             <constraint firstAttribute="trailing" secondItem="VBx-Re-cAH" secondAttribute="trailing" constant="20" id="lRn-fV-NIb"/>
-                                            <constraint firstItem="n0U-iZ-Q59" firstAttribute="top" secondItem="VBx-Re-cAH" secondAttribute="bottom" constant="30" id="vZV-c4-Ot1"/>
+                                            <constraint firstItem="n0U-iZ-Q59" firstAttribute="leading" secondItem="VBx-Re-cAH" secondAttribute="leading" id="n9o-50-ikF"/>
+                                            <constraint firstItem="n0U-iZ-Q59" firstAttribute="top" secondItem="VBx-Re-cAH" secondAttribute="bottom" constant="50" id="vZV-c4-Ot1"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1055,7 +1055,6 @@
         <!--Navigation Controller-->
         <scene sceneID="DKp-vD-a9U">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4dj-TY-cn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="startNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z4L-ks-FUA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -1069,6 +1068,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wo9-KI-4A5"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dj-TY-cn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-512" y="-50"/>
         </scene>
