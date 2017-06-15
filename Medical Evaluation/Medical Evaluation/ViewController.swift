@@ -88,7 +88,7 @@ class ViewController: UIViewController ,MEDelegate{
     }
     
     func showSuccessLogOut(){
-        let toast = JLToast.makeText("Loged Out Successfully")
+        let toast = JLToast.makeText(logOutMsg)
         toast.show()
         isLogedOut = false
     }

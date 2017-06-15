@@ -45,7 +45,7 @@ let noNetworkMsg = "Please check your internet connectivity!"
 let serverErrorMsg = "Server Error.Try again later!"
 let kEnterEmailOrUsername = "Please enter the Username"
 let logOutMsg = "Logout successfully!"
-let evaluationSuccessMsg = "Evaluation Submited Successfully"
+let evaluationSuccessMsg = "Evaluation submited successfully"
 
 
 //MARK:- JSON Keys

@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum ChoiceId : Int{
+    case Yes =  1
+    case No = 2
+}
 class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,MEDelegate{
     
     var questionNum = Int()
@@ -152,10 +156,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if let question = questionList[indexPath.row] as? MEQuestionModel{
             cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
             
-            if let questionId = question.questionId{
-                
-                cell.choiceIds = self.getPickerArrayForTheQuestion(questionId)
-            }
+            cell.choiceIds = getPickerForResponseChoiceId()
+//            if let questionId = question.questionId{
+//                cell.choiceIds = self.getPickerArrayForTheQuestion(questionId)
+//            }
             
         }
           cellArray.append(cell)
@@ -163,6 +167,22 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         return cell
     }
     
+    //MARK:- GetTextwrtChoiceId
+    func getPickerForResponseChoiceId() -> [String]{
+           var choiceValues = [String]()
+            var allValues = choiceDict.allValues
+            for each in allValues {
+                switch each as! Int{
+                case ChoiceId.Yes.rawValue:
+                    choiceValues.append(MEAlertYes)
+                case ChoiceId.No.rawValue:
+                    choiceValues.append(MEAlertNo)
+                default:
+                    break;
+                }
+        }
+      return choiceValues
+    }
 
     //MARK:- Api Methods
     func getApiCall(methodName: String,sectionId: Int){

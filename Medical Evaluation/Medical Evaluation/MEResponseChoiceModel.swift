@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+var choiceDict = NSMutableDictionary()
 class MEResponseChoiceModel {
 
     var section : MESection?
@@ -22,8 +22,13 @@ class MEResponseChoiceModel {
         }
         self.responseChoiceId = values["ResponseChoiceId"] as? Int
         self.text = values["Text"] as? String
+        getResponseChoiceIdAndTextFromModel()
         self.comment = values["Comment"] as? String
         self.createdDate = values["CreatedDate"] as? String
+    }
+    
+    func getResponseChoiceIdAndTextFromModel(){
+        choiceDict.setObject(self.responseChoiceId!, forKey: self.text!)
     }
 }
 
