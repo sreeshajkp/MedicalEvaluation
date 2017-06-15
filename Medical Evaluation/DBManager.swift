@@ -74,6 +74,22 @@ class DBManager {
         return choiceIdsDict
         
     }
+    //MARK:- GetTextwrtChoiceId
+    func getPickerForResponseChoiceId() -> [String]{
+        var choiceValues = [String]()
+        var allValues = choiceDict.allValues
+        for each in allValues {
+            switch each as! Int{
+            case ChoiceId.Yes.rawValue:
+                choiceValues.append(MEAlertYes)
+            case ChoiceId.No.rawValue:
+                choiceValues.append(MEAlertNo)
+            default:
+                break;
+            }
+        }
+        return choiceValues
+    }
 
  
 }

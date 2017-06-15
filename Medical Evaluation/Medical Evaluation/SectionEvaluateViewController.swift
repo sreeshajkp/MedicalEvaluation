@@ -90,7 +90,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     //MARK:- RemoveResponseFromGlobalArray
     func removeResponseFromGlobalArray(){
-        var newArray = NSMutableArray()
+        let newArray = NSMutableArray()
         print(questionResponseArray.count)
         print(questionList.count)
         if questionResponseArray.count != 0 {
@@ -156,7 +156,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if let question = questionList[indexPath.row] as? MEQuestionModel{
             cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
             
-            cell.choiceIds = getPickerForResponseChoiceId()
+            cell.choiceIds = DBManager.sharedManager.getPickerForResponseChoiceId()
 //            if let questionId = question.questionId{
 //                cell.choiceIds = self.getPickerArrayForTheQuestion(questionId)
 //            }
@@ -167,23 +167,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         return cell
     }
     
-    //MARK:- GetTextwrtChoiceId
-    func getPickerForResponseChoiceId() -> [String]{
-           var choiceValues = [String]()
-            var allValues = choiceDict.allValues
-            for each in allValues {
-                switch each as! Int{
-                case ChoiceId.Yes.rawValue:
-                    choiceValues.append(MEAlertYes)
-                case ChoiceId.No.rawValue:
-                    choiceValues.append(MEAlertNo)
-                default:
-                    break;
-                }
-        }
-      return choiceValues
-    }
-
     //MARK:- Api Methods
     func getApiCall(methodName: String,sectionId: Int){
       startLoadingAnimation(false)
