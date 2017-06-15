@@ -134,7 +134,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         }
         }else{
             
-            self.showAlertController("Alert", message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
+            self.showAlertController(MEAppName, message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
     }
    

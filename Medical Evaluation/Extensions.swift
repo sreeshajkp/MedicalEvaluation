@@ -78,7 +78,7 @@ extension UIViewController{
         activityView.frame = CGRectMake(0, 0, screenRect.width, screenRect.height)
         }
         else{
-              activityView.frame = CGRectMake(0, 30, screenRect.width, screenRect.height)
+              activityView.frame = CGRectMake(0, 0, screenRect.width, screenRect.height)
         }
         
           let colors = Colors()
@@ -105,7 +105,7 @@ extension UIViewController{
         activityIndicator.direction = HZActivityIndicatorDirectionClockwise;
         activityIndicator.tag = 101011
         self.view.addSubview(activityIndicator)
-        activityIndicator.center = view.center//activityView.center
+        activityIndicator.center = CGPointMake(view.center.x, view.center.y )//view.center//activityView.center
         activityIndicator.startAnimating()
     }
     
