@@ -97,7 +97,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
         else if methodName ==  MEmethodNames().meMethodNames.MEGetMemberListMethod{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
           self.memberList = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEMemberListModel) as? [MEMemberListModel]
-               print(self.memberList![0])
+              // print(self.memberList![0])
                 self.setPicker()
                 self.stopLoadingAnimation()
             })
@@ -123,10 +123,15 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     
     //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
+        if pickerDict.count > 0{
         if countSection != 0{
        isFirst = true
         mySectionCount = 1
        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetStartMethod)
+        }
+        }else{
+            
+            self.showAlertController("Alert", message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
     }
    
@@ -155,7 +160,9 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     //MARK:- Set the student picker and set its initial value
     func setPicker(){
         studentPicker.pickerInputItems(pickerDict.allKeys)
+        if pickerDict.allKeys.count > 0{
         studentPicker.pickerTextField.text = pickerDict.allKeys[0] as? String
+        }
     }
     
     

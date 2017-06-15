@@ -153,13 +153,11 @@ class ProfileController: UIViewController ,MEDelegate{
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         
         if methodName == MEmethodNames().meMethodNames.MELogoutMethod{
-            if let dataObj = result  as? NSDictionary{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     removeAllValuesFromUserDefaults()
                     isLogedOut = true
                     self.moveTheLoginPage()
                 })
-            }
         }
         else if methodName == MEmethodNames().meMethodNames.MEGetProfileMethod{
             if let dataObj = result  as? NSDictionary{
@@ -178,8 +176,21 @@ class ProfileController: UIViewController ,MEDelegate{
     
     func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.stopLoadingAnimation()
-            self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
+            
+             if methodName == MEmethodNames().meMethodNames.MELogoutMethod{
+                self.stopLoadingAnimation()
+                removeAllValuesFromUserDefaults()
+                isLogedOut = true
+                self.moveTheLoginPage()
+                
+             }else{
+                
+                self.stopLoadingAnimation()
+                self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
+                
+            }
+            
+          
         })
     }
     
