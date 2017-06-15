@@ -74,7 +74,9 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                 else if methodName == MEmethodNames().meMethodNames.MEGetStartMethod{
                      dict = meEmptyDic
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
+                            if studentPicker.pickerTextField.text != ""{
                         url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
+                            }
                         }
 
                 }
@@ -125,6 +127,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
         if countSection != 0{
        isFirst = true
+       fromback = false
         mySectionCount = 1
        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetStartMethod)
         }
@@ -154,8 +157,14 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     
     //MARK:- Set the student picker and set its initial value
     func setPicker(){
+        if pickerDict.count != 0{
         studentPicker.pickerInputItems(pickerDict.allKeys)
+        print(pickerDict)
         studentPicker.pickerTextField.text = pickerDict.allKeys[0] as? String
+        }
+        else{
+            studentPicker.pickerTextField.placeholder = "No students"
+        }
     }
     
     

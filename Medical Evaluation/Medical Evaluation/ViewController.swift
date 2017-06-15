@@ -116,6 +116,7 @@ class ViewController: UIViewController ,MEDelegate{
                 self.stopLoadingAnimation()
                 if let accessToken = datObj[JaccessToken] as? String{
                     if let userName = datObj[JUserName] as? String{
+                 DBManager.sharedManager.insertValue(userName, forKey: myUser)
                 DBManager.sharedManager.insertValue(datObj, forKey: myUserDetails)
                 DBManager.sharedManager.insertValue(accessToken, forKey: MEAccessToken)
                     }

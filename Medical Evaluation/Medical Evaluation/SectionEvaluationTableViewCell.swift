@@ -29,10 +29,8 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
         
         if choiceIds.count > 0{
             yesOrNoPicker.loadDropdownData(choiceIds, selectedValue: choiceIds[0], isReuired: true, selectionType: meNilString) {_,_ in
-                print(meNilString)
             }
         }
-        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -16,6 +16,8 @@ var mySectionCount = Int()
 var isFirst = false
 var startList : [MEStartEvaluationModel]?
 var questionResponseArray = NSMutableArray()
+var pickerResponseSetValues = NSMutableArray()
+var pickerSelectedValues = NSMutableArray()
 var groupIdArray =  [Int]()
 var evaluationIdArray =  [Int]()
 var sectionNames = [String]()
