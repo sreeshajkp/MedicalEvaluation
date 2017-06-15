@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var fromback = false
 enum ChoiceId : Int{
     case Yes =  1
     case No = 2
@@ -47,6 +47,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     //MARK:- ButtonActions
     @IBAction func nextButtonAction(sender: UIButton) {
         isFirst = false
+        fromback = false
         if nextButton.titleLabel?.text != submit{
             nextButtonAction()
         }
@@ -59,11 +60,13 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         isFirst = false
         print(mySectionCount)
         if mySectionCount > 0 && mySectionCount != 1{
+            fromback = true
             setMySectionCountAndRefreshingTheQuestionList()
         }
        else{
             questionResponseArray = []
             cellArray = []
+            pickerResponseSetValues = []
             NSNotificationCenter.defaultCenter().postNotificationName(meNotification, object: nil)
         }
     }
@@ -84,7 +87,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func setMySectionCountAndRefreshingTheQuestionList(){
     mySectionCount = mySectionCount - 1
     isBack = true
+       // self.removeResponseFromGlobalArray()
+       // self.navigationController?.popViewControllerAnimated(true)
     getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
+     
     }
     
     
@@ -104,10 +110,39 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             for i in 0 ..< newCount{
                 newArray.addObject(questionResponseArray[i])
             }
-           questionResponseArray = newArray
-            print(questionResponseArray)
+            questionResponseArray = newArray
+            print(questionResponseArray.count)
         }
     }
+    
+    //MARK:- removeResponseChoiceFromGlobalArray
+    func removeResponseChoiceFromGlobalArray(){
+        var pickerCount = pickerResponseSetValues.count
+        var newCount = 0
+        print(questionList.count)
+        if pickerResponseSetValues.count != 0 {
+            if questionList.count != 0{
+                newCount = pickerResponseSetValues.count - questionList.count
+                pickerSelectedValues = []
+                for i in newCount ..< pickerCount{
+                    pickerSelectedValues.addObject(pickerResponseSetValues[i])
+                    
+                }
+            }
+            else{
+               pickerSelectedValues = []
+            }
+            print(pickerSelectedValues)
+            var countVal = pickerResponseSetValues.count - pickerSelectedValues.count
+            var arrays = NSMutableArray()
+            for i in 0 ..< countVal{
+                arrays.addObject(pickerResponseSetValues[i])
+            }
+            pickerResponseSetValues = arrays
+            print(pickerResponseSetValues)
+        }
+    }
+    
     
     //MARK:- TableViewSetUps
     func registerTheNib(){
@@ -155,8 +190,12 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
              questionNum = questionNum + 1
         if let question = questionList[indexPath.row] as? MEQuestionModel{
             cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
-            
+            if fromback {
+                cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as! String
+            }
+            else{
             cell.choiceIds = DBManager.sharedManager.getPickerForResponseChoiceId()
+            }
 //            if let questionId = question.questionId{
 //                cell.choiceIds = self.getPickerArrayForTheQuestion(questionId)
 //            }
@@ -250,6 +289,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                     if success  {
                         self.stopLoadingAnimation()
                         questionResponseArray = []
+                        pickerSelectedValues = []
+                        pickerResponseSetValues = []
                         self.cellArray = []
                         self.getApiCall(MEmethodNames().meMethodNames.MEGetEvaluationStopMethod, sectionId: 0)
                     }
@@ -286,6 +327,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 self.stopLoadingAnimation()
                 if self.isBack{
                     self.isBack = false
+                      if fromback{
+                    self.removeResponseChoiceFromGlobalArray()
+                    }
                     self.removeResponseFromGlobalArray()
                     self.navigationController?.popViewControllerAnimated(true)
                 }
@@ -310,6 +354,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             let responseDict = NSMutableDictionary()
             responseDict.setObject([meResponseId : Int(startList![0].responseId!)], forKey: meResponse)
             responseDict.setObject([meQuestionId : eachValue.questionId!], forKey: meQuestion)
+            pickerResponseSetValues.addObject(each.yesOrNoPicker.text!)
             if each.yesOrNoPicker.text == MEAlertYes{
             responseDict.setObject([meResponseChoiceId : 1], forKey: meResponseChoice)
            }
@@ -327,6 +372,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             }
             questionResponseArray.addObject(responseDict)
             print(questionResponseArray)
+            print(pickerResponseSetValues)
         }
            let user = ModelClassManager.sharedManager.createModelArray(questionResponseArray, modelType: ModelType.MESubmitResponseModel) as? [MESubmitResponseModel]
             print(user?.count)

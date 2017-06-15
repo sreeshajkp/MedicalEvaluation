@@ -29,6 +29,7 @@ let MEusername = "username"
 //MARK:- Constants
 let MEAccessToken = "AccessToken"
 let myUserDetails = "myUserDetails"
+let myUser = "myUser"
 let myId = "UserId"
 let meUserDetails = "meUserDetails"
 let sectionCount = "sectionCount"
