@@ -20,6 +20,10 @@ extension UIColor{
     {
         return UIColor.colorFromHEX(0xC30D2B)
     }
+    
+    class func MELightGrey() -> UIColor{
+        return UIColor.colorFromHEX(0xf5f5f5)
+    }
  
     class func colorFromHEX(hexValue: UInt) -> UIColor {
         return UIColor(
