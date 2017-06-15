@@ -39,9 +39,9 @@ class MyPickerView: UIPickerView,UIPickerViewDelegate,UIPickerViewDataSource {
 //        toolBar.barStyle = .blackTranslucent
         toolBar.translucent = true
         
-        toolBar.tintColor = UIColor.whiteColor()
+        toolBar.tintColor = UIColor.darkGrayColor()
         
-        toolBar.backgroundColor = UIColor.whiteColor()
+        toolBar.backgroundColor = UIColor.MELightGrey()
         
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(MyPickerView.donePressed))
@@ -50,7 +50,7 @@ class MyPickerView: UIPickerView,UIPickerViewDelegate,UIPickerViewDataSource {
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.size.width / 3, height: self.frame.size.height))
         
-        label.font = UIFont(name: "Helvetica", size: 12)
+        label.font = UIFont(name: "Helvetica-Neue", size: 12)
         
         label.backgroundColor = UIColor.clearColor()
         
