@@ -68,8 +68,6 @@ class MEEvaluations{
                 sectionNames.append(name as! String)
                 print(sectionNames)
             }
-            
-            
         }
         if memberArray.count != 0{
             for each in memberArray as! [NSDictionary]{

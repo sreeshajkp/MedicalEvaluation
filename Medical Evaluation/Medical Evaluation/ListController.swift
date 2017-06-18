@@ -14,6 +14,7 @@ class ListController: UIViewController ,MEDelegate{
     var userList = [MEMemberListModel]()
     var skip = 0
     var take = 10
+    @IBOutlet weak var groupLabel: UILabel!
 
     @IBOutlet weak var listTable: UITableView!
     
@@ -147,9 +148,11 @@ class ListController: UIViewController ,MEDelegate{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEMemberListModel) as? [MEMemberListModel]
                     self.userList = profileDetails!
+                    self.setTitleNavigationBar(profileDetails![0])
                     self.parseTheUsersDataToGetPickerInputs(self.userList)
                     self.stopLoadingAnimation()
                      self.listTable.reloadData()
+        
                 })
             }
                 
@@ -168,6 +171,11 @@ class ListController: UIViewController ,MEDelegate{
             self.stopLoadingAnimation()
             self.showAlertController(MEAppName, message: error as! String, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         })
+    }
+    
+    func setTitleNavigationBar(modelObj:MEMemberListModel){
+        
+        self.groupLabel.text = modelObj.group?.name
     }
 
     //MARK:- Seperationg the evaluationid and groupid  of each member

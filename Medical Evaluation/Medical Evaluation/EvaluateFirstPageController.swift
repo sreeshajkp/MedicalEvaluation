@@ -12,6 +12,7 @@ import JLToast
 var isCompletelySubmited = false
 
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
+    @IBOutlet weak var overlayView: UIView!
 
     var goToEvaluationPage = mainStoryboard.instantiateViewControllerWithIdentifier(MEStoryBoardIds().meStoryBoardIds.meNavBarToSectionEvaluate)
     var memberList : [MEMemberListModel]?
@@ -20,16 +21,21 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setNotification()
-
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-     callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
-      callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
+        startActions()
+
+         }
+    
+    func startActions(){
+        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count
+        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMemberListMethod)
         
         if isCompletelySubmited{
             self.showSuccessAlert()
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,12 +142,17 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
             
             self.showAlertController(MEAppName, message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
+        
+        self.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
     }
    
     //MARK:- Notification
     func dismissView(){
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.goToEvaluationPage.dismissViewControllerAnimated(true, completion: nil)
+          //  self.goToEvaluationPage.dismissViewControllerAnimated(true, completion: nil)
+            self.goToEvaluationPage.dismissViewControllerAnimated(true, completion: {
+              //  self.startActions()
+            })
         }
     }
 
@@ -165,8 +176,11 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         if pickerDict.count != 0{
         studentPicker.pickerInputItems(pickerDict.allKeys)
         studentPicker.pickerTextField.text = pickerDict.allKeys[0] as? String
+            overlayView.hidden = true
+
         }
         else{
+            overlayView.hidden = false
             studentPicker.pickerTextField.placeholder = "No students"
         }
     }

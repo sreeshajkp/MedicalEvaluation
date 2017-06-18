@@ -44,5 +44,9 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
     func textFieldDidEndEditing(textField: UITextField) {
          colourView.backgroundColor = UIColor.lightGrayColor()
     }
+     func textFieldShouldReturn(textField: UITextField) -> Bool{
+        typingTextField.resignFirstResponder()
+        return true
+    }
     
 }

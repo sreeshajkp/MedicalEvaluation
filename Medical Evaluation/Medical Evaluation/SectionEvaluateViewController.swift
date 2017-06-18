@@ -352,6 +352,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             let index = cellArray.indexOf(each)
             let eachValue = model[index!]
             let responseDict = NSMutableDictionary()
+            guard let _ = startList else {return }
             responseDict.setObject([meResponseId : Int(startList![0].responseId!)], forKey: meResponse)
             responseDict.setObject([meQuestionId : eachValue.questionId!], forKey: meQuestion)
             pickerResponseSetValues.addObject(each.yesOrNoPicker.text!)

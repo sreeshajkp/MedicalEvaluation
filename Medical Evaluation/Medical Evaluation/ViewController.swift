@@ -11,7 +11,7 @@ import JLToast
 
 var isLogedOut = false
 
-class ViewController: UIViewController ,MEDelegate{
+class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
     
     @IBOutlet weak var studentButton: UIButton!
     @IBOutlet weak var passwordField: SkyFloatingLabelTextField!
@@ -21,6 +21,8 @@ class ViewController: UIViewController ,MEDelegate{
         super.viewDidLoad()
        passwordField.text = "12345678" //Need to comment
         matricField.text = "12312d345678waq9"
+//        passwordField.delegate = self
+//        matricField.delegate = self
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -25,8 +25,8 @@ class MEMemberListModel{
         for each in memberArray{
               let role = each["Role"] as? Int
                 let eval = each["IsEvaluated"] as? Bool
-                let userName = each["UserName"] as? String
-                    if role == 5 && eval == false && userName != getUserNameFromProfile() {
+              //  let userName = each["UserName"] as? String
+                    if role == 5 && eval == false /*&& userName != getUserNameFromProfile()*/ {
                         if let name = each["FullName"] as? String{
                             let nameUser = each["UserName"] as? String
                             pickerDict.setObject(nameUser!, forKey: name)
