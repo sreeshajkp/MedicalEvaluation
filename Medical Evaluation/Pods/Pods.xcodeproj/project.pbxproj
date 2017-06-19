@@ -33,26 +33,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		009D708F7BBAA2D3B673C4BF0399E719 /* JLToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JLToast.framework; path = JLToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		009D708F7BBAA2D3B673C4BF0399E719 /* JLToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JLToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B28A4EA1D0B1F5519B7670D2B54036 /* Pods-Medical Evaluation-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Medical Evaluation-acknowledgements.plist"; sourceTree = "<group>"; };
 		04E066E6BF2E7F28E6993E8043C448EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17A9D29DDB6B316AA0D2B8EC3949D497 /* JLToast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JLToast.swift; path = JLToast/JLToast.swift; sourceTree = "<group>"; };
 		19D8964E9AE916B8972BF278092F30D2 /* JLToast-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JLToast-umbrella.h"; sourceTree = "<group>"; };
 		1EB9E52B147850ED9AC1650D5226883E /* JLToast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JLToast.xcconfig; sourceTree = "<group>"; };
 		25450BA1323BAF107CB7DDADC0D081BF /* JLToast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLToast.h; path = JLToast/JLToast.h; sourceTree = "<group>"; };
-		287AEB5A668A17A3BAEA0B218ABE64AA /* Pods-Medical Evaluation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Medical Evaluation.modulemap"; sourceTree = "<group>"; };
+		287AEB5A668A17A3BAEA0B218ABE64AA /* Pods-Medical Evaluation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Medical Evaluation.modulemap"; sourceTree = "<group>"; };
 		33083C616C9CA8AF16FA7C690BC673C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3917A50EB224EEDBC66971700D698782 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5698E2B25629CC84C5138A3A5FEA7E31 /* JLToastWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JLToastWindow.swift; path = JLToast/JLToastWindow.swift; sourceTree = "<group>"; };
 		6B5A3121172A9F4B6F65466DA22B5620 /* JLToast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JLToast-dummy.m"; sourceTree = "<group>"; };
 		6BADBEF51BFC126995DD321F6AFE2BBE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FB90FA1889D02255B424E3B87A50EF9 /* JLToast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JLToast.modulemap; sourceTree = "<group>"; };
+		6FB90FA1889D02255B424E3B87A50EF9 /* JLToast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JLToast.modulemap; sourceTree = "<group>"; };
 		7632061D6AB8606B7FE9B0DBDAFAF27D /* Pods-Medical Evaluation-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Medical Evaluation-frameworks.sh"; sourceTree = "<group>"; };
 		7DB6BA5D7F4D6841FD47FB76343EBD8B /* Pods-Medical Evaluation-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Medical Evaluation-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7FE315A630EB0E00CFA76CF081CCDF39 /* Pods_Medical_Evaluation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Medical_Evaluation.framework; path = "Pods-Medical Evaluation.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE315A630EB0E00CFA76CF081CCDF39 /* Pods_Medical_Evaluation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_Evaluation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		823F635F43D7CD7EAF93F73ADFCB9A64 /* Pods-Medical Evaluation-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Medical Evaluation-resources.sh"; sourceTree = "<group>"; };
 		8668154402F6ABE09617A463D2874941 /* JLToastCenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JLToastCenter.swift; path = JLToast/JLToastCenter.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A7755F989107E067491BAAA53E5F9210 /* Pods-Medical Evaluation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Medical Evaluation-umbrella.h"; sourceTree = "<group>"; };
 		B060258F8D9C86B933503B7A320F5E4E /* Pods-Medical Evaluation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Medical Evaluation.debug.xcconfig"; sourceTree = "<group>"; };
 		C7871D29E4B5F4F4B84A060726571744 /* Pods-Medical Evaluation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Medical Evaluation.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +127,6 @@
 				5698E2B25629CC84C5138A3A5FEA7E31 /* JLToastWindow.swift */,
 				BBD5F3D5252F9C080DC0349CF3329E02 /* Support Files */,
 			);
-			name = JLToast;
 			path = JLToast;
 			sourceTree = "<group>";
 		};
@@ -322,7 +321,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Medical Evaluation/Pods-Medical Evaluation.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -473,7 +472,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Medical Evaluation/Pods-Medical Evaluation.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
