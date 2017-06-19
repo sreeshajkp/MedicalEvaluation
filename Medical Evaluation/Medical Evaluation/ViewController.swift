@@ -103,9 +103,7 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
         }else{
             stopLoadingAnimation()
             self.showEmptyTextField(validateResult.1)
-            self.view.endEditing(true)
-          //  print(validateResult.1)
-           // showAlertController(MEAppName, message: validateResult.1, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
+           self.view.endEditing(true)
         }
     }
     
@@ -167,16 +165,19 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
             emptyFields = String(format:emptyFields,vUsername)
             isSuccess = false
             matricField.shake()
-            passwordField.selected = false
-            matricField.selected = true
+            matricField.becomeFirstResponder()
+            //passwordField.selected = false
+            //matricField.selected = true
         }
         else if passwordField.text == meNilString{
             emptyFields = String(format:emptyFields,vPassword)
             print(emptyFields)
             isSuccess = false
              passwordField.shake()
-             matricField.selected = false
-             passwordField.selected = true
+            passwordField.becomeFirstResponder()
+
+            // matricField.selected = false
+           //  passwordField.selected = true
         }
         else{
               isSuccess = true
