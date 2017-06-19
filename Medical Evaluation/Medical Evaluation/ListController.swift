@@ -118,24 +118,29 @@ class ListController: UIViewController ,MEDelegate{
         cell.roleLabel.text =  getRoleValueFromApi(userList[0].member[indexPath.row].mRole!)
         if let isEvaluated = userList[0].member[indexPath.row].misEvaluated{
             print(isEvaluated)
-            checkTheUserIdForAccessoryView(cell,userId: userList[0].member[indexPath.row].mUserId!, isEvaluated: isEvaluated)
+            checkTheUserIdForAccessoryView(cell,userId: userList[0].member[indexPath.row].mUserId!, isEvaluated: isEvaluated,roleName: cell.roleLabel.text!)
         }
         return cell
     }
 
     
     //MARK:- Checking my userid with each menbers id
-    func checkTheUserIdForAccessoryView(cell : ListTableViewCell,userId : String,isEvaluated : Bool){
+    func checkTheUserIdForAccessoryView(cell : ListTableViewCell,userId : String,isEvaluated : Bool,roleName: String){
         if let myIdValue = DBManager.sharedManager.fetchValueForKey(myId){
             if userId == myIdValue as! String{
                 cell.tickImageView.image = UIImage(named: "User")
         }
             else{
+                if roleName == eLecturer{
+                     cell.tickImageView.image = UIImage(named: "User")
+                }
+                else{
                 if isEvaluated{
                     cell.tickImageView.image = UIImage(named: "GreenTick")
                 }
                 else{
                      cell.tickImageView.image = UIImage(named: "Cross")
+                }
                 }
             }
     }
