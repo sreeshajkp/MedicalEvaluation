@@ -102,11 +102,17 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
              NetworkManager.sharedManager.apiCallHandler(fetchDetailsForLoginAccess(), methodName: MEmethodNames().meMethodNames.MELoginMethod, appendUrl: MEApiUrls().MELogin.loginUrl)
         }else{
             stopLoadingAnimation()
-            print(validateResult.1)
-            showAlertController(MEAppName, message: validateResult.1, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
+            self.showEmptyTextField(validateResult.1)
+            self.view.endEditing(true)
+          //  print(validateResult.1)
+           // showAlertController(MEAppName, message: validateResult.1, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
     }
     
+    func showEmptyTextField(message:String){
+        let toast = JLToast.makeText(message)
+        toast.show()
+    }
     
     //MARK:- MEDelegate delegate methods
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
@@ -155,16 +161,18 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
     
     //MARK:- Validation in username and password field
     func checkValidationFields() ->(Bool,String){
-        var emptyFields = "Please fill the %@ field"
+        var emptyFields = "Please fill the %@"
         var isSuccess = false
         if matricField.text == meNilString{
             emptyFields = String(format:emptyFields,vUsername)
             isSuccess = false
+            matricField.shake()
         }
         else if passwordField.text == meNilString{
             emptyFields = String(format:emptyFields,vPassword)
             print(emptyFields)
             isSuccess = false
+             passwordField.shake()
         }
         else{
               isSuccess = true
