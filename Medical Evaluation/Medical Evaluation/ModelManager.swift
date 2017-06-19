@@ -60,6 +60,4 @@ class ModelClassManager{
 }
 
 
-//MAR:-  calling format
 
-// ModelClassManager.sharedManager.createModelArray(userArray, modelType: .MEPUser) as! [MEPUser]

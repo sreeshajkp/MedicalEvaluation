@@ -69,7 +69,9 @@ class NetworkManager {
                         if let httpResponse = response as? NSHTTPURLResponse{
                             if httpResponse.statusCode == 200{
                                 print(self.delegate)
+                                if jsonResult != nil{
                                 self.delegate?.networkAPIResultFetched!(jsonResult!, message: jSuccess, methodName: methodName)
+                                }
                             }
                             else   {
                                 

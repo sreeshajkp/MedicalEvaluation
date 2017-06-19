@@ -64,6 +64,6 @@ struct GetStopEvaluation{
 }
 
 struct GetChoiceId {
-    let getChoiceId = "Api/ResponseChoice/GetList?accessToken=%@&sectionId=%d&take=%d&skip=%d"
+    let getChoiceId = "Api/ResponseChoice/GetList?accessToken=%@&evaluationId=%d&take=%d&skip=%d"
 }
 

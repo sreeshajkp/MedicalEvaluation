@@ -9,16 +9,15 @@
 import Foundation
 var choiceDict = NSMutableDictionary()
 class MEResponseChoiceModel {
-
-    var section : MESection?
+    var evaluations : MEEvaluations?
     var responseChoiceId : Int?
     var text : String?
     var comment : String?
     var createdDate : String?
     
     init(values: NSDictionary){
-        if let evaluationDict = values["Section"] as? NSDictionary{
-            self.section = MESection(values: evaluationDict)
+        if let evaluationDict = values["Evaluation"] as? NSDictionary{
+            self.evaluations = MEEvaluations(values: evaluationDict)
         }
         self.responseChoiceId = values["ResponseChoiceId"] as? Int
         self.text = values["Text"] as? String
@@ -29,6 +28,7 @@ class MEResponseChoiceModel {
     
     func getResponseChoiceIdAndTextFromModel(){
         choiceDict.setObject(self.responseChoiceId!, forKey: self.text!)
+        print(choiceDict)
     }
 }
 

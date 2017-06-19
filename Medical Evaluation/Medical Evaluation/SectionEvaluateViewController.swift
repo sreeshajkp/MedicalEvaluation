@@ -8,10 +8,10 @@
 
 import UIKit
 var fromback = false
-enum ChoiceId : Int{
-    case Yes =  1
-    case No = 2
-}
+//enum ChoiceId : Int{
+//    case Yes =  1
+//    case No = 2
+//}
 class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,MEDelegate{
     
     var questionNum = Int()
@@ -20,7 +20,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     var questionList = [MEQuestionModel]()
     var isBack = false
     var choiceIdDict : Dictionary<String,AnyObject>?
-    
+    var sectionCount : Int?
     @IBOutlet weak var questionTable: UITableView!
     @IBOutlet weak var headerTextLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
@@ -34,8 +34,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         cellArray = []
         registerTheNib()
         setButtonTitlesForPageReload()
-        getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
         setHeaderText()
+        getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: sectionCount!)
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,9 +88,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func setMySectionCountAndRefreshingTheQuestionList(){
     mySectionCount = mySectionCount - 1
     isBack = true
-       // self.removeResponseFromGlobalArray()
-       // self.navigationController?.popViewControllerAnimated(true)
-    getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: mySectionCount)
+    sectionCount = sectionCountArray[mySectionCount - 1]
+   getApiCall(MEmethodNames().meMethodNames.MEGetQuestionListMethod, sectionId: sectionCount!)
      
     }
     
@@ -158,7 +158,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func setHeaderText(){
         if sectionNames.count != 0{
             if mySectionCount > 0{
-            headerTextLabel.text = sectionNames[mySectionCount - 1]
+                var names = [String]()
+                headerTextLabel.text = sectionNames[mySectionCount - 1]
+                sectionCount = sectionCountArray[mySectionCount - 1]
             }
         }
     }
@@ -194,7 +196,10 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as! String
             }
             else{
-            cell.choiceIds = DBManager.sharedManager.getPickerForResponseChoiceId()
+                if choiceDict.count != 0{
+                    cell.choiceIds = (choiceDict.allKeys as? [String])!
+                }
+                
             }
 //            if let questionId = question.questionId{
 //                cell.choiceIds = self.getPickerArrayForTheQuestion(questionId)
@@ -231,10 +236,11 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             }
             
             else if methodName == MEmethodNames().meMethodNames.MEGetChoiceIDMethod{
-                url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId,accessToken,sectionId,15,0)
+                if evaluationId != 0{
+                url = String(format:MEApiUrls().MEGetChoiceId.getChoiceId,accessToken,evaluationId,15,0)
                 NetworkManager.sharedManager.apiCallHandler(meEmptyDics, methodName:  methodName, appendUrl: url)
             }
-            
+            }
         }
     }
     
@@ -272,14 +278,12 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
 //MARK:- Delegate functions
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
-             if let datObj  = result as? NSDictionary{
-                print(datObj)
-            }
+         
             questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionModel) as? [MEQuestionModel])!
             print(questionList.count)
            dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()
-                self.getApiCall(MEmethodNames().meMethodNames.MEGetChoiceIDMethod, sectionId: mySectionCount)
+                self.getApiCall(MEmethodNames().meMethodNames.MEGetChoiceIDMethod, sectionId: self.sectionCount!)
             })
         }
             
@@ -320,7 +324,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         else if methodName == MEmethodNames().meMethodNames.MEGetChoiceIDMethod{
             if  let resultArry = result as? NSArray{
                 let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
-             self.choiceIdDict = DBManager.sharedManager.setChoiceIds(choices!)
+            // self.choiceIdDict = DBManager.sharedManager.setChoiceIds(choices!)
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.questionNum = 0
                 self.questionTable.reloadData()
@@ -356,14 +360,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             responseDict.setObject([meResponseId : Int(startList![0].responseId!)], forKey: meResponse)
             responseDict.setObject([meQuestionId : eachValue.questionId!], forKey: meQuestion)
             pickerResponseSetValues.addObject(each.yesOrNoPicker.text!)
-            if each.yesOrNoPicker.text == MEAlertYes{
-            responseDict.setObject([meResponseChoiceId : 1], forKey: meResponseChoice)
-           }
-          else if each.yesOrNoPicker.text == MEAlertNo{
-                responseDict.setObject([meResponseChoiceId : 2], forKey: meResponseChoice) //dont know the values to give
-            }
-            else if each.yesOrNoPicker.text == ""{
-                responseDict.setObject([meResponseChoiceId : 3], forKey: meResponseChoice) //dont know the values to give
+            if each.yesOrNoPicker.text != ""{
+                responseDict.setObject([meResponseChoiceId :   getChoiceId(each.yesOrNoPicker.text!)], forKey: meResponseChoice) //dont know the values to give
             }
             if each.typingTextField.text  != meNilString{
             responseDict.setObject(each.typingTextField.text!, forKey: meComment)
@@ -377,6 +375,16 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         }
            let user = ModelClassManager.sharedManager.createModelArray(questionResponseArray, modelType: ModelType.MESubmitResponseModel) as? [MESubmitResponseModel]
             print(user?.count)
+    }
+    
+    func getChoiceId(text: String) -> Int{
+        var id = Int()
+        for each in choiceDict{
+            if text == each.key as! String{
+                id = (each.value as? Int)!
+            }
+        }
+        return id
     }
     }
 

@@ -20,9 +20,7 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
        passwordField.text = "12345678" //Need to comment
-        matricField.text = "12312d345678waq9"
-//        passwordField.delegate = self
-//        matricField.delegate = self
+        matricField.text = "123456"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

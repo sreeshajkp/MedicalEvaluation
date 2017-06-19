@@ -63,10 +63,15 @@ class MEEvaluations{
     }
     func fetchingSectionListList(memberArray: NSArray) -> [MESectionList]{
         sectionNames = []
+        sectionCountArray = []
         for each in memberArray{
             if  let name = each["Name"] {
                 sectionNames.append(name as! String)
                 print(sectionNames)
+            }
+            if  let name = each["SectionId"] {
+                sectionCountArray.append(name as! Int)
+                print(sectionCountArray)
             }
         }
         if memberArray.count != 0{

@@ -10,7 +10,7 @@ import UIKit
 import JLToast
 
 var isCompletelySubmited = false
-
+var evaluationId = Int()
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
     @IBOutlet weak var overlayView: UIView!
 
@@ -81,6 +81,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                      dict = meEmptyDic
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
                             if studentPicker.pickerTextField.text != ""{
+                            evaluationId =   (memberList?[0].group?.evaluation?.eEvaluationId)!
                         url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
                             }
                         }
@@ -143,7 +144,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
             self.showAlertController(MEAppName, message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
         
-        self.presentViewController(self.goToEvaluationPage, animated: true, completion: nil)
+        
     }
    
     //MARK:- Notification

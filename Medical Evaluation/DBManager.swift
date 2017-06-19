@@ -48,7 +48,8 @@ class DBManager {
         }
     }
     
-    func setChoiceIds(choices:[MEResponseChoiceModel]) -> Dictionary<String,AnyObject>{
+  /*
+ func setChoiceIds(choices:[MEResponseChoiceModel]) -> Dictionary<String,AnyObject>{
         
         
         var choiceIdsDict = Dictionary<String,AnyObject>()
@@ -73,9 +74,9 @@ class DBManager {
         
         return choiceIdsDict
         
-    }
+    } */
     //MARK:- GetTextwrtChoiceId
-    func getPickerForResponseChoiceId() -> [String]{
+  /*  func getPickerForResponseChoiceId() -> [String]{
         var choiceValues = [String]()
         var allValues = choiceDict.allValues
         for each in allValues {
@@ -89,7 +90,7 @@ class DBManager {
             }
         }
         return choiceValues
-    }
+    } */
 
 func moveToTabBarView(){
     let appDeligate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -21,6 +21,7 @@ var pickerSelectedValues = NSMutableArray()
 var groupIdArray =  [Int]()
 var evaluationIdArray =  [Int]()
 var sectionNames = [String]()
+var sectionCountArray = [Int]()
 var pickerDict = NSMutableDictionary()
 
 //MARK:- Segues Names
