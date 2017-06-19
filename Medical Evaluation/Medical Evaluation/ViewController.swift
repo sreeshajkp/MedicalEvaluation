@@ -167,6 +167,7 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
             emptyFields = String(format:emptyFields,vUsername)
             isSuccess = false
             matricField.shake()
+            passwordField.selected = false
             matricField.selected = true
         }
         else if passwordField.text == meNilString{
@@ -174,6 +175,7 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
             print(emptyFields)
             isSuccess = false
              passwordField.shake()
+             matricField.selected = false
              passwordField.selected = true
         }
         else{
