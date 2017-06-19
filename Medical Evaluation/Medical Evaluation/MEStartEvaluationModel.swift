@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+var responseValue : Int?
 class MEStartEvaluationModel{
    var evaluator : MEEvaluator?
     var evalutee : MEEvaluatee?
@@ -24,6 +24,7 @@ class MEStartEvaluationModel{
             self.evaluator = MEEvaluator(values: evaluObj)
         }
         self.responseId = values["ResponseId"] as? Int
+        responseValue =   self.responseId
         self.startDate = values["StartDate"] as? String
         self.startTime = values["StartTime"] as? String
         if let groupValues = values["Group"] as? NSDictionary{
