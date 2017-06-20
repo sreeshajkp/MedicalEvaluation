@@ -129,7 +129,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     //MARK:- removeResponseChoiceFromGlobalArray
     func removeResponseChoiceFromGlobalArray(){
-        var pickerCount = pickerResponseSetValues.count
+        let pickerCount = pickerResponseSetValues.count
         var newCount = 0
         print(questionList.count)
         if pickerResponseSetValues.count != 0 {
@@ -145,8 +145,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                pickerSelectedValues = []
             }
             print(pickerSelectedValues)
-            var countVal = pickerResponseSetValues.count - pickerSelectedValues.count
-            var arrays = NSMutableArray()
+            let countVal = pickerResponseSetValues.count - pickerSelectedValues.count
+            let arrays = NSMutableArray()
             for i in 0 ..< countVal{
                 arrays.addObject(pickerResponseSetValues[i])
             }
@@ -170,7 +170,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func setHeaderText(){
         if sectionNames.count != 0{
             if mySectionCount > 0{
-                var names = [String]()
+                _ = [String]()
                 headerTextLabel.text = sectionNames[mySectionCount - 1]
                 sectionCount = sectionCountArray[mySectionCount - 1]
             }

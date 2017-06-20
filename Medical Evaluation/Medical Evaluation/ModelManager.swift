@@ -48,8 +48,7 @@ class ModelClassManager{
                 case .MEEvaluations : object = MEEvaluations(values: eachData)
                 case .MEMemberListModel : object = MEMemberListModel(values: eachData)
                 case .MEchoiceModel : object = MEResponseChoiceModel(values: eachData)
-               default:
-                    break
+              
                 }
                 results.append(object!)
                 print(results)

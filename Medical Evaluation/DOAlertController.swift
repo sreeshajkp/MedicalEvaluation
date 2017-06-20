@@ -428,7 +428,7 @@ class DOAlertController : UIViewController, UITextFieldDelegate, UIViewControlle
         super.viewDidAppear(animated)
         
         if (!isAlert() && cancelButtonTag != 0) {
-            var tapGesture = UITapGestureRecognizer(target: self, action: #selector(DOAlertController.handleContainerViewTapGesture(_:)))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DOAlertController.handleContainerViewTapGesture(_:)))
             containerView.addGestureRecognizer(tapGesture)
         }
     }
@@ -640,7 +640,7 @@ class DOAlertController : UIViewController, UITextFieldDelegate, UIViewControlle
     }
     
     // UIColor -> UIImage
-    func createImageFromUIColor(var color: UIColor) -> UIImage {
+    func createImageFromUIColor( var color: UIColor) -> UIImage {
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContext(rect.size)
         let contextRef: CGContextRef = UIGraphicsGetCurrentContext()!
