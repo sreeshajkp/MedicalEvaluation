@@ -53,8 +53,19 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             nextButtonAction()
         }
         else{
-            getApiCall(MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod, sectionId: 0)
+            
+            self.showAlertController(MEAppName, message: "Are you sure want to submit?", cancelButton: MEAlertNo, otherButtons: [MEAlertYes], handler: { (index) in
+                if index == 1{
+                    self.submitAction()
+                }
+            })
+            
         }
+    }
+    
+    func submitAction(){
+        getApiCall(MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod, sectionId: 0)
+
     }
     
     @IBAction func backButtonAction(sender: UIButton) {
