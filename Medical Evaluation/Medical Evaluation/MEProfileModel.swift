@@ -97,6 +97,7 @@ class MEGroup{
     var evaluation : MEEvaluations?
     init(values: NSDictionary){
         self.groupId = values["GroupId"] as? Int
+        groupIdVal = (values["GroupId"] as? Int)!
         self.name = values["Name"] as? String
         self.wardName = values["WardName"] as? String
         self.lastUpdatedDate = values["LastUpdatedDate"] as? String

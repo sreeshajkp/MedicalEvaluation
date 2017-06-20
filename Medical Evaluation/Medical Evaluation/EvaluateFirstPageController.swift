@@ -82,7 +82,7 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
                         if groupIdArray.count != 0 && evaluationIdArray.count != 0{
                             if studentPicker.pickerTextField.text != ""{
                             evaluationId =   (memberList?[0].group?.evaluation?.eEvaluationId)!
-                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,(memberList?[0].group?.groupId)!,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
+                        url = String(format: MEApiUrls().MEGetStartList.getStartList, accessToken,groupIdVal,(memberList?[0].group?.evaluation?.eEvaluationId)!,getCorrespondingValueUsingKeyFromDict(studentPicker.pickerTextField.text!)) //key
                             }
                         }
 
