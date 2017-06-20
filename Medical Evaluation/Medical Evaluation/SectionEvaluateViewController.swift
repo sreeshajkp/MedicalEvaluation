@@ -49,7 +49,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     @IBAction func nextButtonAction(sender: UIButton) {
         isFirst = false
         fromback = false
-        if nextButton.titleLabel?.text != submit{
+        print(nextButton.titleLabel?.text)
+        print(submit)
+        if nextButton.titleLabel?.text != "SUBMIT"{
             nextButtonAction()
         }
         else{
