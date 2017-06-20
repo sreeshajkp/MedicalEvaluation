@@ -126,11 +126,11 @@ class ListController: UIViewController ,MEDelegate{
     
     //MARK:- Checking my userid with each menbers id
     func checkTheUserIdForAccessoryView(cell : ListTableViewCell,userId : String,isEvaluated : Bool,roleName: String){
-        if let myIdValue = DBManager.sharedManager.fetchValueForKey(myId){
-            if userId == myIdValue as! String{
-                cell.tickImageView.image = UIImage(named: "User")
-        }
-            else{
+      //  if let myIdValue = DBManager.sharedManager.fetchValueForKey(myId){
+         //   if userId == myIdValue as! String{
+         //       cell.tickImageView.image = UIImage(named: "User")
+      //  }
+         //   else{
                 if roleName == eLecturer{
                      cell.tickImageView.image = UIImage(named: "User")
                 }
@@ -142,8 +142,8 @@ class ListController: UIViewController ,MEDelegate{
                      cell.tickImageView.image = UIImage(named: "Cross")
                 }
                 }
-            }
-    }
+          //  }
+ //   }
     }
     
     //MARK:- MEDelegate Methods
