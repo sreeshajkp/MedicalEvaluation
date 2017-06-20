@@ -12,7 +12,7 @@ import Foundation
 class DBManager {
     
     let userDefaults  = NSUserDefaults.standardUserDefaults()
-    
+
     class var sharedManager: DBManager {
         struct Static {
             static var instance: DBManager?

@@ -49,8 +49,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     @IBAction func nextButtonAction(sender: UIButton) {
         isFirst = false
         fromback = false
-        print(nextButton.titleLabel?.text)
-        print(submit)
         if nextButton.titleLabel?.text != submit{
             nextButtonAction()
         }
@@ -196,7 +194,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableViewHeightConstraint.constant = tableView.contentSize.height
+        tableViewHeightConstraint.constant = tableView.contentSize.height + 20
        let cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
         if isFirst {
         cell.typingTextField.text = ""
@@ -207,7 +205,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if let question = questionList[indexPath.row] as? MEQuestionModel{
             cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
             if fromback {
-                cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as! String
+                cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as? String
             }
             else{
                 if choiceDict.count != 0{
