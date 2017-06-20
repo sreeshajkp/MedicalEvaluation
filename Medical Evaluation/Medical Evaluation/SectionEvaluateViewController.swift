@@ -66,6 +66,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     func submitAction(){
+        setQuestionsForSubmit(questionList)
         getApiCall(MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod, sectionId: 0)
 
     }
