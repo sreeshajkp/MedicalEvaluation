@@ -292,8 +292,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
 //MARK:- Delegate functions
     func networkAPIResultFetched(result: AnyObject, message: String, methodName: String) {
         if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
-         
-            questionList = (ModelClassManager.sharedManager.createModelArray(result as! NSArray, modelType: ModelType.MEQuestionModel) as? [MEQuestionModel])!
+         let reversedArray = (result as! NSArray).reverse()
+            questionList = (ModelClassManager.sharedManager.createModelArray(reversedArray, modelType: ModelType.MEQuestionModel) as? [MEQuestionModel])!
             print(questionList.count)
            dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()
