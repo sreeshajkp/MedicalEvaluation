@@ -166,8 +166,6 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
             isSuccess = false
             matricField.shake()
             matricField.becomeFirstResponder()
-            //passwordField.selected = false
-            //matricField.selected = true
         }
         else if passwordField.text == meNilString{
             emptyFields = String(format:emptyFields,vPassword)
@@ -175,9 +173,6 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
             isSuccess = false
              passwordField.shake()
             passwordField.becomeFirstResponder()
-
-            // matricField.selected = false
-           //  passwordField.selected = true
         }
         else{
               isSuccess = true
