@@ -48,6 +48,9 @@ let kEnterEmailOrUsername = "Please enter the Username"
 let logOutMsg = "Logout successfully!"
 let evaluationSuccessMsg = "Evaluation submited successfully"
 let submitMsg = "Are you sure want to submit?"
+let logOutPermission = "Do you want to logout?"
+let noStudentsEvaluateMsg = "There is no student to evaluate"
+let noStudentsPlaceHolder = "No students"
 
 //MARK:- JSON Keys
 let jUserId = "UserId"
@@ -108,3 +111,8 @@ let meGroup = "Group"
 let meGroupId = "GroupId"
 let meEvaluation = "Evaluation"
 let meEvaluationId = "EvaluationId"
+
+//MARK:- Image Constsnts
+let meGreenTick = "GreenTick"
+let meCrossImage = "Cross"
+let userImage = "User"

@@ -131,7 +131,7 @@ class ProfileController: UIViewController ,MEDelegate{
             if accessToken != meNilString {
                 let url = String(format: MEApiUrls().MELogout.logOutUrl, accessToken)
                 
-                self.showAlertController(MEAppName, message: "Do you want to logout?", cancelButton: MEAlertNo, otherButtons: [MEAlertYes], handler: { (index) in
+                self.showAlertController(MEAppName, message: logOutPermission, cancelButton: MEAlertNo, otherButtons: [MEAlertYes], handler: { (index) in
                     
                     if index == 1{
                         self.signOutCall(url)

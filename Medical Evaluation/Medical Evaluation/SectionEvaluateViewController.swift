@@ -337,8 +337,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         
         else if methodName == MEmethodNames().meMethodNames.MEGetChoiceIDMethod{
             if  let resultArry = result as? NSArray{
-                let choices = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
-            // self.choiceIdDict = DBManager.sharedManager.setChoiceIds(choices!)
+                _ = ModelClassManager.sharedManager.createModelArray(resultArry, modelType: ModelType.MEchoiceModel) as? [MEResponseChoiceModel]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.questionNum = 0
                 self.questionTable.reloadData()
@@ -370,7 +369,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             let index = cellArray.indexOf(each)
             let eachValue = model[index!]
             let responseDict = NSMutableDictionary()
-            //guard let _ = startList else {return }
             if let responseVal = responseValue{
             responseDict.setObject([meResponseId : responseVal], forKey: meResponse) //last minute change
             }

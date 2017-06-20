@@ -142,7 +142,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetStartMethod)
         }
         }else{
-            self.showAlertController(MEAppName, message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
+            self.showAlertController(MEAppName, message: noStudentsEvaluateMsg, cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
         
         
@@ -183,7 +183,7 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
         }
         else{
             overlayView.hidden = false
-            studentPicker.pickerTextField.placeholder = "No students"
+            studentPicker.pickerTextField.placeholder = noStudentsPlaceHolder
         }
     }
     

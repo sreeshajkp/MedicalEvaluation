@@ -132,14 +132,14 @@ class ListController: UIViewController ,MEDelegate{
       //  }
          //   else{
                 if roleName == eLecturer{
-                     cell.tickImageView.image = UIImage(named: "User")
+                     cell.tickImageView.image = UIImage(named: userImage)
                 }
                 else{
                 if isEvaluated{
-                    cell.tickImageView.image = UIImage(named: "GreenTick")
+                    cell.tickImageView.image = UIImage(named: meGreenTick)
                 }
                 else{
-                     cell.tickImageView.image = UIImage(named: "Cross")
+                     cell.tickImageView.image = UIImage(named: meCrossImage)
                 }
                 }
           //  }
