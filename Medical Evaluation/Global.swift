@@ -97,6 +97,15 @@ func removeAllValuesFromUserDefaults(){
     DBManager.sharedManager.removeValueForKey(MEAccessToken)
     DBManager.sharedManager.removeValueForKey(myId)
     DBManager.sharedManager.removeValueForKey(meUserDetails)
+    choiceDict = [:]
+    questionResponseArray = []
+    pickerResponseSetValues = []
+     pickerSelectedValues = []
+     groupIdArray =  []
+     evaluationIdArray =  []
+     sectionNames = []
+     sectionCountArray = []
+    pickerDict = [:]
 }
 func getUserNameFromProfile() -> String{
     var user = meNilString
