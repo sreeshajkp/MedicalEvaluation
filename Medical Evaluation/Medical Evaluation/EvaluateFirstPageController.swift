@@ -132,15 +132,16 @@ func networkAPIResultFetchedWithError(error: AnyObject, methodName: String) {
     
     //MARK:- Button Actions
     @IBAction func startEvaluationButtonAction(sender: UIButton) {
+      
         if pickerDict.count > 0{
         if countSection != 0{
        isFirst = true
        fromback = false
         mySectionCount = 1
+        choiceDict = [:]
        callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetStartMethod)
         }
         }else{
-            
             self.showAlertController(MEAppName, message: "There is no student to evaluate", cancelButton: MEAlertOK, otherButtons: [], handler: nil)
         }
         

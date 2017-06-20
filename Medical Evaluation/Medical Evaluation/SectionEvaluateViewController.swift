@@ -51,12 +51,12 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         fromback = false
         print(nextButton.titleLabel?.text)
         print(submit)
-        if nextButton.titleLabel?.text != "SUBMIT"{
+        if nextButton.titleLabel?.text != submit{
             nextButtonAction()
         }
         else{
             
-            self.showAlertController(MEAppName, message: "Are you sure want to submit?", cancelButton: MEAlertNo, otherButtons: [MEAlertYes], handler: { (index) in
+            self.showAlertController(MEAppName, message: submitMsg, cancelButton: MEAlertNo, otherButtons: [MEAlertYes], handler: { (index) in
                 if index == 1{
                     self.submitAction()
                 }

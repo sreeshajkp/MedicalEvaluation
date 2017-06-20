@@ -22,12 +22,13 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
     override func awakeFromNib() {
         super.awakeFromNib()
         typingTextField.delegate = self
-       
     }
+    
     
     func loadPickerArrayValues(){
         
         if choiceIds.count > 0{
+            print(choiceIds)
             yesOrNoPicker.loadDropdownData(choiceIds, selectedValue: choiceIds[0], isReuired: true, selectionType: meNilString) {_,_ in
             }
         }

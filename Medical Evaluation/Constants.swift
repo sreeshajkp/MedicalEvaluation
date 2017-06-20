@@ -47,7 +47,7 @@ let serverErrorMsg = "Server Error.Try again later!"
 let kEnterEmailOrUsername = "Please enter the Username"
 let logOutMsg = "Logout successfully!"
 let evaluationSuccessMsg = "Evaluation submited successfully"
-
+let submitMsg = "Are you sure want to submit?"
 
 //MARK:- JSON Keys
 let jUserId = "UserId"
