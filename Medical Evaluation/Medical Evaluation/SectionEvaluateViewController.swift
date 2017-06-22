@@ -194,7 +194,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableViewHeightConstraint.constant = tableView.contentSize.height + 20
+        tableViewHeightConstraint.constant = tableView.contentSize.height + 30
        let cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
         if isFirst {
         cell.typingTextField.text = ""

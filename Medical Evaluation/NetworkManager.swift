@@ -60,6 +60,7 @@ class NetworkManager {
           _ = meNilString
             var jsonResult : AnyObject?
 
+            
             if error == nil{
                 do {
                     print(NSString(data: data!, encoding: NSUTF8StringEncoding))

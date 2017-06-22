@@ -11,7 +11,7 @@ import Foundation
 let MEBASE_URLS = "http://medeval.azurewebsites.net/"
 
 //MARK:- App Name
-let MEAppName = "Medical Evaluation"
+let MEAppName = "PUTRA MFS"
 
 //MARK:- Alert Buttons
 let MEAlertCancel = "Cancel"
