@@ -28,7 +28,6 @@ class MEResponseChoiceModel {
     
     func getResponseChoiceIdAndTextFromModel(){
         choiceDict.setObject(self.responseChoiceId!, forKey: self.text!)
-        print(choiceDict)
     }
 }
 
@@ -65,7 +64,6 @@ class MESection{
                 self.questionList.append(memberList)
             }
         }
-        print(questionList)
         return questionList
     }
 }

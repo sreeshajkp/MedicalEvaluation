@@ -40,7 +40,6 @@ init(values : NSDictionary){
                     self.memberList.append(memberList)
             }
         }
-        print(memberList)
         return memberList
     }
 }

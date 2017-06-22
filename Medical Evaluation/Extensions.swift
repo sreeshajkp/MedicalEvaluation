@@ -96,11 +96,7 @@ extension UIViewController{
         let backgroundLayer = colors.gl
         backgroundLayer.frame = activityView.frame
         activityView.layer.insertSublayer(backgroundLayer, atIndex: 0)
-        
-        
-        
-        print("activity indiactor frame \(NSStringFromCGRect(activityView.frame))")
-
+                
         let activityIndicator = HZActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
         activityIndicator.steps = 8;
         activityIndicator.backgroundColor = UIColor.clearColor()

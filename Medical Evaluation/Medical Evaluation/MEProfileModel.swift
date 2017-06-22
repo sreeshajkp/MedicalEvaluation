@@ -67,11 +67,9 @@ class MEEvaluations{
         for each in memberArray{
             if  let name = each["Name"] {
                 sectionNames.append(name as! String)
-                print(sectionNames)
             }
             if  let name = each["SectionId"] {
                 sectionCountArray.append(name as! Int)
-                print(sectionCountArray)
             }
         }
         if memberArray.count != 0{
@@ -82,7 +80,6 @@ class MEEvaluations{
                 self.eSectionList.append(memberList)
             }
         }
-        print(eSectionList)
         return eSectionList
     }
 }

@@ -169,7 +169,6 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
         }
         else if passwordField.text == meNilString{
             emptyFields = String(format:emptyFields,vPassword)
-            print(emptyFields)
             isSuccess = false
              passwordField.shake()
             passwordField.becomeFirstResponder()

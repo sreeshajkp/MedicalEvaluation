@@ -35,7 +35,6 @@ class NetworkManager {
             self.delegate?.networkAPIResultFetchedWithError!(noNetworkMsg, methodName: methodName)
             return
         }
-        print(delegate)
         let url = MEBASE_URLS.stringByAppendingString(appendUrl)
         print("final url is :",url)
         let completeUrlPath = NSURL(string: url)
@@ -48,7 +47,6 @@ class NetworkManager {
                 registerRequest.HTTPBody = jsonData
             }
             catch  let error as NSError{
-                print(error.localizedDescription)
                 self.delegate?.networkAPIResultFetchedWithError!(serverErrorMsg, methodName: methodName)
             }
         }
@@ -63,20 +61,17 @@ class NetworkManager {
             
             if error == nil{
                 do {
-                    print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                    //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
                     jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: [.MutableContainers,.AllowFragments,.MutableLeaves])
                     
                     if jsonResult is NSDictionary || jsonResult is NSArray {
                         if let httpResponse = response as? NSHTTPURLResponse{
                             if httpResponse.statusCode == 200{
-                                print(self.delegate)
                                 if jsonResult != nil{
                                 self.delegate?.networkAPIResultFetched!(jsonResult!, message: jSuccess, methodName: methodName)
                                 }
                             }
                             else   {
-                                
-                                print(self.delegate)
                                 self.delegate?.networkAPIResultFetchedWithError!(serverErrorMsg, methodName: methodName)
                             }
                         }
@@ -87,7 +82,6 @@ class NetworkManager {
                 }
                 catch  let error as NSError{
                     // TODO: handle
-                    print(error.localizedDescription)
                     self.delegate?.networkAPIResultFetchedWithError!(serverErrorMsg, methodName: methodName)
 
                 }

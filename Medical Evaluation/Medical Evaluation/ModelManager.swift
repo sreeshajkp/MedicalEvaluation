@@ -51,7 +51,6 @@ class ModelClassManager{
               
                 }
                 results.append(object!)
-                print(results)
             }
         }
         return results
