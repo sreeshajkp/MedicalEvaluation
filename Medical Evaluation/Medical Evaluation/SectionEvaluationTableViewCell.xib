@@ -70,18 +70,26 @@
                             <constraint firstAttribute="height" constant="1" id="1Pb-fa-36r"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N44-nn-JQP" customClass="Picker" customModule="Medical_Evaluation" customModuleProvider="target">
+                        <rect key="frame" x="8" y="25" width="421" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="N44-nn-JQP" firstAttribute="leading" secondItem="O7b-xV-5do" secondAttribute="leading" id="0lU-kT-elE"/>
                     <constraint firstItem="c4F-FG-gzY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4l6-cf-OGi"/>
                     <constraint firstAttribute="bottom" secondItem="AGL-ac-c5f" secondAttribute="bottom" id="8Xc-WI-71h"/>
                     <constraint firstItem="OPL-CF-kVT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="9MW-aF-f6I"/>
+                    <constraint firstItem="N44-nn-JQP" firstAttribute="trailing" secondItem="O7b-xV-5do" secondAttribute="trailing" id="9Xn-O7-Mtl"/>
                     <constraint firstItem="AGL-ac-c5f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Bbx-uW-JNO"/>
                     <constraint firstItem="TLO-tq-ZeJ" firstAttribute="top" secondItem="OPL-CF-kVT" secondAttribute="bottom" constant="10" id="CG4-JJ-iS6"/>
                     <constraint firstItem="OPL-CF-kVT" firstAttribute="top" secondItem="O7b-xV-5do" secondAttribute="bottom" constant="10" id="FVY-j1-FIR"/>
+                    <constraint firstItem="N44-nn-JQP" firstAttribute="top" secondItem="O7b-xV-5do" secondAttribute="top" id="G4g-Sd-nEy"/>
                     <constraint firstItem="OPL-CF-kVT" firstAttribute="leading" secondItem="O7b-xV-5do" secondAttribute="leading" id="MuG-f0-TWJ"/>
                     <constraint firstItem="k35-tW-Lsa" firstAttribute="leading" secondItem="O7b-xV-5do" secondAttribute="leading" id="P7L-dY-mQi"/>
                     <constraint firstItem="k35-tW-Lsa" firstAttribute="top" secondItem="O7b-xV-5do" secondAttribute="bottom" id="S8E-T8-l4f"/>
                     <constraint firstAttribute="trailing" secondItem="AGL-ac-c5f" secondAttribute="trailing" id="SMF-oL-Ett"/>
+                    <constraint firstItem="N44-nn-JQP" firstAttribute="bottom" secondItem="O7b-xV-5do" secondAttribute="bottom" id="UJB-gh-icf"/>
                     <constraint firstItem="TLO-tq-ZeJ" firstAttribute="trailing" secondItem="OPL-CF-kVT" secondAttribute="trailing" id="bd3-O7-ur5"/>
                     <constraint firstAttribute="trailing" secondItem="c4F-FG-gzY" secondAttribute="trailing" constant="8" id="dNp-Z7-Gcr"/>
                     <constraint firstItem="c4F-FG-gzY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="drV-eT-xxb"/>
@@ -97,7 +105,7 @@
                 <outlet property="colourView" destination="TLO-tq-ZeJ" id="HhM-dC-MhV"/>
                 <outlet property="questionLabel" destination="c4F-FG-gzY" id="ZlA-hf-Cir"/>
                 <outlet property="typingTextField" destination="OPL-CF-kVT" id="GJL-YP-vTq"/>
-                <outlet property="yesOrNoPicker" destination="O7b-xV-5do" id="GoQ-pW-7sT"/>
+                <outlet property="yesOrNoPicker" destination="N44-nn-JQP" id="MgY-ZK-lrY"/>
             </connections>
             <point key="canvasLocation" x="353.5" y="131.5"/>
         </tableViewCell>

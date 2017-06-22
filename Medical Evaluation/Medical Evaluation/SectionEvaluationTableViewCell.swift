@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
+class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate,PickerDelegate{
     
     @IBOutlet weak var colourView: UIView!
         @IBOutlet weak var typingTextField: UITextField!
-        @IBOutlet weak var yesOrNoPicker: UITextField!
+        @IBOutlet weak var yesOrNoPicker: Picker!
         @IBOutlet weak var questionLabel: UILabel!
     var choiceIds : [String] = [""]{
         didSet{
@@ -21,6 +21,8 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        yesOrNoPicker.delegate = self
+        yesOrNoPicker.pickerType = .Picker
         typingTextField.delegate = self
     }
     
@@ -28,9 +30,9 @@ class SectionEvaluationTableViewCell: UITableViewCell ,UITextFieldDelegate{
     func loadPickerArrayValues(){
         
         if choiceIds.count > 0{
-            yesOrNoPicker.loadDropdownData(choiceIds, selectedValue: choiceIds[0], isReuired: true, selectionType: meNilString) {_,_ in
+            yesOrNoPicker.pickerTextField.text = choiceIds[0]
+            yesOrNoPicker.pickerInputItems(choiceIds)
             }
-        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
