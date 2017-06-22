@@ -99,14 +99,12 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let profileDetails = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEEvaluations) as? [MEEvaluations]
                 _ = profileDetails![0]
-                print(sectionNames)
                 self.stopLoadingAnimation()
             })
         }
         else if methodName ==  MEmethodNames().meMethodNames.MEGetMemberListMethod{
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
           self.memberList = ModelClassManager.sharedManager.createModelArray([result], modelType: ModelType.MEMemberListModel) as? [MEMemberListModel]
-              // print(self.memberList![0])
                 self.setPicker()
                 self.stopLoadingAnimation()
             })

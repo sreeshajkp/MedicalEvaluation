@@ -104,7 +104,6 @@ class ProfileController: UIViewController ,MEDelegate{
         if let _ = profile.contactNumber{
             titles.append(profile.contactNumber!)
         }
-        print(titles)
     }
     
     // MARK: - Table view data source
@@ -116,7 +115,6 @@ class ProfileController: UIViewController ,MEDelegate{
         
         let cell = tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meDetailTableViewCell) as! DetailTableViewCell
         if titles.count > 0{
-            print(titles)
             if titles.count > indexPath.row{
             cell.titleLabel.text = titles[indexPath.row]
             cell.icon.image = UIImage(named:images[indexPath.row])

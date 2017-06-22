@@ -128,7 +128,7 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
                 if let userId = datObj[jUserId] as? String{
                     DBManager.sharedManager.insertValue(userId, forKey: myId)
                 }
-               let details   = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
+               _   = ModelClassManager.sharedManager.createModelArray([datObj], modelType: ModelType.MELoginModel) as? [MELoginModel]
                 self.performSegueWithIdentifier(MEseguesNames().seguesToLogin.loginSegue, sender: self)
             })
         }
@@ -169,7 +169,6 @@ class ViewController: UIViewController ,MEDelegate,UITextFieldDelegate{
         }
         else if passwordField.text == meNilString{
             emptyFields = String(format:emptyFields,vPassword)
-            print(emptyFields)
             isSuccess = false
              passwordField.shake()
             passwordField.becomeFirstResponder()

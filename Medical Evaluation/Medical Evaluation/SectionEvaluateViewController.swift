@@ -49,8 +49,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     @IBAction func nextButtonAction(sender: UIButton) {
         isFirst = false
         fromback = false
-        print(nextButton.titleLabel?.text)
-        print(submit)
         if nextButton.titleLabel?.text != submit{
             nextButtonAction()
         }
@@ -73,7 +71,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     @IBAction func backButtonAction(sender: UIButton) {
         isFirst = false
-        print(mySectionCount)
         if mySectionCount > 0 && mySectionCount != 1{
             fromback = true
             setMySectionCountAndRefreshingTheQuestionList()
@@ -111,8 +108,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     //MARK:- RemoveResponseFromGlobalArray
     func removeResponseFromGlobalArray(){
         let newArray = NSMutableArray()
-        print(questionResponseArray.count)
-        print(questionList.count)
         if questionResponseArray.count != 0 {
              var newCount = 0
             if questionList.count != 0{
@@ -125,15 +120,13 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 newArray.addObject(questionResponseArray[i])
             }
             questionResponseArray = newArray
-            print(questionResponseArray.count)
         }
     }
     
     //MARK:- removeResponseChoiceFromGlobalArray
     func removeResponseChoiceFromGlobalArray(){
-        var pickerCount = pickerResponseSetValues.count
+        let pickerCount = pickerResponseSetValues.count
         var newCount = 0
-        print(questionList.count)
         if pickerResponseSetValues.count != 0 {
             if questionList.count != 0{
                 newCount = pickerResponseSetValues.count - questionList.count
@@ -146,14 +139,12 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             else{
                pickerSelectedValues = []
             }
-            print(pickerSelectedValues)
-            var countVal = pickerResponseSetValues.count - pickerSelectedValues.count
-            var arrays = NSMutableArray()
+            let countVal = pickerResponseSetValues.count - pickerSelectedValues.count
+            let arrays = NSMutableArray()
             for i in 0 ..< countVal{
                 arrays.addObject(pickerResponseSetValues[i])
             }
             pickerResponseSetValues = arrays
-            print(pickerResponseSetValues)
         }
     }
     
@@ -172,7 +163,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     func setHeaderText(){
         if sectionNames.count != 0{
             if mySectionCount > 0{
-                var names = [String]()
+                _ = [String]()
                 headerTextLabel.text = sectionNames[mySectionCount - 1]
                 sectionCount = sectionCountArray[mySectionCount - 1]
             }
@@ -181,7 +172,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
     //MARK :- Setup the button text
     func setButtonTitlesForPageReload(){
-        print(countSection)
         if countSection == mySectionCount{
             nextButton.setTitle(submit, forState: .Normal)
         }
@@ -196,7 +186,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableViewHeightConstraint.constant = tableView.contentSize.height
+        tableViewHeightConstraint.constant = tableView.contentSize.height + 30
        let cell = (tableView.dequeueReusableCellWithIdentifier(METableViewCells().meTableViewCells.meSectionEvaluationTableViewCell, forIndexPath: indexPath) as? SectionEvaluationTableViewCell)!
         if isFirst {
         cell.typingTextField.text = ""
@@ -207,7 +197,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if let question = questionList[indexPath.row] as? MEQuestionModel{
             cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
             if fromback {
-                cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as! String
+                cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as? String
             }
             else{
                 if choiceDict.count != 0{
@@ -234,8 +224,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             
             if methodName == MEmethodNames().meMethodNames.MEGetQuestionSubmitMethod{
              url = String(format: MEApiUrls().MESubmitQuestionList.getQuestionSubmit, accessToken)
-                print(questionResponseArray)
-                 print(questionResponseArray.count)
                 NetworkManager.sharedManager.apiCallHandler(questionResponseArray, methodName:  methodName, appendUrl: url)
             }
                 
@@ -294,7 +282,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if methodName == MEmethodNames().meMethodNames.MEGetQuestionListMethod{
          let reversedArray = (result as! NSArray).reverse()
             questionList = (ModelClassManager.sharedManager.createModelArray(reversedArray, modelType: ModelType.MEQuestionModel) as? [MEQuestionModel])!
-            print(questionList.count)
            dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.stopLoadingAnimation()
                 self.getApiCall(MEmethodNames().meMethodNames.MEGetChoiceIDMethod, sectionId: self.sectionCount!)
@@ -364,7 +351,6 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     
        //MARK:- setQuestionsResponseForSubmit
     func setQuestionsForSubmit(model : [MEQuestionModel]){
-        print(cellArray.count)
         for each in cellArray{
             let index = cellArray.indexOf(each)
             let eachValue = model[index!]
@@ -384,11 +370,8 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
                 responseDict.setObject(meNilString, forKey: meComment)
             }
             questionResponseArray.addObject(responseDict)
-            print(questionResponseArray)
-            print(pickerResponseSetValues)
         }
            let user = ModelClassManager.sharedManager.createModelArray(questionResponseArray, modelType: ModelType.MESubmitResponseModel) as? [MESubmitResponseModel]
-            print(user?.count)
     }
     
     func getChoiceId(text: String) -> Int{

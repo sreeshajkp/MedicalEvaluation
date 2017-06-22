@@ -35,7 +35,6 @@ class MEMemberListModel{
                             let nameUser = each["UserName"] as? String
                             pickerDict.setObject(nameUser!, forKey: "null")
                 }
-                print(pickerDict)
             }
         }
         if memberArray.count != 0{
@@ -44,7 +43,6 @@ class MEMemberListModel{
                 self.member.append(memberList)
             }
         }
-        print(member)
         return member
     }
 }

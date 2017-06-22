@@ -111,11 +111,9 @@ func removeAllValuesFromUserDefaults(){
 func getUserNameFromProfile() -> String{
     var user = meNilString
     if let details = DBManager.sharedManager.fetchValueForKey(myUserDetails){
-        print(details)
         if let userName = details["UserName"] as? String{
           user = userName
         }
     }
-    print(user)
     return user
 }
