@@ -8,7 +8,7 @@
 
 import UIKit
 import JLToast
-
+var isBorder = false
 var isCompletelySubmited = false
 var evaluationId = Int()
 class EvaluateFirstPageController: UIViewController ,MEDelegate{
@@ -24,9 +24,13 @@ class EvaluateFirstPageController: UIViewController ,MEDelegate{
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
+        isBorder = true
         startActions()
 
          }
+    override func viewWillDisappear(animated: Bool) {
+        isBorder = false
+    }
     
     func startActions(){
         callApiForEvaluatePage(MEmethodNames().meMethodNames.MEGetMyEvaluationMethod) // call evaluation api details for getting the sectionlist count

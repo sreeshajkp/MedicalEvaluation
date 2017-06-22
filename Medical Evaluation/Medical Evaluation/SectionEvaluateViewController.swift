@@ -31,6 +31,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
     }
     
     override func viewWillAppear(animated: Bool) {
+        isBorder = false
         cellArray = []
         registerTheNib()
         setButtonTitlesForPageReload()
@@ -197,7 +198,7 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
         if let question = questionList[indexPath.row] as? MEQuestionModel{
             cell.questionLabel.text = "\(questionNum)" + ".  " + question.text!
             if fromback {
-                cell.yesOrNoPicker.text =  pickerSelectedValues[indexPath.row] as? String
+                cell.yesOrNoPicker.pickerTextField.text =  pickerSelectedValues[indexPath.row] as? String
             }
             else{
                 if choiceDict.count != 0{
@@ -359,9 +360,9 @@ class SectionEvaluateViewController: UIViewController ,UITableViewDelegate,UITab
             responseDict.setObject([meResponseId : responseVal], forKey: meResponse) //last minute change
             }
             responseDict.setObject([meQuestionId : eachValue.questionId!], forKey: meQuestion)
-            pickerResponseSetValues.addObject(each.yesOrNoPicker.text!)
-            if each.yesOrNoPicker.text != ""{
-                responseDict.setObject([meResponseChoiceId :   getChoiceId(each.yesOrNoPicker.text!)], forKey: meResponseChoice) //dont know the values to give
+            pickerResponseSetValues.addObject(each.yesOrNoPicker.pickerTextField.text!)
+            if each.yesOrNoPicker.pickerTextField.text != ""{
+                responseDict.setObject([meResponseChoiceId :   getChoiceId(each.yesOrNoPicker.pickerTextField.text!)], forKey: meResponseChoice) //dont know the values to give
             }
             if each.typingTextField.text  != meNilString{
             responseDict.setObject(each.typingTextField.text!, forKey: meComment)

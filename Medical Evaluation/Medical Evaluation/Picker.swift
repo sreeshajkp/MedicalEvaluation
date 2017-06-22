@@ -103,7 +103,14 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
         containerView.frame = bounds
         containerView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         addSubview(containerView)
+        if isBorder{
+        isBorder = false
         createBorderLine()
+        }
+        else{
+              pickerTextField.textAlignment = .Left
+        }
+        
     }
     func loadFromNib() ->UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
@@ -133,6 +140,7 @@ class Picker: UIView , UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDe
         }
     }
     func createBorderLine(){
+        pickerTextField.textAlignment = .Center
         let border = CALayer()
         border.borderColor = UIColor.lightGrayColor().CGColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width:  self.frame.size.width, height: 0.5)
